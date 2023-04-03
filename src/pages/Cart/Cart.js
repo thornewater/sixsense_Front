@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cart.scss';
 
 const Cart = () => {
   return <div>장바구니 페이지 입니다.</div>;
