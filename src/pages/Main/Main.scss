@@ -1,0 +1,46 @@
+.mainBody {
+  position: relative;
+  .bannerBody {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    .mainBanner {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .alignBox {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    justify-content: space-between;
+    width: 100%;
+
+    .arrowIcon {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      opacity: 0.3;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .mainContents {
+    margin-top: 40px;
+    .recommendTitle {
+      width: 80%;
+      margin: 0 auto;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .recommendList {
+      height: 400px;
+    }
+  }
+}
