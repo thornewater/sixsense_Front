@@ -1,0 +1,23 @@
+.nameBar {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(226, 215, 197, 255);
+
+  .sortBar {
+    margin-right: 20px;
+    color: rgba(192, 192, 192, 255);
+    font-weight: bold;
+
+    .sort {
+      margin-left: 40px;
+      font-weight: bold;
+      &:hover {
+        color: green;
+        cursor: pointer;
+      }
+    }
+  }
+}

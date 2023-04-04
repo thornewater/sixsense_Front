@@ -1,0 +1,12 @@
+.changeBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .nextPage {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px 0 10px;
+  }
+}
