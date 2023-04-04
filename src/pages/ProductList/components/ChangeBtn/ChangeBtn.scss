@@ -1,0 +1,18 @@
+.changeBtn {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .formPrevious,
+  .formNext {
+    width: 30px;
+    height: 30px;
+    color: blue;
+  }
+
+  .pageNumber {
+    font-size: 25px;
+  }
+}

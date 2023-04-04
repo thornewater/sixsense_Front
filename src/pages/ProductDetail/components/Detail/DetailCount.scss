@@ -1,0 +1,15 @@
+.detailCount {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  padding-top: 10px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  border: 1px solid black;
+
+  .count {
+    display: flex;
+    margin-left: 20px;
+  }
+}
