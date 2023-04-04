@@ -1,12 +1,14 @@
 import React from 'react';
+import { MdNavigateNext } from 'react-icons/md';
+import { MdNavigateBefore } from 'react-icons/md';
 import './ChangeBtn.scss';
 
 const ChangeBtn = () => {
   return (
     <div className="changeBtn">
-      <img className="nextPage" src="/images/heart.jpeg" />
-      <p>1</p>
-      <img className="nextPage" src="/images/heart.jpeg" />
+      <MdNavigateBefore className="before" />
+      <p className="pageNumber">1</p>
+      <MdNavigateNext className="after" />
     </div>
   );
 };

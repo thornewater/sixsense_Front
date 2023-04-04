@@ -3,10 +3,18 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
 
-  .nextPage {
+  .before,
+  .after {
     width: 30px;
     height: 30px;
-    margin: 0 10px 0 10px;
+
+    color: rgba(122, 122, 121, 255);
+  }
+
+  .pageNumber {
+    color: rgba(122, 122, 121, 55);
+    font-size: 25px;
   }
 }

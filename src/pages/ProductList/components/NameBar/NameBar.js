@@ -7,9 +7,9 @@ const NameBar = () => {
       <div>
         <span>All product</span>
       </div>
-      <div className="sortBar">
-        <p className="sort">high price</p>
-        <p className="sort">low price</p>
+      <div className="priceSort">
+        <p className="higher sort">high price</p>
+        <p className="lower sort">low price</p>
       </div>
     </div>
   );

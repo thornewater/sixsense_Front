@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductList.scss';
-// import SubLnb from './components/SubLnb/SubLnb';
+
 import NameBar from './components/NameBar/NameBar';
 import SortBar from './components/SortBar/SortBar';
 import GoodList from './components/GoodList/GoodList';
@@ -13,7 +13,6 @@ const ProductList = () => {
         <h1 className="catBannerTitle">Incense</h1>
       </div>
       <div className="inner">
-        {/* <SubLnb /> */}
         <div className="container">
           <NameBar />
           <SortBar />
