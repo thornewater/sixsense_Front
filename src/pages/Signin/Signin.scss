@@ -1,0 +1,97 @@
+@import '../../styles/variables';
+
+body {
+  .header {
+    margin: 10px;
+    .inner {
+      @include flexCenter;
+      padding: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      .pageTitle {
+        position: fixed;
+        font-size: 20px;
+      }
+      .btnPageClose {
+        margin-left: 410px;
+        border: none;
+        background-color: white;
+        font-size: 25px;
+        cursor: pointer;
+      }
+    }
+  }
+  .containar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    .loginSection {
+      .loginGuide {
+        margin: 80px 0;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    .loginInput {
+      width: 440px;
+      height: 50px;
+      margin-bottom: 15px;
+      padding: 0 12px;
+      border: 1px solid #e6e6e6;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    .delBtn {
+      border: none;
+    }
+    .passwordInput {
+      width: 440px;
+      height: 50px;
+      padding: 0 12px;
+      border: 1px solid #e6e6e6;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    .loginCheck {
+      margin: 30px 10px 30px 0;
+      cursor: pointer;
+    }
+    .loginBtn {
+      width: 440px;
+      height: 60px;
+      border: 1px solid #f0f0f0;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      color: #c6c6c6;
+      cursor: pointer;
+    }
+    .bottomMenu {
+      @include flexCenter;
+      margin: 30px 0;
+      padding: 30px 0;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      .idSearch {
+        padding-right: 10px;
+        border-right: 1px solid #898989;
+        color: #898989;
+        text-decoration: none;
+      }
+      .pwSearch {
+        margin-left: 10px;
+        color: #898989;
+        text-decoration: none;
+      }
+    }
+    .joinMembership {
+      width: 440px;
+      height: 45px;
+      padding: 0 20px;
+      border: 1px solid #d3d3d3;
+      border-radius: 5px;
+      background-color: white;
+      cursor: pointer;
+    }
+  }
+}
