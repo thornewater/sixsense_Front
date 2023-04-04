@@ -3,31 +3,38 @@ import './Footer.scss';
 
 const Footer = () => {
   return (
-    <div className="footerWrapper">
-      <div className="footerDiv">
-        <div className="logoImg" />
+    <div className="footer">
+      <div className="footerContents">
+        <div className="logoImg">
+          <img
+            clsssName="logo"
+            src="/images/osulloc_logo.png"
+            alt="오설록 로고"
+          />
+        </div>
         <div className="webInfo">
-          <ul className="cont1">
-            {INFO_LIST.map(a => {
+          <ul className="serviceInfo">
+            {INFO_LIST.map(aboutInfo => {
               return (
-                <li key={a.id}>
-                  <a href={a.path}>{a.info}</a>
+                <li key={aboutInfo.id}>
+                  <a href={aboutInfo.path}>{aboutInfo.info}</a>
                 </li>
               );
             })}
           </ul>
-          <div className="cont2">
+          <div className="companyInfo">
             ㈜ 6ixSense
             <br />
             <br />
-            대표이사 : 김원종 주소 :서울특별시 강남구 테헤란로 427 위워크 타워
-            선릉 2호점 10층 Wecode
+            대표이사 : xxx 주소 :서울특별시 강남구 테헤란로 427 위워크 타워 선릉
+            2호점 10층 Wecode
             <br />
             <br />
-            (주)6ixSense는 인센스 브랜드들을 통합한 레이아웃을 그리며 백엔드
-            서버와 통신하기 위한 프로젝트로
+            (주)6ixSensesms 오설록 브랜드를 제외한 입점 브랜드에 대해서는
+            통신판매중개자 이며 통신판매의 당사자가 아닙니다.
             <br />
-            상업적용도의 페이지가 전혀 아님을 밝힙니다.
+            따라서 입점판매자가 등록한 상품정보 및 거래에 대해 책임을 지지
+            않습니다.
           </div>
         </div>
       </div>

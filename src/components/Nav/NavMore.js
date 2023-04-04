@@ -2,13 +2,12 @@ import React from 'react';
 import './NavMore.scss';
 
 const NavMore = ({ setIsActive }) => {
+  const switchingOffMenu = () => {
+    setIsActive(false);
+  };
+
   return (
-    <div
-      className="moreCategory"
-      onMouseLeave={() => {
-        setIsActive(false);
-      }}
-    >
+    <div className="moreCategory" onMouseLeave={switchingOffMenu}>
       <div className="moreWrapper">
         <div className="categoryDiv">
           <ul>
