@@ -1,20 +1,20 @@
 @import '../../styles/variables';
 
-body {
+.signin {
   .header {
-    margin: 10px;
     .inner {
       @include flexCenter;
       padding: 10px;
       border-bottom: 2px solid #f0f0f0;
       .pageTitle {
-        position: fixed;
+        position: absolute;
         font-size: 20px;
       }
       .btnPageClose {
         margin-left: 410px;
         border: none;
         background-color: white;
+        color: #898989;
         font-size: 25px;
         cursor: pointer;
       }
@@ -33,26 +33,24 @@ body {
         text-align: center;
       }
     }
-    .loginInput {
-      width: 440px;
-      height: 50px;
-      margin-bottom: 15px;
-      padding: 0 12px;
-      border: 1px solid #e6e6e6;
-      border-radius: 5px;
-      font-size: 18px;
+    .loginForm {
+      .loginInput {
+        @include inputBox;
+        margin-bottom: 15px;
+      }
+      .delBtn {
+        position: absolute;
+        border: none;
+        background-color: white;
+        color: #898989;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .passwordInput {
+        @include inputBox;
+      }
     }
-    .delBtn {
-      border: none;
-    }
-    .passwordInput {
-      width: 440px;
-      height: 50px;
-      padding: 0 12px;
-      border: 1px solid #e6e6e6;
-      border-radius: 5px;
-      font-size: 18px;
-    }
+
     .loginCheck {
       margin: 30px 10px 30px 0;
       cursor: pointer;
@@ -64,6 +62,20 @@ body {
       border-radius: 5px;
       background-color: #f0f0f0;
       color: #c6c6c6;
+      font-size: 20px;
+      cursor: not-allowed;
+      // & :disabled {
+      //   background-color: #5c95f0;
+      // }
+    }
+    .activeLoginBtn {
+      width: 440px;
+      height: 60px;
+      border: 1px solid #f0f0f0;
+      border-radius: 5px;
+      background-color: #5c95f0;
+      color: #fff;
+      font-size: 20px;
       cursor: pointer;
     }
     .bottomMenu {
@@ -85,12 +97,17 @@ body {
       }
     }
     .joinMembership {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       width: 440px;
       height: 45px;
       padding: 0 20px;
       border: 1px solid #d3d3d3;
       border-radius: 5px;
       background-color: white;
+      font-size: 16px;
+      font-weight: 400;
       cursor: pointer;
     }
   }
