@@ -2,12 +2,26 @@
   position: relative;
   .bannerBody {
     width: 100%;
-    height: 450px;
+    height: 600px;
     overflow: hidden;
     .mainBanner {
       display: flex;
       width: 100%;
       height: 100%;
+    }
+    .alignText {
+      display: flex;
+      position: absolute;
+      top: 20%;
+      right: 67%;
+
+      .bannerTitle {
+        font-size: 36px;
+      }
+      .bannerText {
+        margin-top: 10px;
+        font-size: 16px;
+      }
     }
   }
 
@@ -15,11 +29,11 @@
     display: flex;
     position: absolute;
     z-index: 1;
-    top: 20%;
+    top: 22%;
     justify-content: space-between;
     width: 100%;
 
-    .arrowIcon {
+    .mainArrowIcon {
       display: inline-block;
       width: 60px;
       height: 60px;
@@ -32,15 +46,109 @@
 
   .mainContents {
     margin-top: 40px;
-    .recommendTitle {
-      width: 80%;
+
+    .mainNotice {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
       margin: 0 auto;
-      font-size: 28px;
-      font-weight: 500;
+      background-color: #f6f6f6;
+
+      .notice {
+        margin-right: 20px;
+        margin-left: 20px;
+        color: rgb(135, 135, 135);
+      }
+      .noticeBox {
+        display: flex;
+        flex: auto;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 0;
+      }
+    }
+    .recommendSector {
+      .recommendTitle {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 60px;
+        font-size: 28px;
+        font-weight: 500;
+      }
+
+      .recommendList {
+        display: flex;
+        position: relative;
+        width: 60%;
+        margin: 0 auto;
+
+        .recommendProduct {
+          .productImg {
+            width: 225px;
+            height: 250px;
+          }
+
+          .productName {
+            .pdPrice {
+              font-size: 18px;
+              font-weight: 500;
+            }
+            a {
+              font-size: 16px;
+            }
+          }
+        }
+      }
     }
 
-    .recommendList {
-      height: 400px;
+    .todayRecommend {
+      position: relative;
+      width: 60%;
+      height: 275px;
+      margin: 85px auto;
+
+      .todayBg {
+        width: 100%;
+        height: 100%;
+      }
+      .todayTextArea {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        padding: 40px 56px 30px 60px;
+
+        .todayTimeText {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .timeText {
+            display: flex;
+            align-items: center;
+            color: #6e6672;
+            font-size: 28px;
+          }
+        }
+
+        .todayPriceText {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          height: 35%;
+          .priceText {
+            color: #847a8a;
+            font-size: 18px;
+            text-decoration: line-through;
+          }
+
+          .discountText {
+            font-size: 30px;
+          }
+        }
+      }
     }
   }
 }
