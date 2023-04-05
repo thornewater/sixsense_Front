@@ -9,8 +9,8 @@ import ChangeBtn from './components/ChangeBtn/ChangeBtn';
 const ProductList = () => {
   return (
     <div className="productList">
-      <div className="catBanner">
-        <h1 className="catBannerTitle">Incense</h1>
+      <div className="categoryBanner">
+        <h1 className="categoryBannerTitle">Incense</h1>
       </div>
       <div className="inner">
         <div className="container">

@@ -16,18 +16,18 @@
       height: 200px;
       margin-top: 30px;
 
-      .data {
+      .rendingImage {
         width: 200px;
       }
 
-      .in {
+      .hoverImage {
         display: none;
         position: absolute;
         width: 200px;
         height: 200px;
       }
       &:hover {
-        .in {
+        .hoverImage {
           display: block;
           cursor: pointer;
         }
