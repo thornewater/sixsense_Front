@@ -1,39 +1,20 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import './Navigate.scss';
 
 const Navigate = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="navigate">
-      <form className="btns">
-        <button
-          className="gift btn"
-          onClick={() => {
-            navigate('/gift');
-          }}
-        >
-          선물
-        </button>
-        <button
-          className="cart btn"
-          onClick={() => {
-            navigate('/cart');
-          }}
-        >
-          장바구니
-        </button>
-
-        <button
-          className="cash btn"
-          onClick={() => {
-            navigate('/payment');
-          }}
-        >
-          결제하기
-        </button>
-      </form>
+      <Link className="gift link" to="/gift">
+        선물하기
+      </Link>
+      <Link className="cart link" to="/cart">
+        장바구니
+      </Link>
+      <Link className="cash link" to="/payment">
+        바로구매
+      </Link>
     </div>
   );
 };

@@ -7,13 +7,16 @@ const Image = () => {
     <div className="image">
       <img className="incense" src="/images/incense.jpeg" alt="detailpage" />
       <div className="review">
-        <span>별점</span>
-        <div>
-          <GoStar className="star" />
-          <GoStar className="star" />
-          <GoStar className="star" />
-          <GoStar className="star" />
-          <GoStar className="star" />
+        <span className="starDots">리뷰 별점</span>
+
+        <div className="stars">
+          {STAR_REVIEW.map(star => {
+            return (
+              <div className="star" key={star.id}>
+                {star.star}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -21,3 +24,11 @@ const Image = () => {
 };
 
 export default Image;
+
+const STAR_REVIEW = [
+  { id: 1, star: <GoStar /> },
+  { id: 2, star: <GoStar /> },
+  { id: 3, star: <GoStar /> },
+  { id: 4, star: <GoStar /> },
+  { id: 5, star: <GoStar /> },
+];
