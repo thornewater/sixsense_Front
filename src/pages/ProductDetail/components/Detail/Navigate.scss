@@ -1,0 +1,22 @@
+.navigate {
+  .btns {
+    display: flex;
+
+    .btn {
+      width: 250px;
+      height: 60px;
+
+      border: 1px solid black;
+      border: none;
+      background-color: #333333;
+
+      color: #c8c8c8;
+      font-weight: bold;
+      &:hover {
+        background-color: #000000;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}

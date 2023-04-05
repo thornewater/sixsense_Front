@@ -37,17 +37,17 @@
         }
       }
       .hoverCart {
-        color: white;
-        background-color: rgba(193, 192, 192, 255);
         display: none;
         position: absolute;
         top: 150px;
         left: 150px;
         width: 40px;
         height: 40px;
-        border-radius: 50%;
-        border: 1px solid none;
         padding: 10px;
+        border: 1px solid none;
+        border-radius: 50%;
+        background-color: rgba(193, 192, 192, 255);
+        color: white;
         &:hover {
           border-radius: 50%;
           background-color: #000000;
@@ -74,16 +74,16 @@
     }
 
     .heart {
-      color: rgba(192, 192, 192, 255);
       width: 25px;
       height: 25px;
-      margin-bottom: -9px;
       margin-right: 8px;
+      margin-bottom: -9px;
+      color: rgba(192, 192, 192, 255);
     }
 
     .count {
-      font-weight: bold;
       color: rgba(192, 192, 192, 255);
+      font-weight: bold;
     }
   }
 }
