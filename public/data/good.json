@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 25000
+  },
+  {
+    "id": 2,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 25000
+  },
+  {
+    "id": 3,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 25000
+  },
+  {
+    "id": 4,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 253000000
+  },
+  {
+    "id": 5,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 25000
+  },
+  {
+    "id": 6,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 25000
+  },
+  {
+    "id": 7,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 25000
+  },
+  {
+    "id": 8,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 25000
+  },
+  {
+    "id": 9,
+    "image1": "/images/blackIncense.webp",
+    "image2": "/images/redIncense.webp",
+    "title": "CLOSET / FIG",
+    "price": 25000
+  }
+]
