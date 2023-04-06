@@ -40,9 +40,20 @@
     margin-top: 30px;
     margin-bottom: 15px;
   }
+  .nameDelBtn {
+    @include delBtn;
+    // top: 13.5%;
+    // right: 33%;
+    // transform: translate(50%, -50%);
+  }
   .phoneInput {
     @include inputBox;
     margin-bottom: 15px;
+  }
+  .phoneDelBtn {
+    @include delBtn;
+    // top: 20%;
+    // right: 30%;
   }
   .dateInput {
     @include inputBox;
@@ -52,33 +63,25 @@
     @include inputBox;
     margin-bottom: 15px;
   }
-  .loginInput {
+  .idInput {
     @include inputBox;
     margin-bottom: 15px;
   }
-  .delBtn {
-    position: absolute;
-    border: none;
-    background-color: white;
-    color: #898989;
-    font-size: 30px;
-    cursor: pointer;
+  .idDelBtn {
+    @include delBtn;
   }
   .passwordInput {
     @include inputBox;
     margin-bottom: 15px;
   }
-  .confirm {
-    position: relative;
-    .passwordCheck {
-      @include inputBox;
-    }
-    .delBtn {
-      position: absolute;
-      top: 50%;
-      right: 20px;
-      transform: translate(50%, -50%);
-    }
+  .pwDelBtn {
+    @include delBtn;
+  }
+  .passwordCheck {
+    @include inputBox;
+  }
+  .pwCheckDelBtn {
+    @include delBtn;
   }
 
   .pwNotice {
@@ -121,6 +124,16 @@
   background-color: #f0f0f0;
   color: #c6c6c6;
   font-size: 20px;
+  cursor: not-allowed;
+}
+.activeSignupBtn {
+  width: 440px;
+  height: 60px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  background-color: #5c95f0;
+  color: #fff;
+  font-size: 20px;
   cursor: pointer;
 }
 .bottomMenu {
@@ -129,10 +142,6 @@
   padding: 30px 0;
   border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
-  .idSearch {
-  }
-  .pwSearch {
-  }
 }
 .joinMembership {
   width: 440px;

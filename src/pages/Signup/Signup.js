@@ -1,37 +1,143 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Signup.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const [nameValue, setNameValue] = useState('');
+  const [phoneValue, setPhoneValue] = useState('');
+  const [dateValue, setDateValue] = useState('');
+  const [genderValue, setGenderValue] = useState('');
+  const [idValue, setIdValue] = useState('');
+  const [pwValue, setPwValue] = useState('');
+  const [pwCheckValue, setPwCheckValue] = useState('');
+
+  const getUserName = event => {
+    setNameValue(event.target.value);
+  };
+
+  const getUserPhone = event => {
+    setPhoneValue(event.target.value);
+  };
+
+  const getUserDate = event => {
+    setDateValue(event.target.value);
+  };
+
+  const getUserGender = event => {
+    setGenderValue(event.target.value);
+  };
+
+  const getUserId = event => {
+    setIdValue(event.target.value);
+  };
+
+  const getUserPw = event => {
+    setPwValue(event.target.value);
+  };
+
+  const getUserPwCheck = event => {
+    setPwCheckValue(event.target.value);
+  };
+
+  const nameReset = () => {
+    setNameValue('');
+  };
+
+  const phoneReset = () => {
+    setPhoneValue('');
+  };
+
+  const idReset = () => {
+    setIdValue('');
+  };
+
+  const pwReset = () => {
+    setPwValue('');
+  };
+
+  const pwCheckReset = () => {
+    setPwCheckValue('');
+  };
+
+  const validate =
+    nameValue.length >= 1 &&
+    phoneValue.length >= 1 &&
+    dateValue.length >= 1 &&
+    genderValue.length >= 1 &&
+    idValue.match(/^[a-z0-9]{4,12}$/) &&
+    pwValue.match(
+      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
+    ); //&&
+  //pwCheckValue.length >= 1;
+
   return (
     <div className="signup">
       <div className="header">
         <div className="headerBox">
           <div className="inner">
             <h1 className="pageTitle">정보입력 및 약관동의</h1>
-            <button className="btnPageClose" type="button">
-              <Link to="/signin">X</Link>
-            </button>
+            <Link to="/signin">
+              <button className="btnPageClose" type="button">
+                X
+              </button>
+            </Link>
           </div>
         </div>
       </div>
       <section className="containar">
         <div className="loginSection">
           <div>
-            <input className="nameInput" type="text" placeholder="이름" />
+            <input
+              className="nameInput"
+              type="text"
+              placeholder="이름"
+              value={nameValue}
+              name="nameValue"
+              onChange={getUserName}
+            />
+            {nameValue ? (
+              <button className="nameDelBtn" type="button" onClick={nameReset}>
+                x
+              </button>
+            ) : null}
           </div>
           <div>
             <input
               className="phoneInput"
               type="number"
               placeholder="휴대폰번호"
+              value={phoneValue}
+              name="phoneValue"
+              onChange={getUserPhone}
+            />
+            {phoneValue ? (
+              <button
+                className="phoneDelBtn"
+                type="button"
+                onClick={phoneReset}
+              >
+                x
+              </button>
+            ) : null}
+          </div>
+          <div>
+            <input
+              className="dateInput"
+              type="date"
+              placeholder="생년월일"
+              value={dateValue}
+              name="dateValue"
+              onChange={getUserDate}
             />
           </div>
           <div>
-            <input className="dateInput" type="date" placeholder="생년월일" />
-          </div>
-          <div>
-            <select className="genderInput">
+            <select
+              className="genderInput"
+              value={genderValue}
+              name="genderValue"
+              onChange={getUserGender}
+            >
               <option>성별</option>
               <option>남자</option>
               <option>여자</option>
@@ -40,27 +146,54 @@ const Signup = () => {
           </div>
           <div>
             <input
-              className="loginInput"
+              className="idInput"
               type="text"
               placeholder="아이디 (영문 또는 숫자 4-12자)"
+              value={idValue}
+              name="idValue"
+              onChange={getUserId}
             />
+            {idValue ? (
+              <button className="idDelBtn" type="button" onClick={idReset}>
+                x
+              </button>
+            ) : null}
           </div>
           <div>
             <input
               className="passwordInput"
               type="password"
               placeholder="비밀번호 입력(영문 소문자,숫자,특수문자 조합 8-16자)"
+              value={pwValue}
+              name="pwValue"
+              onChange={getUserPw}
             />
+            {pwValue ? (
+              <button className="pwDelBtn" type="button" onClick={pwReset}>
+                x
+              </button>
+            ) : null}
           </div>
-          <div className="confirm">
+          <div>
             <input
               className="passwordCheck"
               type="password"
               placeholder="비밀번호 확인"
+              value={pwCheckValue}
+              name="pwCheckValue"
+              onChange={getUserPwCheck}
             />
-            <button className="delBtn" type="button">
-              x
-            </button>
+            {pwCheckValue ? (
+              <button
+                className="pwCheckDelBtn"
+                type="button"
+                value={pwCheckValue}
+                name="pwCheckValue"
+                onClick={pwCheckReset}
+              >
+                x
+              </button>
+            ) : null}
           </div>
           <div>
             <span className="pwNotice">비밀번호 입력 시 유의사항</span>
@@ -97,7 +230,13 @@ const Signup = () => {
           </div>
 
           <div>
-            <button className="signupBtn">동의하고 가입</button>
+            <button
+              className={validate ? 'activeSignupBtn' : 'signupBtn'}
+              disabled={!validate}
+              onClick={() => navigate('/')}
+            >
+              로그인
+            </button>
           </div>
         </div>
       </section>
