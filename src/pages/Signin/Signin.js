@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
 import './Signin.scss';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Signin = () => {
   const navigate = useNavigate();
+  const [idValue, setIdValue] = useState('');
+  const [pwValue, setPwValue] = useState('');
 
-  const onReset = () => {
-    setIdInput('');
+  const getUserId = event => {
+    setIdValue(event.target.value);
   };
 
-  const [active, setActive] = useState(false);
-
-  const [idValue, setIdInput] = useState('');
-  const [pwValue, setPwInput] = useState('');
-
-  const isPassed = () => {
-    idValue.length >= 1 && pwValue.length >= 1
-      ? setActive(true)
-      : setActive(false);
+  const getUserPw = event => {
+    setPwValue(event.target.value);
   };
 
-  const handleId = e => {
-    setIdInput(e.target.value);
+  const idReset = () => {
+    setIdValue('');
   };
-  const handlePw = e => {
-    setPwInput(e.target.value);
+
+  const passwordReset = () => {
+    setPwValue('');
   };
+
+  const validate = idValue.length >= 1 && pwValue.length >= 1;
 
   return (
     <div className="signin">
@@ -33,13 +31,11 @@ const Signin = () => {
         <div className="headerBox">
           <div className="inner">
             <h1 className="pageTitle">로그인</h1>
-            <button
-              className="btnPageClose"
-              type="button"
-              onClick={() => navigate('/')}
-            >
-              X
-            </button>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <button className="btnPageClose" type="button">
+                X
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -53,24 +49,33 @@ const Signin = () => {
               className="loginInput"
               type="text"
               placeholder="아이디 입력"
-              name="idValue"
               value={idValue}
-              onKeyUp={isPassed}
-              onChange={handleId}
+              name="idValue"
+              onChange={getUserId}
             />
-            <button className="delBtn" type="button" onClick={onReset}>
-              x
-            </button>
+            {idValue ? (
+              <button className="delBtn" type="button" onClick={idReset}>
+                x
+              </button>
+            ) : null}
             <div>
               <input
                 className="passwordInput"
                 type="password"
                 placeholder="비밀번호 입력(영문,숫자,특수문자 입력)"
-                name="pwValue"
-                onKeyUp={isPassed}
-                onChange={handlePw}
                 value={pwValue}
+                name="pwValue"
+                onChange={getUserPw}
               />
+              {pwValue ? (
+                <button
+                  className="delBtn"
+                  type="button"
+                  onClick={passwordReset}
+                >
+                  x
+                </button>
+              ) : null}
             </div>
           </form>
           <div>
@@ -79,9 +84,8 @@ const Signin = () => {
           </div>
           <div>
             <button
-              // className="loginBtn"
-              className={active ? 'activeLoginBtn' : 'loginBtn'}
-              disabled={idValue === '' || pwValue === '' ? true : false}
+              className={validate ? 'activeLoginBtn' : 'loginBtn'}
+              disabled={!validate}
               onClick={() => navigate('/')}
             >
               로그인
@@ -95,13 +99,11 @@ const Signin = () => {
               <a className="pwSearch">비밀번호 찾기</a>
             </li>
           </ul>
-          <button
-            className="joinMembership"
-            type="button"
-            onClick={() => navigate('/signup')}
-          >
-            <span>아직 회원이 아니세요?</span> <em> 회원가입 ></em>
-          </button>
+          <Link to="/signup" style={{ textDecoration: 'none' }}>
+            <button className="joinMembership" type="button">
+              <span>아직 회원이 아니세요?</span> <em> 회원가입 {'>'}</em>
+            </button>
+          </Link>
         </div>
       </section>
     </div>
