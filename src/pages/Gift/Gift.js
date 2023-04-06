@@ -3,6 +3,7 @@ import PriceInfo from './components/priceInfo/PriceInfo';
 import './Gift.scss';
 import CardImageBox from './components/cardImageBox/CardImageBox';
 import SubjectBox from './components/subjectBox/SubjectBox';
+import Agree from './components/agree/Agree';
 
 const Gift = () => {
   return (
@@ -11,8 +12,11 @@ const Gift = () => {
 
       <div className="formOrder">
         <div className="formWrap">
-          <CardImageBox />
+          <div className="headerBox">
+            <CardImageBox />
+          </div>
           <SubjectBox />
+          <Agree />
         </div>
 
         <div>

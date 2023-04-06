@@ -17,10 +17,6 @@
       width: 300px;
       padding-bottom: 20px;
       border-bottom: 1px solid black;
-      p {
-        margin-right: 110px;
-        opacity: 70%;
-      }
 
       .deliveryFee {
         opacity: 70%;
@@ -31,7 +27,13 @@
   button {
     padding: 20px;
     border: none;
-    background-color: black;
+    background-color: #333333;
     color: white;
+
+    &:hover {
+      background-color: #000000;
+      font-weight: bold;
+      cursor: pointer;
+    }
   }
 }
