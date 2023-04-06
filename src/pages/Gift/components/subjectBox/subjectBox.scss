@@ -1,0 +1,38 @@
+.subjectBox {
+  display: flex;
+  flex-direction: column;
+
+  .bothSide {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid black;
+
+    .right {
+      display: flex;
+    }
+  }
+
+  .userInfo {
+    margin-top: 50px;
+
+    .name,
+    .phone {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .input {
+        width: 470px;
+        height: 40px;
+        padding-left: 20px;
+        border: 1px solid #9e887c;
+        border-radius: 10px;
+        background-color: rgba(238, 227, 212, 255);
+        font-size: 15px;
+      }
+    }
+  }
+}
