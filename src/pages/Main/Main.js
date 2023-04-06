@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import todayBg from '../assets/images/today_product_1.jpeg';
+import subsImg1 from '../assets/images/subscribe_1.jpeg';
+import subsImg2 from '../assets/images/subscribe_2.jpeg';
+import subsImg3 from '../assets/images/subscribe_3.jpeg';
+import { BANNER_INFO, MAGAZINE_DATA } from './MainData';
 import './Main.scss';
 
 const Main = () => {
@@ -48,7 +52,7 @@ const Main = () => {
             <IoIosArrowForward style={{ marginRight: '10px' }} />
           </div>
         </div>
-        <div className="recommendSector">
+        <section className="recommendSector">
           <div className="recommendTitle">오래 기억될 순간들</div>
           <div className="recommendList">
             {productList.map(function (product) {
@@ -96,63 +100,108 @@ const Main = () => {
               더 보기 <IoIosArrowForward />
             </button>
           </div>
-        </div>
-        <div className="todayRecommend">
+        </section>
+        <section className="todayRecommend">
           <div
             className="todayBg"
             style={{ backgroundImage: `url(${todayBg})` }}
           />
           <div className="todayTextArea">
             <div className="todayTimeText">
-              <h3 style={{ fontSize: '26px', fontWeight: '500' }}>
-                오늘의 기억
-              </h3>
+              <h3 className="h3Style">오늘의 기억</h3>
               <p className="timeText">01:54:55</p>
             </div>
-            <h4 style={{ fontSize: '28px', fontWeight: '500' }}>
-              베스트 인센스 컬렉션
-            </h4>
+            <h4 className="h4Style">베스트 인센스 컬렉션</h4>
             <div className="todayPriceText">
               <div className="priceText">24000원</div>
               <div className="discountText">21600원</div>
             </div>
           </div>
-        </div>
+        </section>
+        <section className="subscribeSection">
+          <div className="subscribeBanner">
+            <h4 className="h4Style">깊어지는 나날</h4>
+            <p className="subscribeSubText">
+              여러가지 인센스 들로 더욱 평안해지는 휴식 시간을 가져보세요.
+            </p>
+            <div className="subscribeFlexBox">
+              <div
+                className="insenseLife"
+                style={{ backgroundImage: `url(${subsImg1})` }}
+              />
+              <div className="subscribeContainer">
+                <div
+                  className="insenseMood"
+                  style={{ backgroundImage: `url(${subsImg2})` }}
+                />
+                <div
+                  className="insensePost"
+                  style={{ backgroundImage: `url(${subsImg3})` }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="brandSection">
+          <div className="brandBanner">
+            <div className="bannerCheck">
+              <div className="checkImg">
+                <img
+                  className="checkImg"
+                  src="/images/bannerCheck.jpeg"
+                  alt="이달의 체크"
+                />
+                <p className="checkText">오늘의 기분</p>
+              </div>
+            </div>
+            <div className="bannerStory">
+              <div className="storyImg">
+                <img
+                  className="storyImg"
+                  src="/images/banner_story.jpeg"
+                  alt="우리의 이야기"
+                />
+                <p className="storyText">우리의 이야기</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="magazineSection">
+          <div className="magazineBanner">
+            {/* <div className="magazineHead"> */}
+            <h4 className="h4Style">순간들의 무드</h4>
+            <p className="subscribeSubText">
+              향을 통해 달라지는 휴식을 만나보세요.
+            </p>
+            {/* </div> */}
+            <div className="magazineBody">
+              <div className="leftArrow">
+                <IoIosArrowBack className="magazineArrow" />
+              </div>
+              <div className="swipeContainer">
+                {MAGAZINE_DATA.map(function (content) {
+                  return (
+                    <div className="magazineCard" key={content.id}>
+                      <img
+                        className="imgBox"
+                        src={content.magazineImg}
+                        alt="사진"
+                      />
+                      <p className="textBold">{content.magazineTitle}</p>
+                      <p className="textSub">{content.magazineSubText}</p>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="rightArrow">
+                <IoIosArrowForward className="magazineArrow" />
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
 };
 
-const BANNER_INFO = [
-  {
-    id: 1,
-    bannerImg: 'images/osulloc_1.png',
-    bannerTitle: '첫 번째 배너 타이틀',
-    bannerText: '첫 번째의 소개글',
-  },
-  {
-    id: 2,
-    bannerImg: 'images/osulloc_2.jpeg',
-    bannerTitle: '두 번째 배너 타이틀',
-    bannerText: '두 번째의 소개글',
-  },
-  {
-    id: 3,
-    bannerImg: 'images/osulloc_3.jpeg',
-    bannerTitle: '세 번째 배너 타이틀',
-    bannerText: '세 번째의 소개글',
-  },
-  {
-    id: 4,
-    bannerImg: 'images/osulloc_4.jpeg',
-    bannerTitle: '네 번째 배너 타이틀',
-    bannerText: '네 번째의 소개글',
-  },
-  {
-    id: 5,
-    bannerImg: 'images/osulloc_5.jpeg',
-    bannerTitle: '다섯 번째 배너 타이틀',
-    bannerText: '다섯 번째의 소개글',
-  },
-];
 export default Main;
