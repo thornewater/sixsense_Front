@@ -26,7 +26,7 @@ const Nav = () => {
         <div className="navCartAndLogin">
           <ul className="cartLogin">
             <li>
-              <AiOutlineShoppingCart size={20} />
+              <AiOutlineShoppingCart size={23} />
             </li>
             <li>로그인</li>
           </ul>
