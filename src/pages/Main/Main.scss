@@ -1,337 +1,398 @@
-.mainBody {
-  position: relative;
-
-  .bannerBody {
+.bannerBody {
+  width: 100vw;
+  height: 660px;
+  .bannerContainer {
+    display: flex;
     width: 100%;
-    height: 600px;
+    height: 100%;
     overflow: hidden;
+
     .mainBanner {
+      position: relative;
+      flex-shrink: 0;
       width: 100%;
       height: 100%;
       background-size: cover;
-    }
-    .alignText {
-      display: flex;
-      position: absolute;
-      top: 20%;
-      right: 67%;
 
-      .bannerTitle {
-        font-size: 36px;
-      }
-      .bannerText {
-        margin-top: 10px;
-        font-size: 16px;
+      .alignText {
+        display: flex;
+        position: absolute;
+        top: 35%;
+        left: 12%;
+        flex-direction: column;
+
+        .bannerTitle {
+          font-size: 36px;
+        }
+        .bannerText {
+          margin-top: 10px;
+          font-size: 16px;
+        }
       }
     }
   }
+}
 
-  .alignBox {
+.alignBox {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  top: 32%;
+  justify-content: space-between;
+  width: 100%;
+
+  .mainArrowIcon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    opacity: 0.3;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.mainContents {
+  margin-top: 40px;
+
+  .mainNotice {
     display: flex;
-    position: absolute;
-    z-index: 1;
-    top: 11%;
-    justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    justify-content: center;
+    width: 1120px;
+    margin: 0 auto;
+    background-color: #f6f6f6;
 
-    .mainArrowIcon {
-      display: inline-block;
-      width: 60px;
-      height: 60px;
-      opacity: 0.3;
-      &:hover {
-        cursor: pointer;
-      }
+    .notice {
+      margin-right: 20px;
+      margin-left: 20px;
+      color: rgb(135, 135, 135);
+    }
+    .noticeBox {
+      display: flex;
+      flex: auto;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
     }
   }
-
-  .mainContents {
-    margin-top: 40px;
-
-    .mainNotice {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  .recommendSector {
+    .recommendTitle {
       width: 1120px;
       margin: 0 auto;
-      background-color: #f6f6f6;
+      margin-top: 60px;
+      font-size: 28px;
+      font-weight: 500;
+    }
 
-      .notice {
-        margin-right: 20px;
-        margin-left: 20px;
-        color: rgb(135, 135, 135);
-      }
-      .noticeBox {
-        display: flex;
-        flex: auto;
-        align-items: center;
-        justify-content: space-between;
-        margin: 10px 0;
+    .recommendList {
+      display: flex;
+      position: relative;
+      width: 1120px;
+      margin: 0 auto;
+
+      .recommendProduct {
+        .productImg {
+          width: 225px;
+          height: 250px;
+        }
+
+        .productName {
+          .pdPrice {
+            font-size: 18px;
+            font-weight: 500;
+          }
+          a {
+            font-size: 16px;
+          }
+        }
       }
     }
-    .recommendSector {
-      .recommendTitle {
-        width: 1120px;
-        margin: 0 auto;
-        margin-top: 60px;
+  }
+
+  .todayRecommend {
+    position: relative;
+    width: 1120px;
+    height: 275px;
+    margin: 85px auto;
+
+    .todayBg {
+      width: 100%;
+      height: 100%;
+    }
+    .todayTextArea {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      padding: 40px 56px 30px 60px;
+
+      .todayTimeText {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .h3Style {
+          font-size: 26px;
+          font-weight: 500;
+        }
+
+        .timeText {
+          display: flex;
+          align-items: center;
+          color: #6e6672;
+          font-size: 28px;
+        }
+      }
+
+      .h4Style {
+        margin-top: 50px;
         font-size: 28px;
         font-weight: 500;
       }
 
-      .recommendList {
+      .todayPriceText {
         display: flex;
-        position: relative;
-        width: 1120px;
-        margin: 0 auto;
+        align-items: center;
+        gap: 15px;
+        height: 35%;
+        .priceText {
+          color: #847a8a;
+          font-size: 18px;
+          text-decoration: line-through;
+        }
 
-        .recommendProduct {
-          .productImg {
-            width: 225px;
-            height: 250px;
+        .discountText {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  .subscribeSection {
+    display: block;
+    margin-top: 80px;
+    padding: 50px 20px 140px 20px;
+    background-color: #f6f6f6;
+
+    .subscribeBanner {
+      width: 1120px;
+      height: 633px;
+      margin-right: auto;
+      margin-left: auto;
+
+      .h4Style {
+        margin-top: 50px;
+        font-size: 28px;
+        font-weight: 500;
+      }
+
+      .subscribeSubText {
+        margin-bottom: 24px;
+        color: #999;
+        font-size: 16px;
+      }
+
+      .subscribeFlexBox {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        width: 100%;
+        height: 90%;
+
+        .insenseLife {
+          position: relative;
+          flex: none;
+          width: calc(50% - 10px);
+        }
+
+        .subscribeContainer {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: calc(50% - 10px);
+
+          .insenseMood {
+            position: relative;
+            width: 100%;
+            height: calc(50% - 10px);
           }
 
-          .productName {
-            .pdPrice {
-              font-size: 18px;
-              font-weight: 500;
-            }
-            a {
-              font-size: 16px;
-            }
+          .insensePost {
+            position: relative;
+            width: 100%;
+            height: calc(50% - 10px);
           }
         }
       }
     }
+  }
 
-    .todayRecommend {
-      position: relative;
-      width: 1120px;
-      height: 275px;
-      margin: 85px auto;
+  .brandSection {
+    width: 1120px;
+    margin: 30px auto;
+    padding: 80px 0;
 
-      .todayBg {
+    .brandBanner {
+      display: flex;
+      gap: 20px;
+
+      .checkBox {
+        position: relative;
         width: 100%;
         height: 100%;
-      }
-      .todayTextArea {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50%;
-        height: 100%;
-        padding: 40px 56px 30px 60px;
-
-        .todayTimeText {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-
-          .h3Style {
-            font-size: 26px;
-            font-weight: 500;
-          }
-
-          .timeText {
-            display: flex;
-            align-items: center;
-            color: #6e6672;
-            font-size: 28px;
-          }
-        }
-
-        .h4Style {
-          margin-top: 50px;
-          font-size: 28px;
-          font-weight: 500;
-        }
-
-        .todayPriceText {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          height: 35%;
-          .priceText {
-            color: #847a8a;
-            font-size: 18px;
-            text-decoration: line-through;
-          }
-
-          .discountText {
-            font-size: 30px;
-          }
-        }
-      }
-    }
-
-    .subscribeSection {
-      display: block;
-      margin-top: 80px;
-      padding: 50px 20px 140px 20px;
-      background-color: #f6f6f6;
-
-      .subscribeBanner {
-        width: 1120px;
-        height: 633px;
-        margin-right: auto;
-        margin-left: auto;
-
-        .h4Style {
-          margin-top: 50px;
-          font-size: 28px;
-          font-weight: 500;
-        }
-
-        .subscribeSubText {
-          margin-bottom: 24px;
-          color: #999;
-          font-size: 16px;
-        }
-
-        .subscribeFlexBox {
-          display: flex;
-          justify-content: space-between;
-          gap: 20px;
-          width: 100%;
-          height: 90%;
-
-          .insenseLife {
-            position: relative;
-            flex: none;
-            width: calc(50% - 10px);
-          }
-
-          .subscribeContainer {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: calc(50% - 10px);
-
-            .insenseMood {
-              position: relative;
-              width: 100%;
-              height: calc(50% - 10px);
-            }
-
-            .insensePost {
-              position: relative;
-              width: 100%;
-              height: calc(50% - 10px);
-            }
-          }
-        }
-      }
-    }
-
-    .brandSection {
-      width: 1120px;
-      margin: 30px auto;
-      padding: 80px 0;
-
-      .brandBanner {
-        display: flex;
-        gap: 20px;
 
         .checkImg {
-          position: relative;
           width: 100%;
+          height: 100%;
+        }
+        .checkText {
+          position: absolute;
+          top: 35%;
+          left: 7%;
+          color: whitesmoke;
+          font-size: 32px;
+          font-weight: 500;
+        }
+      }
 
-          .checkText {
-            position: absolute;
-            top: 35%;
-            left: 7%;
-            font-size: 32px;
-            font-weight: 500;
+      .storyBox {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .storyImg {
+          width: 100%;
+          height: 100%;
+        }
+        .storyText {
+          position: absolute;
+          top: 35%;
+          left: 7%;
+          color: white;
+          font-size: 32px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .magazineSection {
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-top: 1px solid lightgray;
+    .magazineBanner {
+      width: 1120px;
+      margin-right: auto;
+      margin-left: auto;
+
+      .magazineTitle {
+        font-size: 28px;
+        font-weight: 500;
+      }
+
+      .magazineSubText {
+        margin-top: 2px;
+        color: lightgray;
+        font-size: 16px;
+      }
+
+      .magazineBody {
+        display: flex;
+        position: relative;
+        margin-top: 20px;
+
+        .leftArrow {
+          position: absolute;
+          z-index: 10;
+          top: 40%;
+          left: -4%;
+
+          .magazineArrow {
+            width: 40px;
+            height: 40px;
+            opacity: 0.7;
+            color: lightgray;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
 
-        .storyImg {
-          position: relative;
-          width: 100%;
+        .swipeContainer {
+          display: flex;
+          overflow: hidden;
 
-          .storyText {
-            position: absolute;
-            top: 35%;
-            left: 7%;
-            color: white;
-            font-size: 32px;
-            font-weight: 500;
+          .magazineCard {
+            width: 50%;
+            margin-right: 20px;
+
+            .imgBox {
+              width: 400px;
+              opacity: 0;
+            }
+
+            .textBold {
+              font-size: 20px;
+              font-weight: bold;
+            }
+
+            .textSub {
+              font-size: 14px;
+            }
+          }
+        }
+
+        .rightArrow {
+          position: absolute;
+          z-index: 10;
+          top: 40%;
+          right: -4%;
+
+          .magazineArrow {
+            width: 40px;
+            height: 40px;
+            opacity: 0.7;
+            color: lightgray;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }
     }
+  }
 
-    .magazineSection {
+  .companySection {
+    position: relative;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-top: 1px solid lightgray;
+
+    .companyBackground {
+      width: 1120px;
+      height: 200px;
+      margin-right: auto;
+      margin-left: auto;
+      background-color: #847a8a;
+    }
+
+    .companyTextBox {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: 100%;
-      padding-top: 60px;
-      border-top: 1px solid lightgray;
-      .magazineBanner {
-        width: 1120px;
-        margin-right: auto;
-        margin-left: auto;
+      transform: translate(-50%, -50%);
+      text-align: center;
 
-        .magazineBody {
-          display: flex;
-          position: relative;
-
-          .leftArrow {
-            position: absolute;
-            z-index: 10;
-            top: 40%;
-            left: -4%;
-
-            .magazineArrow {
-              width: 40px;
-              height: 40px;
-              opacity: 0.7;
-              color: lightgray;
-
-              &:hover {
-                cursor: pointer;
-              }
-            }
-          }
-
-          .swipeContainer {
-            display: flex;
-            overflow: hidden;
-
-            .magazineCard {
-              width: 50%;
-              margin-right: 20px;
-
-              .imgBox {
-                width: 400px;
-              }
-
-              .textBold {
-                font-size: 20px;
-                font-weight: 500;
-              }
-
-              .textSub {
-                font-size: 14px;
-              }
-            }
-          }
-
-          .rightArrow {
-            position: absolute;
-            z-index: 10;
-            top: 40%;
-            right: -4%;
-
-            .magazineArrow {
-              width: 40px;
-              height: 40px;
-              opacity: 0.7;
-              color: lightgray;
-
-              &:hover {
-                cursor: pointer;
-              }
-            }
-          }
-        }
+      .companyText {
+        color: #fff;
+        font-size: 26px;
+        font-weight: 320;
       }
     }
   }

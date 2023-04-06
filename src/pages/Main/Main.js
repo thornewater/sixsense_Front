@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
-import todayBg from '../assets/images/today_product_1.jpeg';
-import subsImg1 from '../assets/images/subscribe_1.jpeg';
-import subsImg2 from '../assets/images/subscribe_2.jpeg';
-import subsImg3 from '../assets/images/subscribe_3.jpeg';
+// TODO : 무료 이미지 찾은 후 교체
+// import todayBg from '../assets/images/today_product_1.jpeg';
+// import subsImg1 from '../assets/images/subscribe_1.jpeg';
+// import subsImg2 from '../assets/images/subscribe_2.jpeg';
+// import subsImg3 from '../assets/images/subscribe_3.jpeg';
 import { BANNER_INFO, MAGAZINE_DATA } from './MainData';
 import './Main.scss';
 
@@ -20,27 +21,32 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="mainBody">
+    <div className="Main">
       <div className="bannerBody">
-        {BANNER_INFO.map(function (banner) {
-          return (
-            <div
-              key={banner.id}
-              className="mainBanner"
-              style={{ backgroundImage: `url(${banner.bannerImg})` }}
-            >
-              <div className="alignText">
-                <span className="bannerTitle">{banner.bannerTitle}</span>
-                <span className="bannerText">{banner.bannerText}</span>
+        <div className="bannerContainer">
+          {BANNER_INFO.map(function (banner) {
+            return (
+              <div
+                key={banner.id}
+                className="mainBanner"
+                // TODO : mainBanner image 사진 교체
+                // style={{ backgroundImage: `url(${banner.bannerImg})` }}
+                style={{ backgroundColor: banner.bannerBackgroundColor }}
+              >
+                <div className="alignText">
+                  <span className="bannerTitle">{banner.bannerTitle}</span>
+                  <span className="bannerText">{banner.bannerText}</span>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <div className="alignBox">
         <IoIosArrowBack className="mainArrowIcon" />
         <IoIosArrowForward className="mainArrowIcon" />
       </div>
+      {/** 기능구현 - pagination을 넣을 때 위치를 빠르게 파악하기 위해 주석처리 했습니다. */}
       {/* <div className="mainPagination"></div> */}
       <div className="mainContents">
         <div className="mainNotice">
@@ -52,6 +58,7 @@ const Main = () => {
             <IoIosArrowForward style={{ marginRight: '10px' }} />
           </div>
         </div>
+        {/** 추천 목록 캐러셀 지역 */}
         <section className="recommendSector">
           <div className="recommendTitle">오래 기억될 순간들</div>
           <div className="recommendList">
@@ -59,11 +66,16 @@ const Main = () => {
               return (
                 <div className="recommendProduct" key={product.id}>
                   <div className="productInfo">
-                    <img
+                    <div
+                      className="productImg"
+                      style={{ backgroundColor: product.pdColor }}
+                    />
+                    {/** TODO : productImg image 사진 교체 */}
+                    {/* <img
                       className="productImg"
                       src={product.pdImage}
                       alt="상품 이미지"
-                    />
+                    /> */}
                     <p className="productName">
                       <a>{product.pdName}</a>
                     </p>
@@ -73,10 +85,6 @@ const Main = () => {
               );
             })}
           </div>
-          {/* <div className="miniAlignBox">
-          <IoIosArrowBack className="miniArrowIcon" />
-          <IoIosArrowForward className="miniArrowIcon" />
-        </div> */}
           <div
             style={{
               display: 'flex',
@@ -95,16 +103,20 @@ const Main = () => {
                 alignItems: 'center',
                 color: '#252525',
                 backgroundColor: 'white',
+                cursor: 'pointer',
               }}
             >
               더 보기 <IoIosArrowForward />
             </button>
           </div>
         </section>
+        {/** 오늘의 추천 지역 */}
         <section className="todayRecommend">
           <div
             className="todayBg"
-            style={{ backgroundImage: `url(${todayBg})` }}
+            // TODO : todayBg image 사진 교체
+            // style={{ backgroundImage: `url(${todayBg})` }}
+            style={{ backgroundColor: '#57C5B6' }}
           />
           <div className="todayTextArea">
             <div className="todayTimeText">
@@ -118,25 +130,30 @@ const Main = () => {
             </div>
           </div>
         </section>
+        {/** 구독 지역  */}
         <section className="subscribeSection">
           <div className="subscribeBanner">
             <h4 className="h4Style">깊어지는 나날</h4>
             <p className="subscribeSubText">
               여러가지 인센스 들로 더욱 평안해지는 휴식 시간을 가져보세요.
             </p>
+            {/** TODO : 여러 정보 사진들 image 사진 교체 */}
             <div className="subscribeFlexBox">
               <div
                 className="insenseLife"
-                style={{ backgroundImage: `url(${subsImg1})` }}
+                // style={{ backgroundImage: `url(${subsImg1})` }}
+                style={{ backgroundColor: '#C9EEFF' }}
               />
               <div className="subscribeContainer">
                 <div
                   className="insenseMood"
-                  style={{ backgroundImage: `url(${subsImg2})` }}
+                  // style={{ backgroundImage: `url(${subsImg2})` }}
+                  style={{ backgroundColor: '#97DEFF' }}
                 />
                 <div
                   className="insensePost"
-                  style={{ backgroundImage: `url(${subsImg3})` }}
+                  // style={{ backgroundImage: `url(${subsImg3})` }}
+                  style={{ backgroundColor: '#62CDFF' }}
                 />
               </div>
             </div>
@@ -145,20 +162,20 @@ const Main = () => {
         <section className="brandSection">
           <div className="brandBanner">
             <div className="bannerCheck">
-              <div className="checkImg">
+              <div className="checkBox">
                 <img
                   className="checkImg"
-                  src="/images/bannerCheck.jpeg"
+                  src="/images/insense_1.jpeg"
                   alt="이달의 체크"
                 />
                 <p className="checkText">오늘의 기분</p>
               </div>
             </div>
             <div className="bannerStory">
-              <div className="storyImg">
+              <div className="storyBox">
                 <img
                   className="storyImg"
-                  src="/images/banner_story.jpeg"
+                  src="/images/insense_6.JPG"
                   alt="우리의 이야기"
                 />
                 <p className="storyText">우리의 이야기</p>
@@ -168,12 +185,10 @@ const Main = () => {
         </section>
         <section className="magazineSection">
           <div className="magazineBanner">
-            {/* <div className="magazineHead"> */}
-            <h4 className="h4Style">순간들의 무드</h4>
-            <p className="subscribeSubText">
+            <h3 className="magazineTitle">순간들의 무드</h3>
+            <p className="magazineSubText">
               향을 통해 달라지는 휴식을 만나보세요.
             </p>
-            {/* </div> */}
             <div className="magazineBody">
               <div className="leftArrow">
                 <IoIosArrowBack className="magazineArrow" />
@@ -182,8 +197,10 @@ const Main = () => {
                 {MAGAZINE_DATA.map(function (content) {
                   return (
                     <div className="magazineCard" key={content.id}>
+                      {/** TODO : 무료이미지로 사진 교체 */}
                       <img
                         className="imgBox"
+                        style={{ backgroundColor: content.magazineColor }}
                         src={content.magazineImg}
                         alt="사진"
                       />
@@ -197,6 +214,15 @@ const Main = () => {
                 <IoIosArrowForward className="magazineArrow" />
               </div>
             </div>
+          </div>
+        </section>
+        <section className="companySection">
+          <div className="companyBackground">
+            {/** TODO : 회사 배너 이미지 찾아서 넣어 두기 */}
+            {/*<img src="" alt='' /> */}
+          </div>
+          <div className="companyTextBox">
+            <p className="companyText">제주 티뮤지엄 티스톤</p>
           </div>
         </section>
       </div>
