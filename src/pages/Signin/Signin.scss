@@ -38,8 +38,11 @@
         @include inputBox;
         margin-bottom: 15px;
       }
-      .delBtn {
+      .idDelBtn {
         position: absolute;
+        top: 31.5%;
+        right: 39%;
+        transform: translate(50%, -50%);
         border: none;
         background-color: white;
         color: #898989;
@@ -48,6 +51,17 @@
       }
       .passwordInput {
         @include inputBox;
+      }
+      .pwDelBtn {
+        position: absolute;
+        top: 38%;
+        right: 39%;
+        transform: translate(50%, -50%);
+        border: none;
+        background-color: white;
+        color: #898989;
+        font-size: 30px;
+        cursor: pointer;
       }
     }
 

@@ -54,7 +54,7 @@ const Signin = () => {
               onChange={getUserId}
             />
             {idValue ? (
-              <button className="delBtn" type="button" onClick={idReset}>
+              <button className="idDelBtn" type="button" onClick={idReset}>
                 x
               </button>
             ) : null}
@@ -69,7 +69,7 @@ const Signin = () => {
               />
               {pwValue ? (
                 <button
-                  className="delBtn"
+                  className="pwDelBtn"
                   type="button"
                   onClick={passwordReset}
                 >
