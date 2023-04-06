@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "isSeleced": true,
+    "itemImage": "https://shop-phinf.pstatic.net/20210717_292/1626516116071n9pvx_JPEG/optimize1.jpg?type=w860",
+    "itemName": "레드파파야 블랙티 10입",
+    "itemquantity": 1,
+    "itemDiscount": 10,
+    "itemPrice": 15000
+  },
+  {
+    "id": 2,
+    "isSeleced": true,
+    "itemImage": "https://shop-phinf.pstatic.net/20210717_292/1626516116071n9pvx_JPEG/optimize1.jpg?type=w860",
+    "itemName": "제주 동백꽃 티",
+    "itemquantity": 1,
+    "itemDiscount": 0,
+    "itemPrice": 9500
+  },
+  {
+    "id": 3,
+    "isSeleced": true,
+    "itemImage": "https://shop-phinf.pstatic.net/20210717_292/1626516116071n9pvx_JPEG/optimize1.jpg?type=w860",
+    "itemName": "찬물 녹차",
+    "itemquantity": 1,
+    "itemDiscount": 0,
+    "itemPrice": 9500
+  },
+  {
+    "id": 4,
+    "isSeleced": true,
+    "itemImage": "https://shop-phinf.pstatic.net/20210717_292/1626516116071n9pvx_JPEG/optimize1.jpg?type=w860",
+    "itemName": "우전 60g",
+    "itemquantity": 1,
+    "itemDiscount": 0,
+    "itemPrice": 70000
+  },
+  {
+    "id": 5,
+    "isSeleced": true,
+    "itemImage": "https://shop-phinf.pstatic.net/20210717_292/1626516116071n9pvx_JPEG/optimize1.jpg?type=w860",
+    "itemName": "내열유리 홀더",
+    "itemquantity": 1,
+    "itemDiscount": 10,
+    "itemPrice": 24000
+  }
+]
