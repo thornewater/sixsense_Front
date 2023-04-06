@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "pdImage": "/images/product_img_1.png",
+    "pdImage": "/images/insense_2.jpeg",
     "pdColor": "#BBD6B8",
     "pdName": "제주 순수녹차",
     "discount": 0,
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "pdImage": "/images/product_img_2.png",
+    "pdImage": "/images/insense_2.jpeg",
     "pdColor": "#AEC2B6",
     "pdName": "삼다 꿀배 티",
     "discount": 0,
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "pdImage": "/images/product_img_3.png",
+    "pdImage": "/images/insense_2.jpeg",
     "pdColor": "#94AF9F",
     "pdName": "녹차 밀크 스프레드",
     "discount": 10,
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "pdImage": "/images/product_img_4.png",
+    "pdImage": "/images/insense_2.jpeg",
     "pdColor": "#DBE4C6",
     "pdName": "덖음차 50g",
     "discount": 0,
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "pdImage": "/images/product_img_5.png",
+    "pdImage": "/images/insense_2.jpeg",
     "pdColor": "#FEFAE0",
     "pdName": "그린티 롤케이크",
     "discount": 0,

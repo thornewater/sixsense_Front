@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
-// TODO : 무료 이미지 찾은 후 교체
-// import todayBg from '../assets/images/today_product_1.jpeg';
-// import subsImg1 from '../assets/images/subscribe_1.jpeg';
-// import subsImg2 from '../assets/images/subscribe_2.jpeg';
-// import subsImg3 from '../assets/images/subscribe_3.jpeg';
 import { BANNER_INFO, MAGAZINE_DATA } from './MainData';
+import todayBg from '../assets/images/insense_6.JPG';
 import './Main.scss';
 
 const Main = () => {
@@ -29,9 +25,7 @@ const Main = () => {
               <div
                 key={banner.id}
                 className="mainBanner"
-                // TODO : mainBanner image 사진 교체
-                // style={{ backgroundImage: `url(${banner.bannerImg})` }}
-                style={{ backgroundColor: banner.bannerBackgroundColor }}
+                style={{ backgroundImage: `url(${banner.bannerImg})` }}
               >
                 <div className="alignText">
                   <span className="bannerTitle">{banner.bannerTitle}</span>
@@ -46,8 +40,6 @@ const Main = () => {
         <IoIosArrowBack className="mainArrowIcon" />
         <IoIosArrowForward className="mainArrowIcon" />
       </div>
-      {/** 기능구현 - pagination을 넣을 때 위치를 빠르게 파악하기 위해 주석처리 했습니다. */}
-      {/* <div className="mainPagination"></div> */}
       <div className="mainContents">
         <div className="mainNotice">
           <p className="notice">공지사항</p>
@@ -66,16 +58,11 @@ const Main = () => {
               return (
                 <div className="recommendProduct" key={product.id}>
                   <div className="productInfo">
-                    <div
-                      className="productImg"
-                      style={{ backgroundColor: product.pdColor }}
-                    />
-                    {/** TODO : productImg image 사진 교체 */}
-                    {/* <img
+                    <img
                       className="productImg"
                       src={product.pdImage}
                       alt="상품 이미지"
-                    /> */}
+                    />
                     <p className="productName">
                       <a>{product.pdName}</a>
                     </p>
@@ -114,9 +101,7 @@ const Main = () => {
         <section className="todayRecommend">
           <div
             className="todayBg"
-            // TODO : todayBg image 사진 교체
-            // style={{ backgroundImage: `url(${todayBg})` }}
-            style={{ backgroundColor: '#57C5B6' }}
+            style={{ backgroundImage: `url(${todayBg})` }}
           />
           <div className="todayTextArea">
             <div className="todayTimeText">
@@ -137,22 +122,18 @@ const Main = () => {
             <p className="subscribeSubText">
               여러가지 인센스 들로 더욱 평안해지는 휴식 시간을 가져보세요.
             </p>
-            {/** TODO : 여러 정보 사진들 image 사진 교체 */}
             <div className="subscribeFlexBox">
               <div
                 className="insenseLife"
-                // style={{ backgroundImage: `url(${subsImg1})` }}
                 style={{ backgroundColor: '#C9EEFF' }}
               />
               <div className="subscribeContainer">
                 <div
                   className="insenseMood"
-                  // style={{ backgroundImage: `url(${subsImg2})` }}
                   style={{ backgroundColor: '#97DEFF' }}
                 />
                 <div
                   className="insensePost"
-                  // style={{ backgroundImage: `url(${subsImg3})` }}
                   style={{ backgroundColor: '#62CDFF' }}
                 />
               </div>
@@ -197,7 +178,6 @@ const Main = () => {
                 {MAGAZINE_DATA.map(function (content) {
                   return (
                     <div className="magazineCard" key={content.id}>
-                      {/** TODO : 무료이미지로 사진 교체 */}
                       <img
                         className="imgBox"
                         style={{ backgroundColor: content.magazineColor }}
@@ -217,10 +197,7 @@ const Main = () => {
           </div>
         </section>
         <section className="companySection">
-          <div className="companyBackground">
-            {/** TODO : 회사 배너 이미지 찾아서 넣어 두기 */}
-            {/*<img src="" alt='' /> */}
-          </div>
+          <div className="companyBackground" />
           <div className="companyTextBox">
             <p className="companyText">제주 티뮤지엄 티스톤</p>
           </div>
