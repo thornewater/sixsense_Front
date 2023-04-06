@@ -6,11 +6,12 @@ const Footer = () => {
     <div className="footer">
       <div className="footerContents">
         <div className="logoImg">
-          <img
+          {/* 나중에 무료이미지 찾아서 넣을 때를 대비해 주석을 삭제하지 않았습니다. */}
+          {/* <img
             clsssName="logo"
             src="/images/osulloc_logo.png"
             alt="오설록 로고"
-          />
+          /> */}
         </div>
         <div className="webInfo">
           <ul className="serviceInfo">

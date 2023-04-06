@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavMore from './NavMore';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import './Nav.scss';
 
 const Nav = () => {
@@ -22,9 +23,11 @@ const Nav = () => {
             <li>브랜드</li>
           </ul>
         </div>
-        <div className="navCartandLogin">
+        <div className="navCartAndLogin">
           <ul className="cartLogin">
-            <li>장바구니</li>
+            <li>
+              <AiOutlineShoppingCart size={20} />
+            </li>
             <li>로그인</li>
           </ul>
         </div>
