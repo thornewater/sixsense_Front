@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './GoodList.scss';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-// import { AiOutlineHeart } from 'react-icons/ai';
-// import { AiFillHeart } from 'react-icons/ai';
 import { Heart } from './Heart';
+import { hover } from '@testing-library/user-event/dist/hover';
 
 const GoodList = () => {
   const [list, setList] = useState([]);
@@ -18,12 +17,16 @@ const GoodList = () => {
 
   return (
     <div className="goodList">
-      {list.map(({ id, image1, image2, title, price }) => {
+      {list.map(({ id, rendingImage, hoverImage, title, price }) => {
         return (
           <div key={id} className="goodListItem">
             <div className="image">
-              <img className="rendingImage" src={image1} alt="rendingImage" />
-              <img className="hoverImage" src={image2} alt="hoverImage" />
+              <img
+                className="rendingImage"
+                src={rendingImage}
+                alt="rendingImage"
+              />
+              <img className="hoverImage" src={hoverImage} alt="hoverImage" />
               <AiOutlineShoppingCart
                 className="hoverCart"
                 onClick={() => {

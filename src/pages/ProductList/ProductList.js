@@ -1,6 +1,5 @@
 import React from 'react';
 import './ProductList.scss';
-
 import NameBar from './components/NameBar/NameBar';
 import SortBar from './components/SortBar/SortBar';
 import GoodList from './components/GoodList/GoodList';

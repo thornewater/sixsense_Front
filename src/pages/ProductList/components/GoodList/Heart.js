@@ -3,23 +3,16 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { AiFillHeart } from 'react-icons/ai';
 
 export const Heart = () => {
-  const [liked, setLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const switchLikes = () => {
+    setIsLiked(prev => !prev);
+  };
   return (
     <div>
-      {liked ? (
-        <AiFillHeart
-          onClick={() => setLiked(!liked)}
-          className="heart"
-          liked={liked}
-          setLiked={setLiked}
-        />
+      {isLiked ? (
+        <AiFillHeart onClick={switchLikes} className="heart" />
       ) : (
-        <AiOutlineHeart
-          onClick={() => setLiked(!liked)}
-          className="heart"
-          liked={liked}
-          setLiked={setLiked}
-        />
+        <AiOutlineHeart onClick={switchLikes} className="heart" />
       )}
     </div>
   );
