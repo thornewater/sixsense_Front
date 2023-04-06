@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './GoodList.scss';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Heart } from './Heart';
-import { hover } from '@testing-library/user-event/dist/hover';
 
 const GoodList = () => {
   const [list, setList] = useState([]);
