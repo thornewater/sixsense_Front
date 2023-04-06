@@ -1,22 +1,16 @@
 import React from 'react';
 import './Signup.scss';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="signup">
       <div className="header">
         <div className="headerBox">
           <div className="inner">
             <h1 className="pageTitle">정보입력 및 약관동의</h1>
-            <button
-              className="btnPageClose"
-              type="button"
-              onClick={() => navigate('/signin')}
-            >
-              X
+            <button className="btnPageClose" type="button">
+              <Link to="/signin">X</Link>
             </button>
           </div>
         </div>
@@ -58,7 +52,7 @@ const Signup = () => {
               placeholder="비밀번호 입력(영문 소문자,숫자,특수문자 조합 8-16자)"
             />
           </div>
-          <div>
+          <div className="confirm">
             <input
               className="passwordCheck"
               type="password"

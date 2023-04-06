@@ -68,9 +68,19 @@
     @include inputBox;
     margin-bottom: 15px;
   }
-  .passwordCheck {
-    @include inputBox;
+  .confirm {
+    position: relative;
+    .passwordCheck {
+      @include inputBox;
+    }
+    .delBtn {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translate(50%, -50%);
+    }
   }
+
   .pwNotice {
     display: flex;
     justify-content: flex-end;
