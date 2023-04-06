@@ -17,19 +17,25 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="Main">
+    <div className="main">
+      {/** TODO : 캐러셀 기능 적용 */}
       <div className="bannerBody">
         <div className="bannerContainer">
-          {BANNER_INFO.map(function (banner) {
+          {BANNER_INFO.map(function ({
+            id,
+            bannerImg,
+            bannerTitle,
+            bannerText,
+          }) {
             return (
               <div
-                key={banner.id}
+                key={id}
                 className="mainBanner"
-                style={{ backgroundImage: `url(${banner.bannerImg})` }}
+                style={{ backgroundImage: `url(${bannerImg})` }}
               >
                 <div className="alignText">
-                  <span className="bannerTitle">{banner.bannerTitle}</span>
-                  <span className="bannerText">{banner.bannerText}</span>
+                  <span className="bannerTitle">{bannerTitle}</span>
+                  <span className="bannerText">{bannerText}</span>
                 </div>
               </div>
             );
@@ -50,23 +56,23 @@ const Main = () => {
             <IoIosArrowForward style={{ marginRight: '10px' }} />
           </div>
         </div>
-        {/** 추천 목록 캐러셀 지역 */}
+        {/** TODO : 캐러셀 기능 적용 */}
         <section className="recommendSector">
           <div className="recommendTitle">오래 기억될 순간들</div>
           <div className="recommendList">
-            {productList.map(function (product) {
+            {productList.map(function ({ id, pdImage, pdName, pdPrice }) {
               return (
-                <div className="recommendProduct" key={product.id}>
+                <div className="recommendProduct" key={id}>
                   <div className="productInfo">
                     <img
                       className="productImg"
-                      src={product.pdImage}
+                      src={pdImage}
                       alt="상품 이미지"
                     />
                     <p className="productName">
-                      <a>{product.pdName}</a>
+                      <a>{pdName}</a>
                     </p>
-                    <p className="pdPrice">{product.pdPrice}</p>
+                    <p className="pdPrice">{pdPrice}</p>
                   </div>
                 </div>
               );
@@ -97,7 +103,7 @@ const Main = () => {
             </button>
           </div>
         </section>
-        {/** 오늘의 추천 지역 */}
+        {/** TODO : 추천상품 타이머 기능 */}
         <section className="todayRecommend">
           <div
             className="todayBg"
@@ -115,7 +121,6 @@ const Main = () => {
             </div>
           </div>
         </section>
-        {/** 구독 지역  */}
         <section className="subscribeSection">
           <div className="subscribeBanner">
             <h4 className="h4Style">깊어지는 나날</h4>
@@ -123,19 +128,10 @@ const Main = () => {
               여러가지 인센스 들로 더욱 평안해지는 휴식 시간을 가져보세요.
             </p>
             <div className="subscribeFlexBox">
-              <div
-                className="insenseLife"
-                style={{ backgroundColor: '#C9EEFF' }}
-              />
+              <div className="insenseLife" />
               <div className="subscribeContainer">
-                <div
-                  className="insenseMood"
-                  style={{ backgroundColor: '#97DEFF' }}
-                />
-                <div
-                  className="insensePost"
-                  style={{ backgroundColor: '#62CDFF' }}
-                />
+                <div className="insenseMood" />
+                <div className="insensePost" />
               </div>
             </div>
           </div>
@@ -156,7 +152,7 @@ const Main = () => {
               <div className="storyBox">
                 <img
                   className="storyImg"
-                  src="/images/insense_6.JPG"
+                  src="/images/insense_4.jpeg"
                   alt="우리의 이야기"
                 />
                 <p className="storyText">우리의 이야기</p>
@@ -175,17 +171,18 @@ const Main = () => {
                 <IoIosArrowBack className="magazineArrow" />
               </div>
               <div className="swipeContainer">
-                {MAGAZINE_DATA.map(function (content) {
+                {MAGAZINE_DATA.map(function ({
+                  id,
+                  magazineColor,
+                  magazineImg,
+                  magazineTitle,
+                  magazineSubText,
+                }) {
                   return (
-                    <div className="magazineCard" key={content.id}>
-                      <img
-                        className="imgBox"
-                        style={{ backgroundColor: content.magazineColor }}
-                        src={content.magazineImg}
-                        alt="사진"
-                      />
-                      <p className="textBold">{content.magazineTitle}</p>
-                      <p className="textSub">{content.magazineSubText}</p>
+                    <div className="magazineCard" key={id}>
+                      <img className="imgBox" src={magazineImg} alt="사진" />
+                      <p className="textBold">{magazineTitle}</p>
+                      <p className="textSub">{magazineSubText}</p>
                     </div>
                   );
                 })}
