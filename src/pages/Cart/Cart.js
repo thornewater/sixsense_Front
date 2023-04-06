@@ -50,8 +50,20 @@ const Cart = () => {
                   <p>15000원</p>
                 </div>
               </div>
+              <div className="purchaseNow">
+                <button>바로구매</button>
+              </div>
             </li>
           </ul>
+        </div>
+        <div className="orderBtnContainer">
+          <div className="upperBtnBox">
+            <button>선택상품 주문</button>
+            <button>선택상품 선물하기</button>
+          </div>
+          <div className="bottomBtnBox">
+            <button>전체상품 주문하기</button>
+          </div>
         </div>
       </section>
     </div>
