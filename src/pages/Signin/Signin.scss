@@ -34,34 +34,25 @@
       }
     }
     .loginForm {
+      position: relative;
       .loginInput {
         @include inputBox;
         margin-bottom: 15px;
       }
       .idDelBtn {
-        position: absolute;
-        top: 31.5%;
-        right: 39%;
+        @include delBtn;
+        top: 20%;
+        right: 5%;
         transform: translate(50%, -50%);
-        border: none;
-        background-color: white;
-        color: #898989;
-        font-size: 30px;
-        cursor: pointer;
       }
       .passwordInput {
         @include inputBox;
       }
       .pwDelBtn {
-        position: absolute;
-        top: 38%;
-        right: 39%;
+        @include delBtn;
+        top: 75%;
+        right: 5%;
         transform: translate(50%, -50%);
-        border: none;
-        background-color: white;
-        color: #898989;
-        font-size: 30px;
-        cursor: pointer;
       }
     }
 

@@ -23,7 +23,11 @@ const Signin = () => {
     setPwValue('');
   };
 
-  const validate = idValue.length >= 1 && pwValue.length >= 1;
+  const validate =
+    idValue.match(/^[a-z0-9]{4,12}$/) &&
+    pwValue.match(
+      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
+    );
 
   return (
     <div className="signin">
