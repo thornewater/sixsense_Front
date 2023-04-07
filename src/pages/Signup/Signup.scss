@@ -28,68 +28,70 @@
   flex-wrap: wrap;
   align-content: center;
   .loginSection {
-    .loginGuide {
-      margin: 80px 0;
-      font-size: 30px;
-      font-weight: bold;
-      text-align: center;
+    position: relative;
+    .nameInput {
+      @include inputBox;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    .nameDelBtn {
+      @include delBtn;
+      top: 3.5%;
+      right: 1%;
+    }
+    .phoneInput {
+      @include inputBox;
+      margin-bottom: 15px;
+    }
+    .phoneDelBtn {
+      @include delBtn;
+      top: 11%;
+      right: 1%;
+    }
+    .dateInput {
+      @include inputBox;
+      margin-bottom: 15px;
+    }
+    .genderInput {
+      @include inputBox;
+      margin-bottom: 15px;
+    }
+    .idInput {
+      @include inputBox;
+      margin-bottom: 15px;
+    }
+    .idDelBtn {
+      @include delBtn;
+      top: 32%;
+      right: 1%;
+    }
+
+    .passwordInput {
+      @include inputBox;
+      margin-bottom: 15px;
+    }
+    .pwDelBtn {
+      @include delBtn;
+      top: 39.3%;
+      right: 1%;
+    }
+    .passwordCheck {
+      @include inputBox;
+    }
+    .pwCheckDelBtn {
+      @include delBtn;
+      top: 46.5%;
+      right: 1%;
+    }
+
+    .pwNotice {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 20px;
+      color: #898989;
     }
   }
-  .nameInput {
-    @include inputBox;
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
-  .nameDelBtn {
-    @include delBtn;
-    // top: 13.5%;
-    // right: 33%;
-    // transform: translate(50%, -50%);
-  }
-  .phoneInput {
-    @include inputBox;
-    margin-bottom: 15px;
-  }
-  .phoneDelBtn {
-    @include delBtn;
-    // top: 20%;
-    // right: 30%;
-  }
-  .dateInput {
-    @include inputBox;
-    margin-bottom: 15px;
-  }
-  .genderInput {
-    @include inputBox;
-    margin-bottom: 15px;
-  }
-  .idInput {
-    @include inputBox;
-    margin-bottom: 15px;
-  }
-  .idDelBtn {
-    @include delBtn;
-  }
-  .passwordInput {
-    @include inputBox;
-    margin-bottom: 15px;
-  }
-  .pwDelBtn {
-    @include delBtn;
-  }
-  .passwordCheck {
-    @include inputBox;
-  }
-  .pwCheckDelBtn {
-    @include delBtn;
-  }
 
-  .pwNotice {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 20px;
-    color: #898989;
-  }
   .agreedBox {
     margin: 20px 0;
     padding: 10px;

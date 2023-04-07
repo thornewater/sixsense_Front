@@ -11,6 +11,7 @@ const Signup = () => {
   const [idValue, setIdValue] = useState('');
   const [pwValue, setPwValue] = useState('');
   const [pwCheckValue, setPwCheckValue] = useState('');
+  const [checkBoxActive, setCheckboxActive] = useState('');
 
   const getUserName = event => {
     setNameValue(event.target.value);
@@ -40,6 +41,10 @@ const Signup = () => {
     setPwCheckValue(event.target.value);
   };
 
+  const getCheckBox = () => {
+    setCheckboxActive(!checkBoxActive);
+  };
+
   const nameReset = () => {
     setNameValue('');
   };
@@ -62,14 +67,14 @@ const Signup = () => {
 
   const validate =
     nameValue.length >= 1 &&
-    phoneValue.length >= 1 &&
+    phoneValue.match(/^[0-9]{10,11}$/) &&
     dateValue.length >= 1 &&
     genderValue.length >= 1 &&
     idValue.match(/^[a-z0-9]{4,12}$/) &&
     pwValue.match(
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
-    ); //&&
-  //pwCheckValue.length >= 1;
+    ) &&
+    pwCheckValue.length >= 1;
 
   return (
     <div className="signup">
@@ -105,7 +110,7 @@ const Signup = () => {
           <div>
             <input
               className="phoneInput"
-              type="number"
+              type="text"
               placeholder="휴대폰번호"
               value={phoneValue}
               name="phoneValue"
@@ -200,9 +205,15 @@ const Signup = () => {
           </div>
 
           <div className="agreedBox">
-            <details className="accordion" open>
+            <div className="accordion" open>
               <summary className="accordionMain">
-                <input className="agreedCheck" type="checkbox" />
+                <input
+                  className="agreedCheck"
+                  type="checkbox"
+                  value={checkBoxActive}
+                  name="checkBoxActive"
+                  onChange={getCheckBox}
+                />
                 <label className="accordionText">
                   모든 약관 및 정보 수신 동의
                 </label>
@@ -226,7 +237,7 @@ const Signup = () => {
                   <span>[선택] 문자 수신 동의</span>
                 </li>
               </ul>
-            </details>
+            </div>
           </div>
 
           <div>
