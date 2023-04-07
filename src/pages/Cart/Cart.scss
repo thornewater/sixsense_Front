@@ -88,6 +88,7 @@
           align-items: center;
           width: 100%;
           padding: 20px 8px;
+          border-bottom: 1px solid lightgray;
 
           .checkbox {
             display: inline-block;
@@ -115,8 +116,10 @@
 
           .quantityBox {
             display: flex;
+            align-items: center;
             justify-content: space-between;
             width: 40%;
+            height: 70px;
 
             .count {
               display: flex;
@@ -129,6 +132,10 @@
                 font-size: 14px;
                 font-weight: 300;
                 text-align: center;
+
+                &:focus {
+                  outline: none;
+                }
               }
 
               button {
@@ -139,6 +146,59 @@
                 font-weight: 300;
               }
             }
+
+            .price {
+              margin-left: 0;
+              font-size: 16px;
+              font-weight: 500;
+            }
+          }
+
+          .purchaseNow {
+            display: block;
+            width: 120px;
+            margin-left: 40px;
+
+            button {
+              width: 100%;
+              padding: 12px;
+              border: 1px solid lightgray;
+              border-radius: 5px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+
+      .orderBtnContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-top: 40px;
+
+        .upperBtnBox {
+          display: flex;
+          justify-content: center;
+          width: 60%;
+          margin: 0 auto;
+          gap: 10px;
+
+          button {
+            padding: 15px;
+            border-radius: 5px;
+          }
+        }
+
+        .bottomBtnBox {
+          display: flex;
+          justify-content: center;
+          width: 60%;
+          margin: 0 auto;
+
+          button {
+            padding: 15px;
+            border-radius: 5px;
           }
         }
       }
