@@ -15,24 +15,28 @@ const Cart = () => {
   }, []);
 
   return (
-    <div className="Cart">
+    <div className="cart">
       <section className="cartBanner">
         <div className="cartTitle">
-          <h2>장바구니</h2>
+          <h2 className="titleText">장바구니</h2>
         </div>
       </section>
       <section className="cartInner">
-        <div className="cartChoice">
-          <div className="allSelect">전체선택</div>
-          <div className="selectDel">선택 삭제</div>
-        </div>
-        <div className="listContainer">
-          <ul className="cartItems">
+        <div className="cartList">
+          <div className="cartChoice">
+            <div className="allChk">
+              <input type="checkbox" className="checkbox" />
+              <div className="allSelect">전체선택</div>
+            </div>
+            <div className="selectDel">
+              <div className="borderLine" />
+              <button className="selectChk">선택 삭제</button>
+            </div>
+          </div>
+          <ul className="listContainer">
             <li className="product">
-              <div className="chkBox">
-                <input type="checkbox" />
-              </div>
-              <div className="ProductImgName">
+              <input type="checkbox" className="checkbox" />
+              <div className="productImgName">
                 <div className="imgBox">
                   <img />
                 </div>
@@ -55,14 +59,14 @@ const Cart = () => {
               </div>
             </li>
           </ul>
-        </div>
-        <div className="orderBtnContainer">
-          <div className="upperBtnBox">
-            <button>선택상품 주문</button>
-            <button>선택상품 선물하기</button>
-          </div>
-          <div className="bottomBtnBox">
-            <button>전체상품 주문하기</button>
+          <div className="orderBtnContainer">
+            <div className="upperBtnBox">
+              <button>선택상품 주문</button>
+              <button>선택상품 선물하기</button>
+            </div>
+            <div className="bottomBtnBox">
+              <button>전체상품 주문하기</button>
+            </div>
           </div>
         </div>
       </section>
