@@ -144,6 +144,10 @@
                 border: none;
                 font-size: 14px;
                 font-weight: 300;
+
+                &:hover {
+                  cursor: pointer;
+                }
               }
             }
 
@@ -165,6 +169,10 @@
               border: 1px solid lightgray;
               border-radius: 5px;
               font-weight: 400;
+
+              &:hover {
+                cursor: pointer;
+              }
             }
           }
         }
@@ -185,8 +193,13 @@
           gap: 10px;
 
           button {
+            width: 100%;
             padding: 15px;
             border-radius: 5px;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
 
@@ -194,11 +207,16 @@
           display: flex;
           justify-content: center;
           width: 60%;
-          margin: 0 auto;
+          margin: 10px auto;
 
           button {
+            width: 100%;
             padding: 15px;
             border-radius: 5px;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }
