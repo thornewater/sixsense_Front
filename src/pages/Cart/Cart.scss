@@ -116,6 +116,29 @@
           .quantityBox {
             display: flex;
             justify-content: space-between;
+            width: 40%;
+
+            .count {
+              display: flex;
+              border-radius: 5px;
+
+              input {
+                flex: 1 1 auto;
+                width: 40px;
+                border: none;
+                font-size: 14px;
+                font-weight: 300;
+                text-align: center;
+              }
+
+              button {
+                width: 40px;
+                height: 40px;
+                border: none;
+                font-size: 14px;
+                font-weight: 300;
+              }
+            }
           }
         }
       }
