@@ -1,0 +1,24 @@
+.sortBar {
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    display: flex;
+
+    li {
+      width: 70px;
+      margin-bottom: 50px;
+      margin-left: 10px;
+      padding: 8px 0;
+      border: 1px solid white;
+      border: 1px solid rgba(226, 215, 197, 255);
+      border-radius: 40px;
+      color: rgba(192, 192, 192, 255);
+      text-align: center;
+      &:hover {
+        border-color: green;
+        color: green;
+      }
+    }
+  }
+}
