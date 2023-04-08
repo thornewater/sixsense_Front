@@ -1,0 +1,27 @@
+.productList {
+  background-color: rgba(238, 227, 212, 255);
+  font-family: 'Montserrat', sans-serif;
+  .categoryBanner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 380px;
+    background-color: #9d887d;
+
+    .categoryBannerTitle {
+      color: rgba(192, 192, 192, 255);
+      font-size: 60px;
+    }
+  }
+
+  .inner {
+    display: flex;
+    justify-content: center;
+    margin: 40px 180px 0 180px;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

@@ -14,7 +14,7 @@
     transition: 0.3s;
 
     &:hover {
-      background-color: whitesmoke;
+      background-color: #9e887c;
     }
 
     .category {
@@ -28,7 +28,7 @@
         padding-right: 40px;
 
         &:hover {
-          color: #9d887d;
+          color: whitesmoke;
           cursor: pointer;
         }
       }
@@ -63,7 +63,7 @@
           margin-left: 50px;
 
           &:hover {
-            color: #9d887d;
+            color: whitesmoke;
             cursor: pointer;
           }
         }
@@ -80,8 +80,7 @@
       margin: 0 auto;
       padding-right: 190px;
       padding-left: 190px;
-      border-top: 1px solid lightgray;
-      background-color: whitesmoke;
+      background-color: #9e887c;
     }
   }
 }

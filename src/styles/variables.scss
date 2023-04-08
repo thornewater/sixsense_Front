@@ -1,1 +1,15 @@
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+@mixin inputBox {
+  width: 440px;
+  height: 50px;
+  padding: 0 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  color: #898989;
+  font-size: 18px;
+}
