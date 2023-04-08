@@ -9,11 +9,14 @@ const Main = () => {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/data.json', {
+    fetch('http://10.58.52.92:3000/products/productlist', {
       method: 'GET',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
     })
       .then(response => response.json())
-      .then(data => setProductList(data));
+      .then(data => {
+        setProductList(data);
+      });
   }, []);
 
   return (
@@ -60,23 +63,22 @@ const Main = () => {
         <section className="recommendSector">
           <div className="recommendTitle">오래 기억될 순간들</div>
           <div className="recommendList">
-            {productList.map(function ({ id, pdImage, pdName, pdPrice }) {
-              return (
-                <div className="recommendProduct" key={id}>
+            {productList &&
+              productList.map(item => (
+                <div className="recommendProduct" key={item.productId}>
                   <div className="productInfo">
                     <img
                       className="productImg"
-                      src={pdImage}
+                      src={item.productImage[0]}
                       alt="상품 이미지"
                     />
                     <p className="productName">
-                      <a>{pdName}</a>
+                      <a>{item.productName}</a>
                     </p>
-                    <p className="pdPrice">{pdPrice}</p>
+                    <p className="pdPrice">{item.productPrice}</p>
                   </div>
                 </div>
-              );
-            })}
+              ))}
           </div>
           <div
             style={{
