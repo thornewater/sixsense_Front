@@ -1,14 +1,16 @@
 import React from 'react';
-import { MdNavigateNext } from 'react-icons/md';
-import { MdNavigateBefore } from 'react-icons/md';
 import './ChangeBtn.scss';
 
 const ChangeBtn = () => {
   return (
     <div className="changeBtn">
-      <MdNavigateBefore className="before" />
-      <p className="pageNumber">1</p>
-      <MdNavigateNext className="after" />
+      <button className="pageNumber">1</button>
+      <button className="pageNumber">2</button>
+      <button className="pageNumber">3</button>
+      <button className="pageNumber">4</button>
+      <button className="pageNumber">5</button>
+      <button className="pageNumber">6</button>
+      <button className="pageNumber">7</button>
     </div>
   );
 };

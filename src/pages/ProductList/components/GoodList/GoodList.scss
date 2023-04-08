@@ -67,17 +67,21 @@
       font-size: 13px;
     }
 
-    .heart {
-      width: 25px;
-      height: 25px;
-      margin-right: 8px;
-      margin-bottom: -9px;
-      color: rgba(192, 192, 192, 255);
-    }
+    .heartCount {
+      display: flex;
 
-    .count {
-      color: rgba(192, 192, 192, 255);
-      font-weight: bold;
+      .heart {
+        width: 25px;
+        height: 25px;
+        margin-right: 8px;
+        margin-bottom: -9px;
+        color: rgba(192, 192, 192, 255);
+      }
+
+      .count {
+        color: rgba(192, 192, 192, 255);
+        font-weight: bold;
+      }
     }
   }
 }

@@ -8,40 +8,64 @@ const GoodList = () => {
   const [list, setList] = useState([]);
   const navigate = useNavigate();
 
+  // const makeArray = value => {
+  //   JSON.parse(value);
+  // };
+
   useEffect(() => {
-    fetch('data/good.json')
+    fetch('http://10.58.52.92:3000/products/productlist', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(res => res.json())
-      .then(result => setList(result));
+      .then(data => setList(data));
   }, []);
+
+  console.log(list);
 
   return (
     <div className="goodList">
-      {list.map(({ id, rendingImage, hoverImage, title, price }) => {
-        return (
-          <div key={id} className="goodListItem">
-            <div className="image">
-              <img
-                className="rendingImage"
-                src={rendingImage}
-                alt="rendingImage"
-              />
-              <img className="hoverImage" src={hoverImage} alt="hoverImage" />
-              <AiOutlineShoppingCart
-                className="hoverCart"
-                onClick={() => {
-                  navigate('/cart');
-                }}
-              />
-            </div>
-            <p className="item">{title}</p>
-            <p className="price"> {price} WON</p>
-            <div>
-              <Heart />
-              <span className="count">1</span>
-            </div>
-          </div>
-        );
-      })}
+      {list &&
+        list.map(
+          ({
+            productId,
+            productImage,
+            // hoverImage,
+            productName,
+            productPrice,
+          }) => {
+            return (
+              <div key={productId} className="goodListItem">
+                <div className="image">
+                  <img
+                    className="rendingImage"
+                    src={productImage[0]}
+                    alt="rendingImage"
+                  />
+                  <img
+                    className="hoverImage"
+                    src={productImage[1]}
+                    alt="hoverImage"
+                  />
+                  <AiOutlineShoppingCart
+                    className="hoverCart"
+                    onClick={() => {
+                      navigate('/cart');
+                    }}
+                  />
+                </div>
+                <p className="item">{productName}</p>
+                <p className="price"> {productPrice} WON</p>
+                <div className="heartCount">
+                  <Heart />
+                  <span className="count">1</span>
+                </div>
+              </div>
+            );
+          }
+        )}
     </div>
   );
 };
