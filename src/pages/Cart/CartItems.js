@@ -3,32 +3,32 @@ import './CartItems.scss';
 
 export const CartItems = ({ lists }) => {
   return (
-    <div className="CartItems">
+    <div className="cartItems">
       <ul className="listContainer">
-        {lists.map(function (item) {
+        {lists.map(function (product) {
           return (
-            <li className="product" key={item.id}>
+            <li className="product" key={product.id}>
               <input type="checkbox" className="checkbox" />
               <div className="productImgName">
                 <div className="imgBox">
                   <img
-                    src={item.detail_image}
+                    src={product.detail_image}
                     alt="제품사진"
                     style={{ width: '100%' }}
                   />
                 </div>
                 <div className="textBox">
-                  <p>{item.name}</p>
+                  <p>{product.name}</p>
                 </div>
               </div>
               <div className="quantityBox">
                 <div className="count">
                   <button>-</button>
-                  <input type="text" defaultValue={item.quantity} />
+                  <input type="text" defaultValue={product.quantity} />
                   <button>+</button>
                 </div>
                 <div className="price">
-                  <p>{item.price}</p>
+                  <p>{product.price}</p>
                 </div>
               </div>
               <div className="purchaseNow">

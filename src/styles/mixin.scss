@@ -1,0 +1,10 @@
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin buttonStyle {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-weight: 400;
+}
