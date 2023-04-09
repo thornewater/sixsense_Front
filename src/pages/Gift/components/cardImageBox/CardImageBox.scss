@@ -17,4 +17,18 @@
     width: 400px;
     height: 88px;
   }
+
+  .cardMessage {
+    position: relative;
+    textarea {
+      resize: none;
+    }
+    p {
+      position: absolute;
+      right: 3px;
+      bottom: 6px;
+      color: gray;
+      font-size: 12px;
+    }
+  }
 }

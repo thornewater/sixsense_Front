@@ -4,13 +4,27 @@
 
   .bothSide {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-top: 30px;
     padding-top: 30px;
     border-top: 1px solid black;
 
+    .subject {
+      font-weight: bold;
+    }
+
+    .senderInfo {
+      display: flex;
+      justify-content: space-between;
+    }
+
     .right {
       display: flex;
+
+      p {
+        margin-right: 10px;
+      }
     }
   }
 
@@ -32,6 +46,52 @@
         border-radius: 10px;
         background-color: rgba(238, 227, 212, 255);
         font-size: 15px;
+      }
+    }
+  }
+
+  .goodsInfo {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 30px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+    .giftSign {
+      margin-top: 30px;
+      font-weight: bold;
+    }
+
+    .generalGift {
+      padding-top: 20px;
+    }
+
+    .goodsTotal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 50px;
+      padding-bottom: 50px;
+
+      .leftGoodsDetail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .goodsImg {
+          width: 60px;
+          height: 60px;
+          margin-right: 30px;
+          margin-left: 20px;
+          background-color: orange;
+        }
+      }
+
+      .rightGoodsDetail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

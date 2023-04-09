@@ -9,9 +9,16 @@ const PriceInfo = () => {
           <p>총 포인트</p> <span>170,000원</span>
         </div>
       </div>
+
       <div className="details">
         <div className="detail">
-          <p>배송비</p> <span className="deliveryFee">2,000원</span>
+          <p>상품가격</p> <span className="deliveryFee">-30,000원</span>
+        </div>
+      </div>
+
+      <div className="details">
+        <div className="detail">
+          <p>배송비</p> <span className="deliveryFee">-2,000원</span>
         </div>
       </div>
       <div className="details">
