@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
-import './Main.scss';
 import { TodayCommend } from './TodayCommend/TodayCommend';
 import { SubscribeSection } from './SubscribeSection/SubscribeSection';
 import { BrandSection } from './BrandSection/BrandSection';
 import { MagazineSection } from './MagazineSection/MagazineSection';
 import { BannerContainer } from './BannerContainer/BannerContainer';
+import './Main.scss';
 
 const Main = () => {
   const [productList, setProductList] = useState([]);
@@ -67,21 +68,24 @@ const Main = () => {
               type="button"
               style={{
                 padding: '15px 60px',
-                border: '1px solid lightgray',
+                border: '1px solid lightgrey',
                 borderRadius: '5px',
                 textAlign: 'center',
                 display: 'flex',
                 alignItems: 'center',
-                color: '#252525',
                 backgroundColor: 'white',
                 cursor: 'pointer',
               }}
             >
-              더 보기 <IoIosArrowForward />
+              <Link
+                to="/productList"
+                style={{ textDecoration: 'none', color: '#252525' }}
+              >
+                더 보기 <IoIosArrowForward />
+              </Link>
             </button>
           </div>
         </section>
-        {/** TODO : 추천상품 타이머 기능 */}
         <TodayCommend />
         <SubscribeSection />
         <BrandSection />

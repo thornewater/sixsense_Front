@@ -35,3 +35,76 @@ export const BANNER_INFO = [
     bannerText: '다섯 번째의 소개글',
   },
 ];
+
+export const MAIN_PRODUCT = [
+  {
+    id: 1,
+    productImage: '/images/insense_2.jpeg',
+    productName: '오이뮤 무화과향',
+    productPrice: 16000,
+    discountRate: 0,
+  },
+  {
+    id: 2,
+    productImage: '/images/insense_2.jpeg',
+    productName: '오이뮤 백단나무향',
+    productPrice: 16000,
+    discountRate: 0.25,
+  },
+  {
+    id: 3,
+    productImage: '/images/insense_2.jpeg',
+    productName: '오이뮤 개암향',
+    productPrice: 15000,
+    discountRate: 0,
+  },
+  {
+    id: 4,
+    productImage: '/images/insense_2.jpeg',
+    productName: '오이뮤 춘계향',
+    productPrice: 16000,
+    discountRate: 0,
+  },
+  {
+    id: 5,
+    productImage: '/images/insense_2.jpeg',
+    productName: '오이뮤 하계',
+    productPrice: 16000,
+    discountRate: 0,
+  },
+  {
+    id: 6,
+    productImage: '/images/insense_2.jpeg',
+    productName: '백플로우 인센스 콘',
+    productPrice: 6800,
+    discountRate: 0.3,
+  },
+  {
+    id: 7,
+    productImage: '/images/insense_2.jpeg',
+    bannerTitle: 'HEM 인센스 콘',
+    productPrice: 2000,
+    discountRate: 0,
+  },
+  {
+    id: 8,
+    productImage: '/images/insense_2.jpeg',
+    productName: '아포테케 프라그란스',
+    productPrice: 12000,
+    discountRate: 0,
+  },
+  {
+    id: 9,
+    productImage: '/images/insense_2.jpeg',
+    productName: '어떤 어떤 향',
+    productPrice: 7500,
+    discountRate: 0.25,
+  },
+  {
+    id: 10,
+    productImage: '/images/insense_2.jpeg',
+    productName: '무슨 무슨 향',
+    productPrice: 11000,
+    discountRate: 0,
+  },
+];
