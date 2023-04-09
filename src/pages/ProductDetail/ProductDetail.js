@@ -7,8 +7,9 @@ const ProductDetail = () => {
     <div className="productDetail">
       <div className="wrap">
         <Image />
+        <Detail />
       </div>
-      <Detail />
+      <div className="productInfo">dsfsdf</div>
     </div>
   );
 };

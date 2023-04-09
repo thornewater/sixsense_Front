@@ -5,9 +5,10 @@ import './Image.scss';
 const Image = () => {
   return (
     <div className="image">
-      <img className="incense" src="/images/incense.jpeg" alt="detailpage" />
+      <img className="incense" src="/images/incense.png" alt="detailpage" />
       <div className="review">
-        <span className="starDots">리뷰 별점</span>
+        <span className="starDots">리뷰 별점 :</span>
+        <span className="reviewNum">4.7</span>
 
         <div className="stars">
           {STAR_REVIEW.map(star => {
