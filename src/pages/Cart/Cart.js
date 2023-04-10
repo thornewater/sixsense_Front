@@ -24,16 +24,6 @@ const Cart = () => {
       </section>
       <section className="cartInner">
         <div className="cartList">
-          <div className="cartChoice">
-            <div className="allChk">
-              <input type="checkbox" className="checkbox" />
-              <div className="allSelect">전체선택</div>
-            </div>
-            <div className="selectDel">
-              <div className="borderLine" />
-              <button className="selectChk">선택 삭제</button>
-            </div>
-          </div>
           <CartItems lists={lists} />
           <div className="orderBtnContainer">
             <div className="upperBtnBox">
