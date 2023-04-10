@@ -12,7 +12,7 @@ module.exports = {
     'at-rule-no-unknown': null,
     // scss를 사용하기 때문에 css영역에선 null로 처리합니다.
     'selector-class-pattern': '^[a-z][a-zA-Z0-9]+$',
-    // Team내 컨벤션으로 수정 (현재 lowerCamelCase)
+    // Team내 컨벤션으로 수정 (현재 camelCase)
     'keyframes-name-pattern': /^[a-z][a-zA-Z0-9]+$/,
     // Team내 컨벤션으로 수정 (현재 lowerCamelCase)
     'max-nesting-depth': 10, // 최대 nesting은 10depth 까지
