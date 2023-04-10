@@ -35,30 +35,89 @@
         font-weight: 500;
       }
 
-      .recommendList {
-        display: flex;
+      .recommendWrapper {
         position: relative;
-        width: 1120px;
-        margin: 0 auto;
-        overflow: hidden;
 
-        .recommendProduct {
-          margin-right: 10px;
-          .productImg {
-            width: 225px;
-            height: 250px;
-            margin-right: 10px;
-            margin-right: auto;
-            margin-left: auto;
-          }
+        .leftArrow {
+          position: absolute;
+          z-index: 10;
+          top: 34%;
+          left: 21%;
 
-          .productName {
-            .pdPrice {
-              font-size: 18px;
-              font-weight: 500;
+          .recommendArrow {
+            width: 40px;
+            height: 40px;
+            opacity: 0.5;
+
+            &:hover {
+              cursor: pointer;
             }
-            a {
+          }
+        }
+
+        .recommendList {
+          display: flex;
+          position: relative;
+          width: 1120px;
+          margin: 0 auto;
+          overflow: hidden;
+
+          .recommendProduct {
+            margin-right: 15px;
+            transition: all 1s;
+            .productImg {
+              width: 225px;
+              height: 250px;
+              margin-right: 10px;
+              margin-right: auto;
+              margin-left: auto;
+            }
+
+            .productName {
+              .pdPrice {
+                font-size: 18px;
+                font-weight: 500;
+              }
+              a {
+                font-size: 16px;
+              }
+            }
+            .pdPriceCancel {
+              color: rgb(131, 131, 131);
               font-size: 16px;
+              text-decoration: line-through;
+            }
+
+            .pdPriceDiscountBox {
+              display: flex;
+              align-items: center;
+
+              .pdPriceDiscount {
+                font-size: 18px;
+                font-weight: 500;
+              }
+              .percentText {
+                margin-left: 15px;
+                color: #b8621b;
+                font-size: 24px;
+              }
+            }
+          }
+        }
+
+        .rightArrow {
+          position: absolute;
+          z-index: 10;
+          top: 35%;
+          right: 21%;
+
+          .recommendArrow {
+            width: 40px;
+            height: 40px;
+            opacity: 0.5;
+
+            &:hover {
+              cursor: pointer;
             }
           }
         }

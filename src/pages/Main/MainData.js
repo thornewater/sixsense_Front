@@ -39,6 +39,7 @@ export const BANNER_INFO = [
 export const MAIN_PRODUCT = [
   {
     id: 1,
+    productId: 1,
     productImage: '/images/insense_2.jpeg',
     productName: '오이뮤 무화과향',
     productPrice: 16000,
@@ -46,6 +47,7 @@ export const MAIN_PRODUCT = [
   },
   {
     id: 2,
+    productId: 2,
     productImage: '/images/insense_2.jpeg',
     productName: '오이뮤 백단나무향',
     productPrice: 16000,
@@ -53,6 +55,7 @@ export const MAIN_PRODUCT = [
   },
   {
     id: 3,
+    productId: 3,
     productImage: '/images/insense_2.jpeg',
     productName: '오이뮤 개암향',
     productPrice: 15000,
@@ -60,6 +63,7 @@ export const MAIN_PRODUCT = [
   },
   {
     id: 4,
+    productId: 4,
     productImage: '/images/insense_2.jpeg',
     productName: '오이뮤 춘계향',
     productPrice: 16000,
@@ -67,6 +71,7 @@ export const MAIN_PRODUCT = [
   },
   {
     id: 5,
+    productId: 10,
     productImage: '/images/insense_2.jpeg',
     productName: '오이뮤 하계',
     productPrice: 16000,
@@ -74,6 +79,7 @@ export const MAIN_PRODUCT = [
   },
   {
     id: 6,
+    productId: 11,
     productImage: '/images/insense_2.jpeg',
     productName: '백플로우 인센스 콘',
     productPrice: 6800,
@@ -81,13 +87,15 @@ export const MAIN_PRODUCT = [
   },
   {
     id: 7,
+    productId: 12,
     productImage: '/images/insense_2.jpeg',
-    bannerTitle: 'HEM 인센스 콘',
+    productName: 'HEM 인센스 콘',
     productPrice: 2000,
     discountRate: 0,
   },
   {
     id: 8,
+    productId: 13,
     productImage: '/images/insense_2.jpeg',
     productName: '아포테케 프라그란스',
     productPrice: 12000,
@@ -95,6 +103,7 @@ export const MAIN_PRODUCT = [
   },
   {
     id: 9,
+    productId: 14,
     productImage: '/images/insense_2.jpeg',
     productName: '어떤 어떤 향',
     productPrice: 7500,
@@ -102,6 +111,7 @@ export const MAIN_PRODUCT = [
   },
   {
     id: 10,
+    productId: 15,
     productImage: '/images/insense_2.jpeg',
     productName: '무슨 무슨 향',
     productPrice: 11000,

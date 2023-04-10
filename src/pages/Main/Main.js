@@ -7,21 +7,34 @@ import { SubscribeSection } from './SubscribeSection/SubscribeSection';
 import { BrandSection } from './BrandSection/BrandSection';
 import { MagazineSection } from './MagazineSection/MagazineSection';
 import { BannerContainer } from './BannerContainer/BannerContainer';
+import { MAIN_PRODUCT } from './MainData';
 import './Main.scss';
 
 const Main = () => {
-  const [productList, setProductList] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  const addIndex = () => {
+    index >= MAIN_PRODUCT.length - 3 ? setIndex(0) : setIndex(index + 1);
+  };
+
+  const subIndex = () => {
+    index <= 0 ? setIndex(MAIN_PRODUCT.length - 3) : setIndex(index - 1);
+  };
+
+  const translateRecommend = index => {
+    return index * 81;
+  };
 
   useEffect(() => {
-    fetch('http://10.58.52.92:3000/products/productlist', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json;charset=utf-8' },
-    })
-      .then(response => response.json())
-      .then(data => {
-        setProductList(data);
+    const recommendTimer = setInterval(() => {
+      setIndex(index => {
+        return index >= MAIN_PRODUCT.length - 3 ? 0 : index + 1;
       });
-  }, []);
+    }, 4000);
+    return () => {
+      clearInterval(recommendTimer);
+    };
+  }, [index]);
 
   return (
     <div className="main">
@@ -36,26 +49,66 @@ const Main = () => {
             <IoIosArrowForward style={{ marginRight: '10px' }} />
           </div>
         </div>
-        {/** TODO : 캐러셀 기능 적용 */}
         <section className="recommendSector">
           <div className="recommendTitle">오래 기억될 순간들</div>
-          <div className="recommendList">
-            {productList &&
-              productList.map(item => (
-                <div className="recommendProduct" key={item.productId}>
-                  <div className="productInfo">
-                    <img
-                      className="productImg"
-                      src={item.productImage[0]}
-                      alt="상품 이미지"
-                    />
-                    <p className="productName">
-                      <a>{item.productName}</a>
-                    </p>
-                    <p className="pdPrice">{item.productPrice}</p>
+          <div className="recommendWrapper">
+            <div className="leftArrow">
+              <IoIosArrowBack className="recommendArrow" onClick={subIndex} />
+            </div>
+            <div className="recommendList">
+              {MAIN_PRODUCT &&
+                MAIN_PRODUCT.map(item => (
+                  <div
+                    className="recommendProduct"
+                    key={item.productId}
+                    style={{
+                      transform: `translateX(-${translateRecommend(index)}%)`,
+                    }}
+                  >
+                    <div className="productInfo">
+                      <Link to={`/Detail/${item.productId}`}>
+                        <img
+                          className="productImg"
+                          src={item.productImage}
+                          alt="상품 이미지"
+                        />
+                      </Link>
+                      <p className="productName">
+                        <span>
+                          <Link
+                            to={`/Detail/${item.productId}`}
+                            style={{ textDecoration: 'none', color: '#252525' }}
+                          >
+                            {item.productName}
+                          </Link>
+                        </span>
+                      </p>
+                      {item.discountRate > 0 ? (
+                        <div>
+                          <p className="pdPriceCancel">{item.productPrice}</p>
+                          <div className="pdPriceDiscountBox">
+                            <span className="pdPriceDiscount">
+                              {item.productPrice -
+                                item.productPrice * item.discountRate}
+                            </span>
+                            <span className="percentText">
+                              {item.discountRate * 100}%
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="pdPrice">{item.productPrice}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+            </div>
+            <div className="rightArrow">
+              <IoIosArrowForward
+                className="recommendArrow"
+                onClick={addIndex}
+              />
+            </div>
           </div>
           <div
             style={{
