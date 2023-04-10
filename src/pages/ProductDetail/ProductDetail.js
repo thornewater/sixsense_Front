@@ -9,7 +9,6 @@ const ProductDetail = () => {
         <Image />
         <Detail />
       </div>
-      <div className="productInfo">dsfsdf</div>
     </div>
   );
 };
