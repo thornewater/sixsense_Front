@@ -8,6 +8,7 @@ import { BsArrowDown } from 'react-icons/bs';
 const GoodList = () => {
   const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch('data/good.json', {
       method: 'GET',
@@ -31,7 +32,13 @@ const GoodList = () => {
             discount_rate,
           }) => {
             return (
-              <div key={productId} className="goodListItem">
+              <div
+                key={productId}
+                className="goodListItem"
+                onClick={() => {
+                  navigate(`/detail/${productId}`);
+                }}
+              >
                 <div className="image">
                   <img
                     className="rendingImage"
