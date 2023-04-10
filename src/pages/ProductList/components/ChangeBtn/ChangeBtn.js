@@ -4,15 +4,24 @@ import './ChangeBtn.scss';
 const ChangeBtn = () => {
   return (
     <div className="changeBtn">
-      <button className="pageNumber">1</button>
-      <button className="pageNumber">2</button>
-      <button className="pageNumber">3</button>
-      <button className="pageNumber">4</button>
-      <button className="pageNumber">5</button>
-      <button className="pageNumber">6</button>
-      <button className="pageNumber">7</button>
+      {PAGE_BTN.map(page => {
+        return (
+          <button className="pageNumber" key={page.id}>
+            {page.title}
+          </button>
+        );
+      })}
     </div>
   );
 };
 
 export default ChangeBtn;
+
+const PAGE_BTN = [
+  { id: 1, title: 1 },
+  { id: 2, title: 2 },
+  { id: 3, title: 3 },
+  { id: 4, title: 4 },
+  { id: 5, title: 5 },
+  { id: 6, title: 6 },
+];

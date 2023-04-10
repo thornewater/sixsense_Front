@@ -62,18 +62,16 @@ const GoodList = () => {
                   {/* <p className="price"> {productPrice} WON</p> */}
                   {discount_rate === 0 ? (
                     <p className="normalPrice">
-                      {' '}
                       {productPrice.toLocaleString()} WON
                     </p>
                   ) : (
                     <p>
                       <p className="price">
-                        {' '}
                         {productPrice.toLocaleString()} WON
                       </p>
                       <p className="discount">
                         <span className="discountPrice">
-                          {(productPrice * discount_rate).toLocaleString()} WON{' '}
+                          {(productPrice * discount_rate).toLocaleString()} WON
                         </span>
 
                         <span className="discountRate">
@@ -84,10 +82,6 @@ const GoodList = () => {
                       </p>
                     </p>
                   )}
-                  {/* <p>
-                    {productPrice * discount_rate}{' '}
-                    <span>{`${1 - discount_rate}%`} </span>
-                  </p> */}
                 </div>
               </div>
             );
