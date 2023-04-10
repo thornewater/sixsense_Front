@@ -69,7 +69,7 @@ const Signin = () => {
               <input
                 className="passwordInput"
                 type="password"
-                placeholder="비밀번호 입력(영문,숫자,특수문자 입력)"
+                placeholder="비밀번호 입력 (영문, 숫자, 특수문자 조합)"
                 value={pwValue}
                 name="pwValue"
                 onChange={getUserInto}
