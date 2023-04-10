@@ -4,23 +4,21 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const Signin = () => {
   const navigate = useNavigate();
-  const [idValue, setIdValue] = useState('');
-  const [pwValue, setPwValue] = useState('');
+  const [userInfo, setUserInfo] = useState({
+    idValue: '',
+    pwValue: '',
+  });
 
-  const getUserId = event => {
-    setIdValue(event.target.value);
+  const { idValue, pwValue } = userInfo;
+
+  const getUserInto = event => {
+    const { name, value } = event.target;
+    setUserInfo({ ...userInfo, [name]: value });
   };
 
-  const getUserPw = event => {
-    setPwValue(event.target.value);
-  };
-
-  const idReset = () => {
-    setIdValue('');
-  };
-
-  const passwordReset = () => {
-    setPwValue('');
+  const valueReset = event => {
+    const { name } = event.target;
+    setUserInfo({ ...userInfo, [name]: '' });
   };
 
   const validate =
@@ -55,10 +53,15 @@ const Signin = () => {
               placeholder="아이디 입력"
               value={idValue}
               name="idValue"
-              onChange={getUserId}
+              onChange={getUserInto}
             />
             {idValue ? (
-              <button className="idDelBtn" type="button" onClick={idReset}>
+              <button
+                className="idDelBtn"
+                type="button"
+                name="idValue"
+                onClick={valueReset}
+              >
                 x
               </button>
             ) : null}
@@ -69,13 +72,14 @@ const Signin = () => {
                 placeholder="비밀번호 입력(영문,숫자,특수문자 입력)"
                 value={pwValue}
                 name="pwValue"
-                onChange={getUserPw}
+                onChange={getUserInto}
               />
               {pwValue ? (
                 <button
                   className="pwDelBtn"
                   type="button"
-                  onClick={passwordReset}
+                  name="pwValue"
+                  onClick={valueReset}
                 >
                   x
                 </button>
