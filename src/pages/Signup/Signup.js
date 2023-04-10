@@ -56,6 +56,22 @@ const Signup = () => {
 
   const validate =
     inputValidate && serviceChecked && informationChecked === true;
+  const signup = () => {
+    fetch('http://10.58.52.91:3000/users/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        name: nameValue,
+        account: idValue,
+        password: pwValue,
+        phoneNumber: phoneValue,
+        birthday: dateValue,
+        gender: genderValue,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
+  };
 
   return (
     <div className="signup">
@@ -258,14 +274,14 @@ const Signup = () => {
             <button
               className={validate ? 'activeSignupBtn' : 'signupBtn'}
               disabled={!validate}
-              onClick={() => navigate('/')}
+              onClick={signup}
             >
               동의하고 가입
             </button>
           </div>
-          <spna className="signupAgreed">
+          <span className="signupAgreed">
             가입 필수 정보 및 약관을 모두 확인해주세요.
-          </spna>
+          </span>
         </div>
       </section>
     </div>
