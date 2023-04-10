@@ -5,12 +5,8 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Heart } from './Heart';
 
 const GoodList = () => {
-  const [list, setList] = useState([]);
+  const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
-
-  // const makeArray = value => {
-  //   JSON.parse(value);
-  // };
 
   useEffect(() => {
     fetch('http://10.58.52.92:3000/products/productlist', {
@@ -20,15 +16,13 @@ const GoodList = () => {
       },
     })
       .then(res => res.json())
-      .then(data => setList(data));
+      .then(data => setGoodList(data));
   }, []);
-
-  console.log(list);
 
   return (
     <div className="goodList">
-      {list &&
-        list.map(
+      {goodList &&
+        goodList.map(
           ({
             productId,
             productImage,
