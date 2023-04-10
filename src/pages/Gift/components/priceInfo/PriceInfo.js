@@ -12,13 +12,13 @@ const PriceInfo = () => {
 
       <div className="details">
         <div className="detail">
-          <p>상품가격</p> <span className="deliveryFee">-30,000원</span>
+          <p>상품가격</p> <span className="deliveryFee">12,002원</span>
         </div>
       </div>
 
       <div className="details">
         <div className="detail">
-          <p>배송비</p> <span className="deliveryFee">-2,000원</span>
+          <p>배송비</p> <span className="deliveryFee">2,000원</span>
         </div>
       </div>
       <div className="details">
