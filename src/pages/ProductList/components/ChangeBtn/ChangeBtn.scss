@@ -1,0 +1,20 @@
+.changeBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+
+  .before,
+  .after {
+    width: 30px;
+    height: 30px;
+
+    color: rgba(122, 122, 121, 255);
+  }
+
+  .pageNumber {
+    color: rgba(122, 122, 121, 55);
+    font-size: 25px;
+  }
+}

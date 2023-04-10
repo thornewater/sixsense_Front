@@ -1,0 +1,86 @@
+.wrapper {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent);
+
+  .navContainer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #9e887c;
+    }
+
+    .category {
+      display: inline-flex;
+      flex: auto;
+      align-items: center;
+      width: 50%;
+      padding: 10px;
+
+      li {
+        padding-right: 40px;
+
+        &:hover {
+          color: whitesmoke;
+          cursor: pointer;
+        }
+      }
+      .insenseImg {
+        width: 100px;
+        height: 80px;
+        margin-right: 100px;
+        background-color: cornflowerblue;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .items {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .navCartAndLogin {
+      display: flex;
+      align-items: center;
+      width: 20%;
+      padding: 10px;
+
+      .cartLogin {
+        display: flex;
+        align-items: center;
+
+        li {
+          margin-left: 50px;
+
+          &:hover {
+            color: whitesmoke;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .moreCategory {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      align-items: center;
+      width: 100vw;
+      height: 150px;
+      margin: 0 auto;
+      padding-right: 190px;
+      padding-left: 190px;
+      background-color: #9e887c;
+    }
+  }
+}
