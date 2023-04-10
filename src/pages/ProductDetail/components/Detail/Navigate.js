@@ -9,7 +9,7 @@ const Navigate = () => {
       <Link className="gift link" to="/gift">
         선물하기
       </Link>
-      <Link className="cart link" to="/cart">
+      <Link className="carts link" to="/cart">
         장바구니
       </Link>
       <Link className="cash link" to="/payment">

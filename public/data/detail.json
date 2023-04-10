@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "price": 30500,
+    "description": "향이 좋네요",
+    "discountRate": 0.4,
+    "name": "CLOSET"
+  },
+  {
+    "id": 2,
+    "price": 17000,
+    "description": "향이  매우 좋네요",
+    "discountRate": 0.7,
+    "name": "INCENSE"
+  },
+  {
+    "id": 3,
+    "price": 17000,
+    "description": "향이 아주 좋네요",
+    "discountRate": 0.6,
+    "name": "CLOSET"
+  },
+  {
+    "id": 4,
+    "price": 17000,
+    "description": "향이 되게 좋네요",
+    "discountRate": 0.3,
+    "name": "CLOSET"
+  }
+]
