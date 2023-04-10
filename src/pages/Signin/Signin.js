@@ -10,7 +10,6 @@ const Signin = () => {
   });
 
   const { idValue, pwValue } = userInfo;
-
   const getUserInto = event => {
     const { name, value } = event.target;
     setUserInfo({ ...userInfo, [name]: value });
@@ -27,6 +26,24 @@ const Signin = () => {
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
     );
 
+  const loginFetch = () => {
+    fetch('http://10.58.52.91:3000/users/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        account: idValue,
+        password: pwValue,
+      }),
+    })
+      .then(res => res.json())
+      .then(token => {
+        console.log(token);
+        localStorage.setItem('token', token.token);
+        navigate('/');
+      });
+  };
   return (
     <div className="signin">
       <div className="header">
@@ -94,7 +111,7 @@ const Signin = () => {
             <button
               className={validate ? 'activeLoginBtn' : 'loginBtn'}
               disabled={!validate}
-              onClick={() => navigate('/')}
+              onClick={loginFetch}
             >
               로그인
             </button>
