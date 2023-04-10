@@ -4,68 +4,49 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [nameValue, setNameValue] = useState('');
-  const [phoneValue, setPhoneValue] = useState('');
-  const [dateValue, setDateValue] = useState('');
-  const [genderValue, setGenderValue] = useState('');
-  const [idValue, setIdValue] = useState('');
-  const [pwValue, setPwValue] = useState('');
-  const [pwCheckValue, setPwCheckValue] = useState('');
-  const [checkBoxActive, setCheckboxActive] = useState('');
+  const [userInfo, setUserInfo] = useState({
+    nameValue: '',
+    phoneValue: '',
+    dateValue: '',
+    genderValue: '',
+    idValue: '',
+    pwValue: '',
+    pwCheckValue: '',
+  });
 
-  const getUserName = event => {
-    setNameValue(event.target.value);
+  const {
+    nameValue,
+    phoneValue,
+    dateValue,
+    genderValue,
+    idValue,
+    pwValue,
+    pwCheckValue,
+  } = userInfo;
+
+  const getUserInto = event => {
+    const { name, value } = event.target;
+    setUserInfo({ ...userInfo, [name]: value });
   };
 
-  const getUserPhone = event => {
-    setPhoneValue(event.target.value);
+  const [serviceChecked, setServiceChecked] = useState(false);
+  const serviceCheckBoxClicked = () => {
+    setServiceChecked(!serviceChecked);
   };
 
-  const getUserDate = event => {
-    setDateValue(event.target.value);
+  const [informationChecked, setInformationChecked] = useState(false);
+  const informationCheckBoxClicked = () => {
+    setInformationChecked(!informationChecked);
   };
+  // const handleCheckbox = () => {
+  //   setIsChecked(prev => !prev);
+  // };
 
-  const getUserGender = event => {
-    setGenderValue(event.target.value);
+  const valueReset = event => {
+    const { name } = event.target;
+    setUserInfo({ ...userInfo, [name]: '' });
   };
-
-  const getUserId = event => {
-    setIdValue(event.target.value);
-  };
-
-  const getUserPw = event => {
-    setPwValue(event.target.value);
-  };
-
-  const getUserPwCheck = event => {
-    setPwCheckValue(event.target.value);
-  };
-
-  const getCheckBox = () => {
-    setCheckboxActive(!checkBoxActive);
-  };
-
-  const nameReset = () => {
-    setNameValue('');
-  };
-
-  const phoneReset = () => {
-    setPhoneValue('');
-  };
-
-  const idReset = () => {
-    setIdValue('');
-  };
-
-  const pwReset = () => {
-    setPwValue('');
-  };
-
-  const pwCheckReset = () => {
-    setPwCheckValue('');
-  };
-
-  const validate =
+  const inputValidate =
     nameValue.length >= 1 &&
     phoneValue.match(/^[0-9]{10,11}$/) &&
     dateValue.length >= 1 &&
@@ -75,6 +56,9 @@ const Signup = () => {
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
     ) &&
     pwCheckValue.length >= 1;
+
+  const validate =
+    inputValidate && serviceChecked && informationChecked === true;
 
   return (
     <div className="signup">
@@ -99,10 +83,15 @@ const Signup = () => {
               placeholder="이름"
               value={nameValue}
               name="nameValue"
-              onChange={getUserName}
+              onChange={getUserInto}
             />
             {nameValue ? (
-              <button className="nameDelBtn" type="button" onClick={nameReset}>
+              <button
+                className="nameDelBtn"
+                type="button"
+                name="nameValue"
+                onClick={valueReset}
+              >
                 x
               </button>
             ) : null}
@@ -114,13 +103,14 @@ const Signup = () => {
               placeholder="휴대폰번호"
               value={phoneValue}
               name="phoneValue"
-              onChange={getUserPhone}
+              onChange={getUserInto}
             />
             {phoneValue ? (
               <button
                 className="phoneDelBtn"
                 type="button"
-                onClick={phoneReset}
+                name="phoneValue"
+                onClick={valueReset}
               >
                 x
               </button>
@@ -133,7 +123,7 @@ const Signup = () => {
               placeholder="생년월일"
               value={dateValue}
               name="dateValue"
-              onChange={getUserDate}
+              onChange={getUserInto}
             />
           </div>
           <div>
@@ -141,7 +131,7 @@ const Signup = () => {
               className="genderInput"
               value={genderValue}
               name="genderValue"
-              onChange={getUserGender}
+              onChange={getUserInto}
             >
               <option>성별</option>
               <option>남자</option>
@@ -156,10 +146,15 @@ const Signup = () => {
               placeholder="아이디 (영문 또는 숫자 4-12자)"
               value={idValue}
               name="idValue"
-              onChange={getUserId}
+              onChange={getUserInto}
             />
             {idValue ? (
-              <button className="idDelBtn" type="button" onClick={idReset}>
+              <button
+                className="idDelBtn"
+                type="button"
+                name="idValue"
+                onClick={valueReset}
+              >
                 x
               </button>
             ) : null}
@@ -171,10 +166,15 @@ const Signup = () => {
               placeholder="비밀번호 입력(영문 소문자,숫자,특수문자 조합 8-16자)"
               value={pwValue}
               name="pwValue"
-              onChange={getUserPw}
+              onChange={getUserInto}
             />
             {pwValue ? (
-              <button className="pwDelBtn" type="button" onClick={pwReset}>
+              <button
+                className="pwDelBtn"
+                type="button"
+                name="pwValue"
+                onClick={valueReset}
+              >
                 x
               </button>
             ) : null}
@@ -186,7 +186,7 @@ const Signup = () => {
               placeholder="비밀번호 확인"
               value={pwCheckValue}
               name="pwCheckValue"
-              onChange={getUserPwCheck}
+              onChange={getUserInto}
             />
             {pwCheckValue ? (
               <button
@@ -194,7 +194,7 @@ const Signup = () => {
                 type="button"
                 value={pwCheckValue}
                 name="pwCheckValue"
-                onClick={pwCheckReset}
+                onClick={valueReset}
               >
                 x
               </button>
@@ -207,33 +207,50 @@ const Signup = () => {
           <div className="agreedBox">
             <div className="accordion" open>
               <summary className="accordionMain">
-                <input
-                  className="agreedCheck"
-                  type="checkbox"
-                  value={checkBoxActive}
-                  name="checkBoxActive"
-                  onChange={getCheckBox}
-                />
-                <label className="accordionText">
+                <label htmlFor="allowEvery" className="accordionText">
+                  <input
+                    id="allowEvery"
+                    className="agreedCheck"
+                    type="checkbox"
+                  />
                   모든 약관 및 정보 수신 동의
                 </label>
               </summary>
               <ul className="agreedCheck">
                 <li className="terms">회원 약관</li>
+
                 <li>
-                  <input className="agreedCheck" type="checkbox" />
+                  <input
+                    id="checkBox1"
+                    className="agreedCheck"
+                    type="checkbox"
+                    onClick={serviceCheckBoxClicked}
+                  />
                   <label>[필수] 서비스 이용약관</label>
                 </li>
                 <li>
-                  <input className="agreedCheck" type="checkbox" />
+                  <input
+                    id="checkBox2"
+                    className="agreedCheck"
+                    type="checkbox"
+                    onClick={informationCheckBoxClicked}
+                  />
                   <label>[필수] 개인정보 이용 및 수집 대한 동의</label>
                 </li>
                 <li>
-                  <input className="agreedCheck" type="checkbox" />
+                  <input
+                    id="checkBox3"
+                    className="agreedCheck"
+                    type="checkbox"
+                  />
                   <label>[선택 ] 개인정보 제3자 제공 동의</label>
                 </li>
                 <li>
-                  <input className="agreedCheck" type="checkbox" />
+                  <input
+                    id="checkBox4"
+                    className="agreedCheck"
+                    type="checkbox"
+                  />
                   <span>[선택] 문자 수신 동의</span>
                 </li>
               </ul>
