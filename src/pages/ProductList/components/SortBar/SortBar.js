@@ -1,23 +1,16 @@
 import React, { useState } from 'react';
 import './SortBar.scss';
+import SortFilter from './SortFilter';
 
 const SortBar = () => {
-  const [onColor, setOnColor] = useState({
-    total: false,
-    gift: false,
-    stick: false,
-    cons: false,
-    holder: false,
-  });
-  console.log(onColor);
+  const [onColor, setOnColor] = useState(false);
 
-  // const checkItemHandler = (code, ischecked) => {
-  //   if (ischecked) {
-  //     setOnColor([...onColor, code]);
-  //   } else if(!ischecked && onColor.find(one=>one ===code))
-  //   const filter =onColor.filter(one=>one! ==code)
-  //   setOnColor([...filter])
-  // }}
+  const switchFilter = () => {
+    setOnColor(prev => !prev);
+  };
+  const changeBackgroundColor = onColor => {
+    return onColor ? '#eee4d4' : '#9e887c';
+  };
   return (
     <div className="sortBar">
       <p>총 5개 상품이 있습니다</p>
@@ -26,11 +19,10 @@ const SortBar = () => {
           return (
             <li
               key={props.id}
-              onClick={() => {
-                setOnColor(!onColor);
-              }}
+              onClick={switchFilter}
+              style={{ backgroundColor: `${changeBackgroundColor(onColor)}` }}
             >
-              {props.title}{' '}
+              {props.title}
             </li>
           );
         })}
