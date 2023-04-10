@@ -1,0 +1,11 @@
+.totalCost {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  .totalAmount,
+  .cost {
+    font-size: 40px;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,124 @@
+@import '../../styles/mixin';
+
+.cart {
+  padding-top: 150px;
+  background-color: #eee4d4;
+
+  .cartBanner {
+    width: 1120px;
+    margin: 0 auto;
+    border-bottom: 1px solid lightgray;
+
+    .cartTitle {
+      padding: 20px 0 15px;
+
+      .titleText {
+        font-size: 26px;
+      }
+    }
+  }
+
+  .cartInner {
+    width: 1120px;
+    margin: 0 auto;
+
+    .cartList {
+      width: 750px;
+
+      .cartChoice {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 15px;
+        padding: 10px;
+        border-bottom: 1px solid #252525;
+
+        .allChk {
+          display: flex;
+          align-items: center;
+
+          .checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          .allSelect {
+            margin-left: 5px;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+
+        .selectDel {
+          margin: 0;
+
+          .borderLine {
+            display: inline-block;
+            width: 1px;
+            height: 14px;
+            margin: 0 10px;
+            background-color: lightgray;
+            color: lightgray;
+            vertical-align: middle;
+          }
+
+          .selectChk {
+            border: none;
+            background-color: #eee4d4;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .orderBtnContainer {
+        @include displayJustify;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 40px;
+
+        .upperBtnBox {
+          @include displayJustify;
+          width: 60%;
+          margin: 0 auto;
+          gap: 10px;
+
+          button {
+            @include buttonStyle;
+            width: 100%;
+            padding: 15px;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+
+        .bottomBtnBox {
+          @include displayJustify;
+          width: 60%;
+          margin: 10px auto;
+
+          button {
+            @include buttonStyle;
+            width: 100%;
+            padding: 15px;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
