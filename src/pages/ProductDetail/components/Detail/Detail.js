@@ -3,10 +3,18 @@ import DetailCount from './DetailCount';
 import DetailHeader from './DetailHeader';
 import Navigate from './Navigate';
 import TotalCost from './TotalCost';
-import { useParams } from 'react-router-dom';
+
 import './Detail.scss';
 
-const Detail = () => {
+const Detail = ({
+  id,
+  price,
+  description,
+  discountRate,
+  name,
+  goodsId,
+  setProductPrice,
+}) => {
   const [count, setCount] = useState(1);
 
   const decrease = () => {
@@ -19,12 +27,8 @@ const Detail = () => {
     setCount(prev => prev + 1);
   };
 
-  const params = useParams();
-  const goodsId = params.id;
-  const [productPrice, setProductPrice] = useState({});
-  const { id, price, description, discountRate, name } = productPrice;
   useEffect(() => {
-    fetch(`http://10.58.52.91:3000/products/2`, {
+    fetch(`data/detail.json/${goodsId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -34,7 +38,6 @@ const Detail = () => {
       .then(result => setProductPrice(result));
   }, [goodsId]);
 
-  // const price = 17000;
   return (
     <div className="detail">
       <DetailHeader
@@ -43,7 +46,7 @@ const Detail = () => {
         description={description}
         name={name}
       />
-      <p className="price">{price}</p>
+      <p className="price">17,000</p>
       <DetailCount count={count} decrease={decrease} increase={increase} />
       <TotalCost price={price} count={count} />
       <Navigate />

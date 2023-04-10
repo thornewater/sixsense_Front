@@ -1,8 +1,19 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { GoStar } from 'react-icons/go';
 import './Image.scss';
 
-const Image = () => {
+const Image = ({ image, goodsId, setProductPrice, id }) => {
+  useEffect(() => {
+    fetch(`data/detail.json/${goodsId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(result => setProductPrice(result));
+  }, [goodsId]);
   return (
     <div className="image">
       <img className="incense" src="/images/incense.png" alt="detailpage" />
