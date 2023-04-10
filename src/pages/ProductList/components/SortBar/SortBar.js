@@ -1,5 +1,6 @@
 import React from 'react';
 import './SortBar.scss';
+import SortFilter from './SortFilter';
 
 const SortBar = () => {
   return (
@@ -7,7 +8,7 @@ const SortBar = () => {
       <p>총 5개 상품이 있습니다</p>
       <ul>
         {LI_LIST.map(props => {
-          return <li key={props.id}>{props.title}</li>;
+          return <SortFilter title={props.title} key={props.id} />;
         })}
       </ul>
     </div>
