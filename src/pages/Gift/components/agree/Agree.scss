@@ -1,0 +1,31 @@
+.agree {
+  width: 670px;
+  padding-top: 30px;
+
+  border-radius: 7px;
+  color: #9e887c;
+
+  .checkBox {
+    display: flex;
+    padding: 20px;
+    border: 1px solid #9e887c;
+
+    .check {
+      width: 20px;
+      margin-right: 10px;
+      color: black;
+    }
+  }
+
+  ul {
+    padding: 20px;
+    border-right: 1px solid #9e887c;
+    border-bottom: 1px solid #9e887c;
+
+    border-left: 1px solid #9e887c;
+
+    li {
+      padding-top: 20px;
+    }
+  }
+}
