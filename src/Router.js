@@ -14,7 +14,7 @@ import Cart from './pages/Cart/Cart';
 const Router = () => {
   return (
     <BrowserRouter>
-      {/* <Nav /> */}
+      <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/Signin" element={<Signin />} />
@@ -25,7 +25,7 @@ const Router = () => {
         <Route path="/Gift" element={<Gift />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 };
