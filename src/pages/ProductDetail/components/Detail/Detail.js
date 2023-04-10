@@ -21,12 +21,15 @@ const Detail = () => {
 
   const params = useParams();
   const goodsId = params.id;
-  console.log(goodsId);
   const [productPrice, setProductPrice] = useState({});
   const { id, price, description, discountRate, name } = productPrice;
-
   useEffect(() => {
-    fetch(`../../../../../public/data/detail.json/${goodsId}`)
+    fetch(`http://10.58.52.91:3000/products/2`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(res => res.json())
       .then(result => setProductPrice(result));
   }, [goodsId]);
@@ -35,10 +38,10 @@ const Detail = () => {
   return (
     <div className="detail">
       <DetailHeader
-        id={productPrice.id}
-        price={productPrice.price}
-        description={productPrice.description}
-        name={productPrice.name}
+        id={id}
+        price={price}
+        description={description}
+        name={name}
       />
       <p className="price">{price}</p>
       <DetailCount count={count} decrease={decrease} increase={increase} />
