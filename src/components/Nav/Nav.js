@@ -1,37 +1,64 @@
-import React, { useState } from 'react';
-import NavMore from './NavMore';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import './Nav.scss';
 
 const Nav = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+  useEffect(() => {
+    localStorage.getItem('TOKEN') && setIsLogin(true);
+  }, [isLogin]);
+
+  const navigate = useNavigate();
+
+  const TOKEN = 'hyominShin013';
+
+  const login = () => {
+    localStorage.setItem('TOKEN', JSON.stringify(TOKEN));
+    setIsLogin(!isLogin);
+  };
+
+  const logout = () => {
+    localStorage.removeItem('TOKEN');
+    setIsLogin(!isLogin);
+  };
+
+  const goToPage = page => {
+    isLogin ? navigate(`/${page}`) : alert('로그인을 해주시기 바랍니다.');
+  };
 
   return (
     <div className="wrapper">
       <div className="navContainer">
-        <div
-          className="category"
-          onMouseOver={() => {
-            setIsActive(true);
-          }}
-        >
-          <div className="insenseImg" />
+        <div className="category">
+          <Link to="/">
+            <div className="insenseImg">
+              <img src="/images/6ixSenseLogo.png" alt="" />
+            </div>
+          </Link>
           <ul className="items">
-            <li>선물</li>
-            <li>인센스</li>
-            <li>홀더</li>
+            <li onClick={() => navigate('/gift')}>선물</li>
+            <li onClick={() => navigate('/ProductDetail')}>인센스</li>
+            <li onClick={() => navigate('/ProductDetail')}>홀더</li>
             <li>브랜드</li>
           </ul>
         </div>
         <div className="navCartAndLogin">
           <ul className="cartLogin">
             <li>
-              <AiOutlineShoppingCart size={23} />
+              <AiOutlineShoppingCart
+                size={23}
+                className="cartIcon"
+                onClick={() => goToPage('cart')}
+              />
             </li>
-            <li>로그인</li>
+            {isLogin ? (
+              <li onClick={logout}>로그아웃</li>
+            ) : (
+              <li onClick={login}>로그인</li>
+            )}
           </ul>
         </div>
-        {isActive && <NavMore setIsActive={setIsActive} />}
       </div>
     </div>
   );

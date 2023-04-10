@@ -14,7 +14,7 @@
     transition: 0.3s;
 
     &:hover {
-      background-color: whitesmoke;
+      background-color: #9e887c;
     }
 
     .category {
@@ -28,7 +28,7 @@
         padding-right: 40px;
 
         &:hover {
-          color: #9d887d;
+          color: whitesmoke;
           cursor: pointer;
         }
       }
@@ -36,7 +36,11 @@
         width: 100px;
         height: 80px;
         margin-right: 100px;
-        background-color: cornflowerblue;
+
+        img {
+          margin-top: 25px;
+          margin-left: 10px;
+        }
 
         &:hover {
           cursor: pointer;
@@ -63,8 +67,17 @@
           margin-left: 50px;
 
           &:hover {
-            color: #9d887d;
+            color: whitesmoke;
             cursor: pointer;
+          }
+
+          .cartIcon {
+            color: #252525;
+
+            &:hover {
+              color: whitesmoke;
+              cursor: pointer;
+            }
           }
         }
       }
