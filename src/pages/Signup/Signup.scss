@@ -14,7 +14,7 @@
       .btnPageClose {
         margin-left: 410px;
         border: none;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0);
         color: #898989;
         font-size: 25px;
         cursor: pointer;
@@ -45,7 +45,7 @@
     }
     .phoneDelBtn {
       @include delBtn;
-      top: 11%;
+      top: 10%;
       right: 1%;
     }
     .dateInput {
@@ -62,7 +62,7 @@
     }
     .idDelBtn {
       @include delBtn;
-      top: 32%;
+      top: 30%;
       right: 1%;
     }
 
@@ -72,7 +72,7 @@
     }
     .pwDelBtn {
       @include delBtn;
-      top: 39.3%;
+      top: 37%;
       right: 1%;
     }
     .passwordCheck {
@@ -80,7 +80,7 @@
     }
     .pwCheckDelBtn {
       @include delBtn;
-      top: 46.5%;
+      top: 43.5%;
       right: 1%;
     }
 
@@ -155,4 +155,9 @@
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+}
+.signupAgreed {
+  @include flexCenter;
+  margin: 20px 0;
+  color: #898989;
 }

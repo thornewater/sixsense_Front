@@ -38,9 +38,6 @@ const Signup = () => {
   const informationCheckBoxClicked = () => {
     setInformationChecked(!informationChecked);
   };
-  // const handleCheckbox = () => {
-  //   setIsChecked(prev => !prev);
-  // };
 
   const valueReset = event => {
     const { name } = event.target;
@@ -263,9 +260,12 @@ const Signup = () => {
               disabled={!validate}
               onClick={() => navigate('/')}
             >
-              로그인
+              동의하고 가입
             </button>
           </div>
+          <spna className="signupAgreed">
+            가입 필수 정보 및 약관을 모두 확인해주세요.
+          </spna>
         </div>
       </section>
     </div>
