@@ -1,0 +1,98 @@
+@import '../../styles/mixin';
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+
+  .product {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px 8px;
+    border-bottom: 1px solid lightgray;
+
+    .checkbox {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .productImgName {
+      display: flex;
+      flex: auto;
+      align-items: center;
+
+      .imgBox {
+        width: 96px;
+        height: 110px;
+        background-color: #252525;
+      }
+
+      .textBox {
+        padding-left: 30px;
+      }
+    }
+
+    .quantityBox {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 40%;
+      height: 70px;
+
+      .count {
+        display: flex;
+        border-radius: 5px;
+
+        input {
+          flex: 1 1 auto;
+          width: 40px;
+          border: none;
+          font-size: 14px;
+          font-weight: 300;
+          text-align: center;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        button {
+          width: 40px;
+          height: 40px;
+          border: none;
+          font-size: 14px;
+          font-weight: 300;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .price {
+        margin-left: 0;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .purchaseNow {
+      display: block;
+      width: 120px;
+      margin-left: 40px;
+
+      button {
+        @include buttonStyle;
+        width: 100%;
+        padding: 12px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

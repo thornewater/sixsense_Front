@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "isSeleted": true,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "오이뮤 무화과향",
+    "quantity": 1,
+    "discount_rate": 0.25,
+    "price": 16000
+  },
+  {
+    "id": 2,
+    "isSeleted": true,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "오이뮤 백단나무향",
+    "quantity": 1,
+    "discount_rate": 0,
+    "price": 16000
+  },
+  {
+    "id": 3,
+    "isSeleted": true,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "오이뮤 개암향",
+    "quantity": 1,
+    "discount_rate": 0,
+    "price": 15000
+  },
+  {
+    "id": 4,
+    "isSeleted": true,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "오이뮤 춘계향",
+    "quantity": 1,
+    "discount_rate": 0.25,
+    "price": 16000
+  },
+  {
+    "id": 5,
+    "isSeleted": true,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "HEM 인센스 콘 향",
+    "quantity": 1,
+    "discount_rate": 0,
+    "price": 2000
+  }
+]
