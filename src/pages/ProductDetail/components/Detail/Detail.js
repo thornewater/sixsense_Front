@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DetailCount from './DetailCount';
 import DetailHeader from './DetailHeader';
 import Navigate from './Navigate';
@@ -27,17 +27,6 @@ const Detail = ({
     setCount(prev => prev + 1);
   };
 
-  // useEffect(() => {
-  //   fetch(`data/good.json/${goodsId}`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => setProductPrice(result));
-  // }, [goodsId]);
-
   return (
     <div className="detail">
       <DetailHeader
@@ -46,7 +35,7 @@ const Detail = ({
         description={description}
         name={name}
       />
-      <p className="price">{price}</p>
+      <p className="price"> {Math.floor(price).toLocaleString()} WON</p>
       <DetailCount count={count} decrease={decrease} increase={increase} />
       <TotalCost price={price} count={count} />
       <Navigate />

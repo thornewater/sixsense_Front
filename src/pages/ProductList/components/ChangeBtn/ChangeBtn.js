@@ -3,9 +3,10 @@ import './ChangeBtn.scss';
 
 const ChangeBtn = ({ setSearchParams, offset, searchParams }) => {
   const movePage = pageNumber => {
-    searchParams.set('offset', (pageNumber - 1) * 3);
+    searchParams.set('offset', (pageNumber - 1) * 10);
     setSearchParams(searchParams);
   };
+
   return (
     <div className="changeBtn">
       {PAGE_BTN.map(page => {

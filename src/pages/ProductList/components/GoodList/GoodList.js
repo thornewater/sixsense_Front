@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './GoodList.scss';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Heart } from './Heart';
@@ -8,9 +8,12 @@ import { BsArrowDown } from 'react-icons/bs';
 const GoodList = ({ limit, offset, searchParams }) => {
   const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(location);
 
   useEffect(() => {
-    fetch(`data/good.json?limit=${limit} & start=${offset}`, {
+    fetch(`http://10.58.52.92:3000/products${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -19,6 +22,8 @@ const GoodList = ({ limit, offset, searchParams }) => {
       .then(res => res.json())
       .then(data => setGoodList(data));
   }, [offset, limit]);
+
+  // goodList[1] && console.log(goodList[1]);
 
   return (
     <div className="goodList">
@@ -29,7 +34,7 @@ const GoodList = ({ limit, offset, searchParams }) => {
             productImage,
             productName,
             productPrice,
-            discount_rate,
+            procuctDiscountRate,
           }) => {
             return (
               <div key={productId} className="goodListItem">
@@ -66,23 +71,25 @@ const GoodList = ({ limit, offset, searchParams }) => {
                 </p>
 
                 <div>
-                  {/* <p className="price"> {productPrice} WON</p> */}
-                  {discount_rate === 0 ? (
+                  {procuctDiscountRate === 0 ? (
                     <p className="normalPrice">
-                      {productPrice.toLocaleString()} WON
+                      {Math.floor(productPrice).toLocaleString()} WON
                     </p>
                   ) : (
                     <p>
                       <p className="price">
-                        {productPrice.toLocaleString()} WON
+                        {Math.floor(productPrice).toLocaleString()} WON
                       </p>
                       <p className="discount">
                         <span className="discountPrice">
-                          {(productPrice * discount_rate).toLocaleString()} WON
+                          {Number(productPrice) * Number(procuctDiscountRate)}
+                          WON
                         </span>
 
                         <span className="discountRate">
-                          {`(${Math.floor((1 - discount_rate) * 100)}%`}{' '}
+                          {`(${Math.floor(
+                            (1 - Number(procuctDiscountRate)) * 100
+                          )}%`}
                           <BsArrowDown />
                           <span>)</span>
                         </span>

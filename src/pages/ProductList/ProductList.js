@@ -11,6 +11,8 @@ const ProductList = () => {
 
   const offset = searchParams.get('offset');
   const limit = searchParams.get('limit');
+
+  console.log(offset, limit);
   return (
     <div className="productList">
       <div className="categoryBanner">

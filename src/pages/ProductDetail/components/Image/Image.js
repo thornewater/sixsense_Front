@@ -3,20 +3,10 @@ import { useEffect } from 'react';
 import { GoStar } from 'react-icons/go';
 import './Image.scss';
 
-const Image = ({ image, goodsId, setProductPrice, id }) => {
-  // useEffect(() => {
-  //   fetch(`data/detail.json/${goodsId}`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => setProductPrice(result));
-  // }, [goodsId]);
+const Image = ({ detailImage, goodsId, setProductPrice, id }) => {
   return (
     <div className="image">
-      <img className="incense" src="/images/incense.png" alt="detailpage" />
+      <img className="incense" src={detailImage} alt="detailpage" />
       <div className="review">
         <span className="starDots">리뷰 별점 :</span>
         <span className="reviewNum">4.7</span>
