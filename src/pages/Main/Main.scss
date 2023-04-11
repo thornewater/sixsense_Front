@@ -122,6 +122,32 @@
           }
         }
       }
+
+      .recommendMore {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+
+        .recommendMoreButton {
+          display: flex;
+          align-items: center;
+          padding: 15px 60px;
+          border: 1px solid lightgrey;
+          border-radius: 5px;
+          background-color: whitesmoke;
+          text-align: center;
+          &:hover {
+            cursor: pointer;
+          }
+
+          .toProductList {
+            display: flex;
+            align-items: center;
+            color: #252525;
+            text-decoration: none;
+          }
+        }
+      }
     }
 
     .companySection {

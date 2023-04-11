@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { IoIosArrowBack } from 'react-icons/io';
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { TodayCommend } from './TodayCommend/TodayCommend';
 import { SubscribeSection } from './SubscribeSection/SubscribeSection';
 import { BrandSection } from './BrandSection/BrandSection';
@@ -12,6 +11,7 @@ import './Main.scss';
 
 const Main = () => {
   const [index, setIndex] = useState(0);
+  const swipeRecommend = 81;
 
   const addIndex = () => {
     index >= MAIN_PRODUCT.length - 3 ? setIndex(0) : setIndex(index + 1);
@@ -22,7 +22,7 @@ const Main = () => {
   };
 
   const translateRecommend = index => {
-    return index * 81;
+    return index * swipeRecommend;
   };
 
   useEffect(() => {
@@ -110,30 +110,9 @@ const Main = () => {
               />
             </div>
           </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '60px',
-            }}
-          >
-            <button
-              type="button"
-              style={{
-                padding: '15px 60px',
-                border: '1px solid lightgrey',
-                borderRadius: '5px',
-                textAlign: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-              }}
-            >
-              <Link
-                to="/productList"
-                style={{ textDecoration: 'none', color: '#252525' }}
-              >
+          <div className="recommendMore">
+            <button type="button" className="recommendMoreButton">
+              <Link to="/productList" className="toProductList">
                 더 보기 <IoIosArrowForward />
               </Link>
             </button>

@@ -6,6 +6,7 @@ import { BANNER_INFO } from '../MainData';
 
 export const BannerContainer = () => {
   const [index, setIndex] = useState(0);
+  const swipeBanner = 100;
 
   const addIndex = () => {
     index >= BANNER_INFO.length - 1 ? setIndex(0) : setIndex(index + 1);
@@ -16,7 +17,7 @@ export const BannerContainer = () => {
   };
 
   const translateBanner = index => {
-    return index * 100;
+    return index * swipeBanner;
   };
 
   useEffect(() => {

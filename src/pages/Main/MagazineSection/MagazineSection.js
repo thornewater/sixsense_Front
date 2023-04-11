@@ -5,6 +5,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 
 export const MagazineSection = () => {
   const [index, setIndex] = useState(0);
+  const swipeMagazine = 70;
 
   const addIndex = () => {
     index >= MAGAZINE_DATA.length - 1 ? setIndex(0) : setIndex(index + 1);
@@ -15,7 +16,7 @@ export const MagazineSection = () => {
   };
 
   const translateBanner = index => {
-    return index * 70;
+    return index * swipeMagazine;
   };
   return (
     <section className="magazineSection">
