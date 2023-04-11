@@ -27,16 +27,16 @@ const Detail = ({
     setCount(prev => prev + 1);
   };
 
-  useEffect(() => {
-    fetch(`data/good.json/${goodsId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-    })
-      .then(res => res.json())
-      .then(result => setProductPrice(result));
-  }, [goodsId]);
+  // useEffect(() => {
+  //   fetch(`data/good.json/${goodsId}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json;charset=utf-8',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(result => setProductPrice(result));
+  // }, [goodsId]);
 
   return (
     <div className="detail">
@@ -46,7 +46,7 @@ const Detail = ({
         description={description}
         name={name}
       />
-      <p className="price">17,000</p>
+      <p className="price">{price}</p>
       <DetailCount count={count} decrease={decrease} increase={increase} />
       <TotalCost price={price} count={count} />
       <Navigate />

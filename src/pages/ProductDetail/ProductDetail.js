@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProductDetail.scss';
 import Image from './components/Image/Image';
 import Detail from './components/Detail/Detail';
@@ -8,6 +8,17 @@ const ProductDetail = () => {
   const goodsId = params.id;
   const [productPrice, setProductPrice] = useState({});
   const { id, price, description, discountRate, name, image } = productPrice;
+
+  useEffect(() => {
+    fetch(`data/good.json/${goodsId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(result => setProductPrice(result));
+  }, [goodsId]);
   return (
     <div className="productDetail">
       <div className="wrap">
@@ -25,6 +36,7 @@ const ProductDetail = () => {
           description={description}
           goodsId={goodsId}
           setProductPrice={setProductPrice}
+          // {...productPrice}
         />
       </div>
     </div>
