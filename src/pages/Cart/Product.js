@@ -9,53 +9,62 @@ export const Product = ({
   checkingBox,
 }) => {
   const totalPrice = () => {
-    if (product.discount_rate > 0) {
+    if (product.productDiscountRate > 0) {
       const discountPrice =
-        product.price - product.price * product.discount_rate;
-      return discountPrice * product.quantity;
+        product.productPrice -
+        product.productPrice * product.productDiscountRate;
+      return discountPrice * product.productQuantity;
     } else {
-      return product.price * product.quantity;
+      return product.productPrice * product.productQuantity;
     }
   };
 
   const addIncreaseHandler = e => {
     e.preventDefault();
-    onChangeProps(product.id, 'quantity', product.quantity + 1);
+    onChangeProps(
+      product.productId,
+      'productQuantity',
+      product.productQuantity + 1
+    );
   };
   const subDecreaseHandler = e => {
     e.preventDefault();
-    if (product.quantity < 2) {
+    if (product.productQuantity < 2) {
       return;
     } else {
-      onChangeProps(product.id, 'quantity', product.quantity - 1);
+      onChangeProps(
+        product.productId,
+        'productQuantity',
+        product.productQuantity - 1
+      );
     }
   };
 
   return (
-    <li className="product" key={product.id}>
+    <li className="product" key={product.productId}>
       <input
         type="checkbox"
         className="checkbox"
         onChange={e => checkingBox(e.target.checked, product)}
-        checked={checkedItems.includes(product.id) ? true : false}
+        checked={checkedItems.includes(product.productId) ? true : false}
       />
       <div className="productImgName">
         <div className="imgBox">
           <img
-            src={product.detail_image}
+            src={product.productimages[0]}
             alt="제품사진"
             style={{ width: '100%' }}
           />
         </div>
         <div className="textBox">
-          <p>{product.name}</p>
+          <p>{product.productName}</p>
         </div>
       </div>
       <div className="quantityBox">
         <div className="count">
           <button onClick={subDecreaseHandler}>-</button>
           <div className="productQuantityBox">
-            <p>{product.quantity}</p>
+            <p>{product.productQuantity}</p>
           </div>
           <button onClick={addIncreaseHandler}>+</button>
         </div>

@@ -35,7 +35,7 @@ export const CartItems = ({
         {lists.map(product => {
           return (
             <Product
-              key={product.id}
+              key={product.productId}
               product={product}
               setLists={setLists}
               checkedItems={checkedItems}

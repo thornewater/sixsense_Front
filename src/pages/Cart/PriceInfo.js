@@ -8,14 +8,17 @@ export const PriceInfo = ({ lists, checkedItems }) => {
   const totalPriceCalc = () => {
     let totalPrice = 0;
     lists.forEach(product => {
-      const checkedItemId = checkedItems.findIndex(id => id === product.id);
+      const checkedItemId = checkedItems.findIndex(
+        id => id === product.productId
+      );
       if (checkedItemId > -1) {
-        if (product.discount_rate > 0) {
+        if (product.productDiscountRate > 0) {
           const discountPrice =
-            product.price - product.price * product.discount_rate;
-          return (totalPrice += discountPrice * product.quantity);
+            product.productPrice -
+            product.productPrice * product.productDiscountRate;
+          return (totalPrice += discountPrice * product.productQuantity);
         } else {
-          return (totalPrice += product.price * product.quantity);
+          return (totalPrice += product.productPrice * product.productQuantity);
         }
       } else {
         return;
