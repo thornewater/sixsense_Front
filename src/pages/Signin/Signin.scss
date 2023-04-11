@@ -1,0 +1,119 @@
+@import '../../styles/variables';
+
+.signin {
+  .header {
+    .inner {
+      @include flexCenter;
+      padding: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      .pageTitle {
+        position: absolute;
+        font-size: 20px;
+      }
+      .btnPageClose {
+        margin-left: 410px;
+        border: none;
+        background-color: white;
+        color: #898989;
+        font-size: 25px;
+        cursor: pointer;
+      }
+    }
+  }
+  .containar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    .loginSection {
+      .loginGuide {
+        margin: 80px 0;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    .loginForm {
+      position: relative;
+      .loginInput {
+        @include inputBox;
+        margin-bottom: 15px;
+      }
+      .idDelBtn {
+        @include delBtn;
+        top: 20%;
+        right: 5%;
+        transform: translate(50%, -50%);
+      }
+      .passwordInput {
+        @include inputBox;
+      }
+      .pwDelBtn {
+        @include delBtn;
+        top: 75%;
+        right: 5%;
+        transform: translate(50%, -50%);
+      }
+    }
+
+    .loginCheck {
+      margin: 30px 10px 30px 0;
+      cursor: pointer;
+    }
+    .loginBtn {
+      width: 440px;
+      height: 60px;
+      border: 1px solid #f0f0f0;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      color: #c6c6c6;
+      font-size: 20px;
+      cursor: not-allowed;
+      // & :disabled {
+      //   background-color: #5c95f0;
+      // }
+    }
+    .activeLoginBtn {
+      width: 440px;
+      height: 60px;
+      border: 1px solid #f0f0f0;
+      border-radius: 5px;
+      background-color: #5c95f0;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .bottomMenu {
+      @include flexCenter;
+      margin: 30px 0;
+      padding: 30px 0;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      .idSearch {
+        padding-right: 10px;
+        border-right: 1px solid #898989;
+        color: #898989;
+        text-decoration: none;
+      }
+      .pwSearch {
+        margin-left: 10px;
+        color: #898989;
+        text-decoration: none;
+      }
+    }
+    .joinMembership {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 440px;
+      height: 45px;
+      padding: 0 20px;
+      border: 1px solid #d3d3d3;
+      border-radius: 5px;
+      background-color: white;
+      font-size: 16px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+  }
+}

@@ -5,9 +5,10 @@
   .goodListItem {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    // align-items: center;
+
     width: 25%;
+    margin-bottom: 40px;
 
     .image {
       display: flex;
@@ -41,7 +42,7 @@
         display: none;
         position: absolute;
         top: 150px;
-        left: 150px;
+        left: 190px;
         width: 40px;
         height: 40px;
         padding: 10px;
@@ -57,27 +58,62 @@
     }
 
     .item {
+      display: flex;
       margin-top: 10px;
+      margin-left: 45px;
       font-weight: bold;
     }
 
-    .price {
-      margin-top: 7px;
+    .normalPrice {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 45px;
       color: rgba(122, 122, 121, 255);
       font-size: 13px;
     }
 
-    .heart {
-      width: 25px;
-      height: 25px;
-      margin-right: 8px;
-      margin-bottom: -9px;
-      color: rgba(192, 192, 192, 255);
+    .price {
+      margin-top: 7px;
+      margin-bottom: 10px;
+      margin-left: 45px;
+      color: rgba(122, 122, 121, 255);
+      font-size: 13px;
+      text-decoration: line-through;
     }
 
-    .count {
-      color: rgba(192, 192, 192, 255);
-      font-weight: bold;
+    .discount {
+      display: flex;
+      margin-left: 45px;
+
+      .discountPrice {
+        font-weight: bold;
+      }
+
+      .discountRate {
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+        color: red;
+        // display: flex;
+      }
+    }
+
+    .heartCount {
+      display: flex;
+      margin-left: 20px;
+
+      .heart {
+        width: 25px;
+        height: 25px;
+        margin-right: 8px;
+        margin-bottom: -9px;
+        color: rgba(192, 192, 192, 255);
+      }
+
+      .count {
+        color: rgba(192, 192, 192, 255);
+        font-weight: bold;
+      }
     }
   }
 }
