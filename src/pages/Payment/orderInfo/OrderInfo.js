@@ -9,7 +9,7 @@ const OrderInfo = () => {
     <div className="orderInfo">
       <div className="bothSide">
         <div className="senderInfo">
-          <p className="subject">보내는 분</p>
+          <p className="subject">주문고객정보</p>
 
           <div className="right">
             <p>조건호</p>
@@ -41,7 +41,7 @@ const OrderInfo = () => {
         ) : null}
       </div>
       <div className="bothSide">
-        <p className="subject">받는 분 정보</p>
+        <p className="subject">배송지 정보</p>
       </div>
       <div className="userInfo">
         <div className="name">
@@ -53,14 +53,22 @@ const OrderInfo = () => {
             placeholder="이름"
           />
         </div>
-
         <div className="phone">
           <p className="number">연락처</p>
           <input
             name="RecipientNumber"
             className="number input"
             type="text"
-            placeholder="  '-' 없이 휴대폰번호 입력 "
+            placeholder="'-' 없이 휴대폰번호 입력 "
+          />
+        </div>
+        <div className="name">
+          <p className="text">받는 분</p>
+          <input
+            name="RecipientName"
+            className="text input"
+            type="text"
+            placeholder="상세주소 입력"
           />
         </div>
       </div>
@@ -69,7 +77,11 @@ const OrderInfo = () => {
         <p className="generalGift"> 일반 상품</p>
         <div className="goodsTotal">
           <div className="leftGoodsDetail">
-            <img className="goodsImg" alt="goodsImg" />
+            <img
+              className="goodsImg"
+              src="https://ifh.cc/g/KLThjK.jpg"
+              alt="goodsImg"
+            />
             <span>세작 20매</span>
           </div>
 
