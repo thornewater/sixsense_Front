@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, navigate, useNavigate } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { TodayCommend } from './TodayCommend/TodayCommend';
 import { SubscribeSection } from './SubscribeSection/SubscribeSection';
 import { BrandSection } from './BrandSection/BrandSection';
@@ -11,6 +12,7 @@ import './Main.scss';
 
 const Main = () => {
   const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
   const swipeRecommend = 81;
 
   const addIndex = () => {
@@ -23,6 +25,12 @@ const Main = () => {
 
   const translateRecommend = index => {
     return index * swipeRecommend;
+  };
+  const askMoveToCart = () => {
+    const answerToAsk = window.confirm(
+      '장바구니에 담겼습니다. 이동하시겠습니까?'
+    );
+    answerToAsk ? navigate('/cart') : navigate('/');
   };
 
   useEffect(() => {
@@ -66,13 +74,24 @@ const Main = () => {
                     }}
                   >
                     <div className="productInfo">
-                      <Link to={`/Detail/${item.productId}`}>
-                        <img
-                          className="productImg"
-                          src={item.productImage}
-                          alt="상품 이미지"
+                      <div className="productImgBox">
+                        <Link to={`/Detail/${item.productId}`}>
+                          <img
+                            className="productImg"
+                            src={item.productImage[0]}
+                            alt="상품 이미지"
+                          />
+                          <img
+                            className="productHoverImg"
+                            src={item.productImage[1]}
+                            alt="상품 이미지"
+                          />
+                        </Link>
+                        <AiOutlineShoppingCart
+                          className="hoverCart"
+                          onClick={askMoveToCart}
                         />
-                      </Link>
+                      </div>
                       <p className="productName">
                         <span>
                           <Link
@@ -83,16 +102,16 @@ const Main = () => {
                           </Link>
                         </span>
                       </p>
-                      {item.discountRate > 0 ? (
+                      {item.productDiscountRate > 0 ? (
                         <div>
                           <p className="pdPriceCancel">{item.productPrice}</p>
                           <div className="pdPriceDiscountBox">
                             <span className="pdPriceDiscount">
                               {item.productPrice -
-                                item.productPrice * item.discountRate}
+                                item.productPrice * item.productDiscountRate}
                             </span>
                             <span className="percentText">
-                              {item.discountRate * 100}%
+                              {item.productDiscountRate * 100}%
                             </span>
                           </div>
                         </div>
@@ -123,7 +142,11 @@ const Main = () => {
         <BrandSection />
         <MagazineSection />
         <section className="companySection">
-          <div className="companyBackground" />
+          <img
+            className="companyBackground"
+            src="/images/wecode.jpg"
+            alt="wecode"
+          />
           <div className="companyTextBox">
             <p className="companyText">> Wecode</p>
           </div>
