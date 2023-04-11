@@ -5,7 +5,7 @@
   background-color: #eee4d4;
 
   .cartBanner {
-    width: 1120px;
+    width: 1200px;
     margin: 0 auto;
     border-bottom: 1px solid lightgray;
 
@@ -19,66 +19,12 @@
   }
 
   .cartInner {
-    width: 1120px;
+    display: flex;
+    width: 1200px;
     margin: 0 auto;
 
     .cartList {
       width: 750px;
-
-      // .cartChoice {
-      //   display: flex;
-      //   justify-content: space-between;
-      //   width: 100%;
-      //   margin-top: 15px;
-      //   padding: 10px;
-      //   border-bottom: 1px solid #252525;
-
-      //   .allChk {
-      //     display: flex;
-      //     align-items: center;
-
-      //     .checkbox {
-      //       display: inline-block;
-      //       width: 20px;
-      //       height: 20px;
-      //       border: 1px solid #ddd;
-      //       border-radius: 5px;
-
-      //       &:hover {
-      //         cursor: pointer;
-      //       }
-      //     }
-
-      //     .allSelect {
-      //       margin-left: 5px;
-      //       font-size: 14px;
-      //       font-weight: 500;
-      //     }
-      //   }
-
-      //   .selectDel {
-      //     margin: 0;
-
-      //     .borderLine {
-      //       display: inline-block;
-      //       width: 1px;
-      //       height: 14px;
-      //       margin: 0 10px;
-      //       background-color: lightgray;
-      //       color: lightgray;
-      //       vertical-align: middle;
-      //     }
-
-      //     .selectChk {
-      //       border: none;
-      //       background-color: #eee4d4;
-
-      //       &:hover {
-      //         cursor: pointer;
-      //       }
-      //     }
-      //   }
-      // }
 
       .orderBtnContainer {
         @include displayJustify;

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CartItems } from './CartItems';
+import { PriceInfo } from './PriceInfo';
 import './Cart.scss';
 
 const Cart = () => {
@@ -24,16 +26,23 @@ const Cart = () => {
       </section>
       <section className="cartInner">
         <div className="cartList">
-          <CartItems lists={lists} />
+          <CartItems lists={lists} setLists={setLists} />
           <div className="orderBtnContainer">
             <div className="upperBtnBox">
-              <button>선택상품 주문</button>
-              <button>선택상품 선물하기</button>
+              <button>
+                <Link to="/Payment">선택상품 주문</Link>
+              </button>
+              <button>
+                <Link to="/Gift">선택상품 선물하기</Link>
+              </button>
             </div>
             <div className="bottomBtnBox">
               <button>전체상품 주문하기</button>
             </div>
           </div>
+        </div>
+        <div className="priceInfoBox">
+          <PriceInfo lists={lists} />
         </div>
       </section>
     </div>

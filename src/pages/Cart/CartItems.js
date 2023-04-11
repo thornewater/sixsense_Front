@@ -1,22 +1,9 @@
 import React, { useState } from 'react';
 import './CartItems.scss';
+import { Product } from './Product';
 
-export const CartItems = ({ lists }) => {
-  // const [isSelectAll, setIsSelectAll] = useState(true);
+export const CartItems = ({ lists, setLists }) => {
   const [checkedItems, setCheckedItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  const checkingBox = (check, product) => {
-    if (check) {
-      setCheckedItems([...checkedItems, product]);
-      setTotalPrice(totalPrice + product.price);
-    } else {
-      setCheckedItems(
-        checkedItems.filter(checkedItem => checkedItem !== product)
-      );
-      setTotalPrice(totalPrice - product.price);
-    }
-  };
 
   const selectAll = checked => {
     if (checked) {
@@ -28,12 +15,36 @@ export const CartItems = ({ lists }) => {
     }
   };
 
-  const deleteAll = () => {
-    setCheckedItems([]);
+  const checkingBox = (check, product) => {
+    if (check) {
+      setCheckedItems([...checkedItems, product.id]);
+    } else {
+      setCheckedItems(
+        checkedItems.filter(checkedItem => checkedItem !== product.id)
+      );
+    }
   };
 
-  console.log(checkedItems);
-  console.log(totalPrice);
+  const onChangeProps = (id, key, value) => {
+    setLists(prevState => {
+      return prevState.map(items => {
+        if (items.id === id) {
+          return { ...items, [key]: value };
+        } else {
+          return { ...items };
+        }
+      });
+    });
+  };
+
+  const selectDel = () => {
+    setLists(prevState => {
+      return prevState.filter(items => {
+        return !checkedItems.includes(items.id);
+      });
+    });
+  };
+
   return (
     <div className="cartItems">
       <div className="cartChoice">
@@ -48,47 +59,22 @@ export const CartItems = ({ lists }) => {
         </div>
         <div className="selectDel">
           <div className="borderLine" />
-          <button className="selectChk" onClick={deleteAll}>
+          <button className="selectChk" onClick={selectDel}>
             선택 삭제
           </button>
         </div>
       </div>
       <ul className="listContainer">
-        {lists?.map(function (product) {
+        {lists.map(product => {
           return (
-            <li className="product" key={product.id}>
-              <input
-                type="checkbox"
-                className="checkbox"
-                onChange={e => checkingBox(e.target.checked, product)}
-                checked={checkedItems.includes(product.id) ? true : false}
-              />
-              <div className="productImgName">
-                <div className="imgBox">
-                  <img
-                    src={product.detail_image}
-                    alt="제품사진"
-                    style={{ width: '100%' }}
-                  />
-                </div>
-                <div className="textBox">
-                  <p>{product.name}</p>
-                </div>
-              </div>
-              <div className="quantityBox">
-                <div className="count">
-                  <button onClick={() => (product.quantity -= 1)}>-</button>
-                  <input type="text" defaultValue={product.quantity} />
-                  <button onClick={() => (product.quantity += 1)}>+</button>
-                </div>
-                <div className="price">
-                  <p>{product.price}</p>
-                </div>
-              </div>
-              <div className="purchaseNow">
-                <button>바로구매</button>
-              </div>
-            </li>
+            <Product
+              key={product.id}
+              product={product}
+              setLists={setLists}
+              checkedItems={checkedItems}
+              checkingBox={checkingBox}
+              onChangeProps={onChangeProps}
+            />
           );
         })}
       </ul>
