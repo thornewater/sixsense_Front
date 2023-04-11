@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import './Nav.scss';
 
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(false);
-  useEffect(() => {
-    localStorage.getItem('TOKEN') && setIsLogin(true);
-  }, [isLogin]);
 
   const navigate = useNavigate();
 
   const TOKEN = 'hyominShin013';
-
-  const login = () => {
-    localStorage.setItem('TOKEN', JSON.stringify(TOKEN));
-    setIsLogin(!isLogin);
-  };
-
-  const logout = () => {
-    localStorage.removeItem('TOKEN');
-    setIsLogin(!isLogin);
-  };
 
   const goToPage = page => {
     isLogin ? navigate(`/${page}`) : alert('로그인을 해주시기 바랍니다.');
@@ -52,11 +39,11 @@ const Nav = () => {
                 onClick={() => goToPage('cart')}
               />
             </li>
-            {isLogin ? (
-              <li onClick={logout}>로그아웃</li>
-            ) : (
-              <li onClick={login}>로그인</li>
-            )}
+            {isLogin
+              ? (localStorage.setItem('TOKEN', JSON.stringify(TOKEN)),
+                (<li onClick={() => setIsLogin(!isLogin)}>로그아웃</li>))
+              : (localStorage.removeItem('TOKEN', JSON.stringify(TOKEN)),
+                (<li onClick={() => setIsLogin(!isLogin)}>로그인</li>))}
           </ul>
         </div>
       </div>
