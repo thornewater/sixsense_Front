@@ -5,6 +5,25 @@ import { BsChevronDown } from 'react-icons/bs';
 
 const OrderInfo = () => {
   const [show, setShow] = useState(false);
+
+  const [payInfo, setPayInfo] = useState({
+    customerName: '',
+    customerNumber: '',
+    receiverName: '',
+    recieverNumber: '',
+    receiverAddress: '',
+  });
+  const onChange = e => {
+    const { name, value } = e.target;
+    setPayInfo({ ...payInfo, [name]: value });
+  };
+  const {
+    customerName,
+    customerNumber,
+    receiverAddress,
+    receiverName,
+    recieverNumber,
+  } = payInfo;
   return (
     <div className="orderInfo">
       <div className="bothSide">
@@ -25,16 +44,25 @@ const OrderInfo = () => {
           <div className="userInfo">
             <div className="name">
               <p className="text">이름</p>
-              <input className="text input" type="text" placeholder="이름" />
+              <input
+                name="customerName"
+                className="text input"
+                type="text"
+                placeholder="이름"
+                value={customerName}
+                onChange={onChange}
+              />
             </div>
 
             <div className="phone">
               <p className="number">휴대번호</p>
               <input
-                name="senderNumber"
+                value={customerNumber}
+                name="customerNumber"
                 className="number input"
                 type="text"
                 placeholder="  '-' 없이 휴대폰번호 입력 "
+                onChange={onChange}
               />
             </div>
           </div>
@@ -47,28 +75,34 @@ const OrderInfo = () => {
         <div className="name">
           <p className="text">받는 분</p>
           <input
-            name="RecipientName"
+            name="receiverName"
             className="text input"
             type="text"
             placeholder="이름"
+            value={receiverName}
+            onChange={onChange}
           />
         </div>
         <div className="phone">
           <p className="number">연락처</p>
           <input
-            name="RecipientNumber"
+            value={recieverNumber}
+            name="ReceiverNumber"
             className="number input"
             type="text"
             placeholder="'-' 없이 휴대폰번호 입력 "
+            onChange={onChange}
           />
         </div>
         <div className="name">
-          <p className="text">받는 분</p>
+          <p className="text">주소</p>
           <input
-            name="RecipientName"
+            value={receiverAddress}
+            name="ReceiverAddress"
             className="text input"
             type="text"
             placeholder="상세주소 입력"
+            onChange={onChange}
           />
         </div>
       </div>
