@@ -28,7 +28,7 @@ const Detail = ({
   };
 
   useEffect(() => {
-    fetch(`data/detail.json/${goodsId}`, {
+    fetch(`data/good.json/${goodsId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

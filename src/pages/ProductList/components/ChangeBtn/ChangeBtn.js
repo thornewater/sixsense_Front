@@ -1,12 +1,22 @@
 import React from 'react';
 import './ChangeBtn.scss';
 
-const ChangeBtn = () => {
+const ChangeBtn = ({ setSearchParams, offset, searchParams }) => {
+  const movePage = pageNumber => {
+    searchParams.set('offset', (pageNumber - 1) * 3);
+    setSearchParams(searchParams);
+  };
   return (
     <div className="changeBtn">
       {PAGE_BTN.map(page => {
         return (
-          <button className="pageNumber" key={page.id}>
+          <button
+            className="pageNumber"
+            key={page.id}
+            onClick={() => {
+              movePage(page.id);
+            }}
+          >
             {page.title}
           </button>
         );

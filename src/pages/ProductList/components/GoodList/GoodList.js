@@ -5,12 +5,12 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Heart } from './Heart';
 import { BsArrowDown } from 'react-icons/bs';
 
-const GoodList = () => {
+const GoodList = ({ limit, offset, searchParams }) => {
   const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('data/good.json', {
+    fetch(`data/good.json?limit=${limit} & start=${offset}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -18,7 +18,7 @@ const GoodList = () => {
     })
       .then(res => res.json())
       .then(data => setGoodList(data));
-  }, []);
+  }, [offset, limit]);
 
   return (
     <div className="goodList">
@@ -32,23 +32,23 @@ const GoodList = () => {
             discount_rate,
           }) => {
             return (
-              <div
-                key={productId}
-                className="goodListItem"
-                onClick={() => {
-                  navigate(`/detail/${productId}`);
-                }}
-              >
-                <div className="image">
+              <div key={productId} className="goodListItem">
+                <div className="images">
                   <img
                     className="rendingImage"
                     src={productImage[0]}
                     alt="rendingImage"
+                    onClick={() => {
+                      navigate(`/productDetail/${productId}`);
+                    }}
                   />
                   <img
                     className="hoverImage"
                     src={productImage[1]}
                     alt="hoverImage"
+                    onClick={() => {
+                      navigate(`/productDetail/${productId}`);
+                    }}
                   />
                   <AiOutlineShoppingCart
                     className="hoverCart"
