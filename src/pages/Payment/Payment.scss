@@ -1,0 +1,20 @@
+.payment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 100px;
+  background-color: rgba(238, 227, 212, 255);
+
+  .paymentTitle {
+    padding: 48px 0 38px;
+    background-color: rgba(226, 215, 197, 255);
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  .bodyWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+}
