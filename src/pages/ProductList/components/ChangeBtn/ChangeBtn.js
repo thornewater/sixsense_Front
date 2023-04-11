@@ -3,7 +3,8 @@ import './ChangeBtn.scss';
 
 const ChangeBtn = ({ setSearchParams, offset, searchParams }) => {
   const movePage = pageNumber => {
-    searchParams.set('offset', (pageNumber - 1) * 10);
+    const limit = 10;
+    searchParams.set('offset', (pageNumber - 1) * limit);
     setSearchParams(searchParams);
   };
 
