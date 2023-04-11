@@ -7,11 +7,11 @@ const ProductDetail = () => {
   const params = useParams();
   const goodsId = params.id;
   const [productPrice, setProductPrice] = useState({});
-  const { id, price, description, discountRate, name, detailImage } =
+  const { id, price, description, discountRate, name, productImage } =
     productPrice;
 
   useEffect(() => {
-    fetch(`http://10.58.52.92:3000/products/${goodsId}`, {
+    fetch(`http://10.58.52.91:3000/products/${goodsId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -24,20 +24,19 @@ const ProductDetail = () => {
     <div className="productDetail">
       <div className="wrap">
         <Image
-          detailImage={detailImage}
+          productImage={productImage}
           setProductPrice={setProductPrice}
           id={id}
           goodsId={goodsId}
         />
         <Detail
-          id={id}
+          id={params.id}
           price={price}
           discountRate={discountRate}
           name={name}
           description={description}
           goodsId={goodsId}
           setProductPrice={setProductPrice}
-          // {...productPrice}
         />
       </div>
     </div>

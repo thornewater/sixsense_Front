@@ -1,7 +1,7 @@
 import React from 'react';
 import './DetailHeader.scss';
 
-const DetailHeader = ({ name, description, price, id }) => {
+const DetailHeader = ({ name, description, id }) => {
   return (
     <div className="detailHeader" key={id}>
       <h3 className="goods"> {name}</h3>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './subjectBox.scss';
 import { BsChevronUp } from 'react-icons/bs';
 import { BsChevronDown } from 'react-icons/bs';
 
-const SubjectBox = () => {
+const SubjectBox = ({ id, name, price, detailImage, discountRate }) => {
   const [show, setShow] = useState(false);
   const [userInfo, setUserInfo] = useState({
     senderName: '',
@@ -16,7 +16,10 @@ const SubjectBox = () => {
     const { value, name } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
-  // console.log(userInfo);
+  // useEffect(() => {
+  //   fetch('http://').then(res=>res.json()).then(result=>result());
+  // }, []);
+
   return (
     <div className="subjectBox">
       <div className="bothSide">
@@ -94,13 +97,13 @@ const SubjectBox = () => {
         <p className="generalGift"> 일반 상품</p>
         <div className="goodsTotal">
           <div className="leftGoodsDetail">
-            <img className="goodsImg" alt="goodsImg" />
-            <span>세작 20매</span>
+            <img className="goodsImg" alt="goodsImg" src={detailImage} />
+            <span>{name}</span>
           </div>
 
           <div>
             <div className="rightGoodsDetail">
-              <span>28,000원</span>
+              <span>{price}원</span>
               <span>/ 1개</span>
             </div>
           </div>

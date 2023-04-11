@@ -9,11 +9,8 @@ const GoodList = ({ limit, offset, searchParams }) => {
   const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-
-  console.log(location);
-
   useEffect(() => {
-    fetch(`http://10.58.52.92:3000/products${location.search}`, {
+    fetch(`http://10.58.52.91:3000/products/${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -22,8 +19,6 @@ const GoodList = ({ limit, offset, searchParams }) => {
       .then(res => res.json())
       .then(data => setGoodList(data));
   }, [offset, limit]);
-
-  // goodList[1] && console.log(goodList[1]);
 
   return (
     <div className="goodList">
@@ -34,7 +29,7 @@ const GoodList = ({ limit, offset, searchParams }) => {
             productImage,
             productName,
             productPrice,
-            procuctDiscountRate,
+            productDiscountRate,
           }) => {
             return (
               <div key={productId} className="goodListItem">
@@ -71,7 +66,7 @@ const GoodList = ({ limit, offset, searchParams }) => {
                 </p>
 
                 <div>
-                  {procuctDiscountRate === 0 ? (
+                  {productDiscountRate === 0 ? (
                     <p className="normalPrice">
                       {Math.floor(productPrice).toLocaleString()} WON
                     </p>
@@ -82,13 +77,13 @@ const GoodList = ({ limit, offset, searchParams }) => {
                       </p>
                       <p className="discount">
                         <span className="discountPrice">
-                          {Number(productPrice) * Number(procuctDiscountRate)}
+                          {Number(productPrice) * Number(productDiscountRate)}
                           WON
                         </span>
 
                         <span className="discountRate">
                           {`(${Math.floor(
-                            (1 - Number(procuctDiscountRate)) * 100
+                            (1 - Number(productDiscountRate)) * 100
                           )}%`}
                           <BsArrowDown />
                           <span>)</span>

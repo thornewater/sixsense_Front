@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './NameBar.scss';
 
 const NameBar = () => {
