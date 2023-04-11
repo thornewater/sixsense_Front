@@ -43,6 +43,11 @@
             width: 100%;
             padding: 15px;
 
+            .linkBtnStyle {
+              color: #252525;
+              text-decoration: none;
+            }
+
             &:hover {
               cursor: pointer;
             }
@@ -58,6 +63,11 @@
             @include buttonStyle;
             width: 100%;
             padding: 15px;
+
+            .linkBtnStyle {
+              color: #252525;
+              text-decoration: none;
+            }
 
             &:hover {
               cursor: pointer;

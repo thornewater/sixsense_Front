@@ -25,7 +25,12 @@
     padding: 20px;
     border: none;
     background-color: #333333;
-    color: white;
+
+    .linkBtnStyle {
+      color: white;
+      text-decoration: none;
+    }
+
     &:hover {
       background-color: #000000;
       font-weight: bold;
