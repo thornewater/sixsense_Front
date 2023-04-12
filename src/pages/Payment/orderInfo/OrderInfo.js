@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import './OrderInfo.scss';
 import { BsChevronUp } from 'react-icons/bs';
 import { BsChevronDown } from 'react-icons/bs';
 
-const OrderInfo = () => {
+const OrderInfo = ({ cartList }) => {
   const [show, setShow] = useState(false);
 
   const [payInfo, setPayInfo] = useState({
@@ -25,10 +24,6 @@ const OrderInfo = () => {
     receiverName,
     recieverNumber,
   } = payInfo;
-
-  const location = useLocation();
-
-  const [cartList, setCartList] = useState(location.state?.cartList);
 
   return (
     <div className="orderInfo">

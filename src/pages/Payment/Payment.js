@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import OrderInfo from './orderInfo/OrderInfo';
-import AddressInfo from './addressInfo/AddressInfo';
+import PayInfo from './PayInfo/PayInfo';
 import './Payment.scss';
-import PriceInfo from '../Gift/components/priceInfo/PriceInfo';
 
 const Payment = () => {
+  const location = useLocation();
+  // const [cartList, setCartList] = useState(location.state);
+  const cartList = location.state;
+  console.log(cartList);
+
+  useEffect(() => {
+    const cartList = location.state;
+  }, []);
+
   return (
     <div className="payment">
       <div className="paymentTitle">결제하기</div>
@@ -12,12 +21,11 @@ const Payment = () => {
       <div className="bodyWrap">
         <div className="formPayment">
           <div className="info">
-            <OrderInfo />
-            <AddressInfo />
+            <OrderInfo cartList={cartList} />
           </div>
         </div>
         <div>
-          <PriceInfo />
+          <PayInfo cartList={cartList} />
         </div>
       </div>
     </div>
