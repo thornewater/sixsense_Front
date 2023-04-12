@@ -10,8 +10,7 @@ const Navigate = ({ id, count }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;chartset=utf-8',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY4MTIzOTE4OH0.GtMoQ8DNUVE_AAOOsGerD2R3V0OOJGE_lY3trlRoJ9Q',
+        authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({
         productId: id,

@@ -3,6 +3,8 @@ import './ProductDetail.scss';
 import Image from './components/Image/Image';
 import Detail from './components/Detail/Detail';
 import { useParams } from 'react-router-dom';
+import { detailParams } from '../../../public/data/api';
+
 const ProductDetail = () => {
   const params = useParams();
   const goodsId = params.id;
@@ -11,7 +13,7 @@ const ProductDetail = () => {
     productPrice;
 
   useEffect(() => {
-    fetch(`http://10.58.52.91:3000/products/${goodsId}`, {
+    fetch(detailParams, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

@@ -4,13 +4,14 @@ import './GoodList.scss';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Heart } from './Heart';
 import { BsArrowDown } from 'react-icons/bs';
+import { showTotalList } from '../../../../../public/data/api';
 
 const GoodList = ({ limit, offset, searchParams }) => {
   const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
-    fetch(`http://10.58.52.91:3000/products/${location.search}`, {
+    fetch(showTotalList, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
