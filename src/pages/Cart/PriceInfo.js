@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './PriceInfo.scss';
 
+// const USER_POINT = 100000;
 export const PriceInfo = ({ lists, checkedItems }) => {
-  let userPoint = 170000;
+  const point = Math.floor(lists[0]?.userPoint);
+
   const [totalPrice, setTotalPrice] = useState(0);
   const totalPriceCalc = () => {
     let totalPrice = lists.reduce((acc, product) => {
@@ -30,23 +32,14 @@ export const PriceInfo = ({ lists, checkedItems }) => {
     totalPriceCalc();
   }, [checkedItems, lists]);
 
-  const leftPoint = () => {
-    return userPoint - totalPrice - deliveryFeeCalc();
-  };
-
-  const deliveryFeeCalc = () => {
-    if (totalPrice > 20000) {
-      return 0;
-    } else {
-      return 2000;
-    }
-  };
+  const deliveryCost = totalPrice > 20000 ? 0 : 2000;
+  const leftPoint = point - totalPrice - deliveryCost;
 
   return (
     <div className="priceInfo">
       <div className="details">
         <div className="detail">
-          <p>총 포인트</p> <span>{userPoint}</span>
+          <p>총 포인트</p> <span>{point}</span>
         </div>
       </div>
       <div className="details">
@@ -57,12 +50,12 @@ export const PriceInfo = ({ lists, checkedItems }) => {
       </div>
       <div className="details">
         <div className="detail">
-          <p>배송비</p> <span className="deliveryFee">{deliveryFeeCalc()}</span>
+          <p>배송비</p> <span className="deliveryFee">{deliveryCost}</span>
         </div>
       </div>
       <div className="details">
         <div className="detail">
-          <p>잔여 포인트</p> <span>{leftPoint()}</span>
+          <p>잔여 포인트</p> <span>{leftPoint}</span>
         </div>
       </div>
       <button>

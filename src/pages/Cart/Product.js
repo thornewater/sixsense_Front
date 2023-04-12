@@ -46,8 +46,7 @@ export const Product = ({
       }),
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY4MTIzOTE4OH0.GtMoQ8DNUVE_AAOOsGerD2R3V0OOJGE_lY3trlRoJ9Q',
+        authorization: localStorage.getItem('token'),
       },
     });
     if (!res) {
@@ -70,7 +69,7 @@ export const Product = ({
       <div className="productImgName">
         <div className="imgBox">
           <img
-            src={product.productImages}
+            src={product.productImage[0]}
             alt="제품사진"
             style={{ width: '100%' }}
           />

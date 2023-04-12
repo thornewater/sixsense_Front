@@ -7,24 +7,12 @@ import './Cart.scss';
 const Cart = () => {
   const [lists, setLists] = useState([]);
   const [checkedItems, setCheckedItems] = useState([]);
-  useEffect(() => {
-    fetch('http://10.58.52.91:3000/carts/list', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY4MTIyMDY5Nn0.jcEr96OmCN5gv239vBcOYsUv8mXmrV0Oodn1tfcWG8A',
-      },
-    })
-      .then(res => res.json())
-      .then(data => setLists(data));
-  }, []);
 
   const selectAll = checked => {
     if (checked) {
-      const idArray = [];
-      lists.map(item => idArray.push(item));
-      setCheckedItems(idArray);
+      // const idArray = [];
+      // lists.map(item => idArray.push(item));
+      setCheckedItems(lists);
     } else {
       setCheckedItems([]);
     }
@@ -54,16 +42,26 @@ const Cart = () => {
     });
   };
 
+  const separateCartId = array => {
+    const cartIdQuary = [];
+    array.map(item => {
+      cartIdQuary.push(item.cartId);
+    });
+    return cartIdQuary.join();
+  };
+  console.log(separateCartId(checkedItems));
   const selectDel = async () => {
     try {
-      const res = await fetch(`http://10.58.52.91:3000/carts`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json;utf-8',
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4MTE4MTg0OX0.esY9cBvk1sdSNDQnAKHhwHlwjBd-fd3Pv2jITJctvEw',
-        },
-      });
+      const res = await fetch(
+        `http://10.58.52.91:3000/carts?cartId=${separateCartId(checkedItems)}`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json;utf-8',
+            authorization: localStorage.getItem('token'),
+          },
+        }
+      );
       if (res.ok) {
         setLists(prevState => {
           return prevState.filter(items => {
@@ -78,6 +76,21 @@ const Cart = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    fetch('http://10.58.52.91:3000/carts/list', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setLists(data);
+        console.log(data);
+      });
+  }, [checkedItems]);
 
   return (
     <div className="cart">
