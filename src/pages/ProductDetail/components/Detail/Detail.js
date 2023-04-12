@@ -20,7 +20,7 @@ const Detail = () => {
 
   const price = 17000;
   return (
-    <div className="detail">
+    <div className="detailProduct">
       <DetailHeader />
       <p className="price">{price.toLocaleString()}</p>
       <DetailCount count={count} decrease={decrease} increase={increase} />

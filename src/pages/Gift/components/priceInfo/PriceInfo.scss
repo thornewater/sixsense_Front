@@ -6,23 +6,19 @@
   margin-left: 100px;
   .details {
     display: flex;
-    padding-right: 30px;
-    padding-left: 30px;
+
+    padding: 20px 30px;
     background-color: #9e887c;
     .detail {
       display: flex;
       justify-content: space-between;
       width: 300px;
-      padding-bottom: 30px;
+      padding-bottom: 20px;
       border-bottom: 1px solid black;
+
       .deliveryFee {
         opacity: 70%;
         color: red;
-      }
-
-      .payBar {
-        display: flex;
-        justify-content: space-between;
       }
     }
   }
@@ -30,12 +26,12 @@
     padding: 20px;
     border: none;
     background-color: #333333;
-    .linkBtnStyle {
-      color: white;
-      text-decoration: none;
-    }
+    color: white;
+
     &:hover {
       background-color: #000000;
+      color: white;
+
       font-weight: bold;
       cursor: pointer;
     }

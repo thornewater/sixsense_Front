@@ -31,8 +31,6 @@ const OrderInfo = () => {
           <p className="subject">주문고객정보</p>
 
           <div className="right">
-            <p>조건호</p>
-            <p>01041958350</p>
             {show ? (
               <BsChevronUp onClick={() => setShow(!show)} />
             ) : (
