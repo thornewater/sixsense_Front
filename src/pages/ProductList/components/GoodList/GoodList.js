@@ -3,45 +3,97 @@ import { useNavigate } from 'react-router-dom';
 import './GoodList.scss';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Heart } from './Heart';
+import { BsArrowDown } from 'react-icons/bs';
 
 const GoodList = () => {
-  const [list, setList] = useState([]);
+  const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('data/good.json')
+    fetch('data/good.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(res => res.json())
-      .then(result => setList(result));
+      .then(data => setGoodList(data));
   }, []);
 
   return (
     <div className="goodList">
-      {list.map(({ id, rendingImage, hoverImage, title, price }) => {
-        return (
-          <div key={id} className="goodListItem">
-            <div className="image">
-              <img
-                className="rendingImage"
-                src={rendingImage}
-                alt="rendingImage"
-              />
-              <img className="hoverImage" src={hoverImage} alt="hoverImage" />
-              <AiOutlineShoppingCart
-                className="hoverCart"
+      {goodList &&
+        goodList.map(
+          ({
+            productId,
+            productImage,
+            productName,
+            productPrice,
+            discount_rate,
+          }) => {
+            return (
+              <div
+                key={productId}
+                className="goodListItem"
                 onClick={() => {
-                  navigate('/cart');
+                  navigate(`/detail/${productId}`);
                 }}
-              />
-            </div>
-            <p className="item">{title}</p>
-            <p className="price"> {price} WON</p>
-            <div>
-              <Heart />
-              <span className="count">1</span>
-            </div>
-          </div>
-        );
-      })}
+              >
+                <div className="image">
+                  <img
+                    className="rendingImage"
+                    src={productImage[0]}
+                    alt="rendingImage"
+                  />
+                  <img
+                    className="hoverImage"
+                    src={productImage[1]}
+                    alt="hoverImage"
+                  />
+                  <AiOutlineShoppingCart
+                    className="hoverCart"
+                    onClick={() => {
+                      navigate('/cart');
+                    }}
+                  />
+                </div>
+                <p className="item">
+                  {productName}
+                  <span className="heartCount">
+                    <Heart />
+                    <span className="count">1</span>
+                  </span>
+                </p>
+
+                <div>
+                  {/* <p className="price"> {productPrice} WON</p> */}
+                  {discount_rate === 0 ? (
+                    <p className="normalPrice">
+                      {productPrice.toLocaleString()} WON
+                    </p>
+                  ) : (
+                    <p>
+                      <p className="price">
+                        {productPrice.toLocaleString()} WON
+                      </p>
+                      <p className="discount">
+                        <span className="discountPrice">
+                          {(productPrice * discount_rate).toLocaleString()} WON
+                        </span>
+
+                        <span className="discountRate">
+                          {`(${Math.floor((1 - discount_rate) * 100)}%`}{' '}
+                          <BsArrowDown />
+                          <span>)</span>
+                        </span>
+                      </p>
+                    </p>
+                  )}
+                </div>
+              </div>
+            );
+          }
+        )}
     </div>
   );
 };

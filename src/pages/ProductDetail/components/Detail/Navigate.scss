@@ -1,0 +1,23 @@
+.navigate {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 60px;
+    border: 1px solid black;
+    border: none;
+    background-color: #333333;
+    color: #c8c8c8;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      background-color: #000000;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
