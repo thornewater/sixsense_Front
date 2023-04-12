@@ -10,25 +10,7 @@ const Nav = () => {
     navigate(`/${page}`);
   };
 
-  const isLogin = !!localStorage.getItem('token');
-  const token = localStorage.getItem('token');
-
-  const checkUser = () =>
-    fetch('http://', {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    })
-      .then(res => {
-        if (res.ok) {
-          goToPage('/cart');
-        } else {
-          alert('로그인이 필요한 페이지 입니다.');
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  const isLogin = localStorage.getItem('token');
 
   return (
     <div className="wrapper">
@@ -40,10 +22,15 @@ const Nav = () => {
             </div>
           </Link>
           <ul className="items">
-            <li onClick={() => navigate('/gift')}>선물</li>
-            <li onClick={() => navigate('/ProductDetail')}>인센스</li>
-            <li onClick={() => navigate('/ProductDetail')}>홀더</li>
-            <li>브랜드</li>
+            {NAVI_MENU.map(menu => {
+              return (
+                <li key={menu.id}>
+                  <Link to={menu.path} className="navMenu">
+                    {menu.menu}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="navCartAndLogin">
@@ -52,7 +39,7 @@ const Nav = () => {
               <AiOutlineShoppingCart
                 size={23}
                 className="cartIcon"
-                onClick={checkUser}
+                onClick={() => goToPage('cart')}
               />
             </li>
             <li>{isLogin ? '로그아웃' : '로그인'}</li>
@@ -62,5 +49,28 @@ const Nav = () => {
     </div>
   );
 };
+
+const NAVI_MENU = [
+  {
+    id: 1,
+    menu: '선물',
+    path: '/gift',
+  },
+  {
+    id: 2,
+    menu: '인센스',
+    path: '/Detail',
+  },
+  {
+    id: 3,
+    menu: '홀더',
+    path: '/Detail',
+  },
+  {
+    id: 4,
+    menu: '브랜드',
+    path: '',
+  },
+];
 
 export default Nav;

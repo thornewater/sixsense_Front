@@ -50,6 +50,15 @@
       .items {
         display: flex;
         justify-content: space-between;
+
+        .navMenu {
+          color: #252525;
+          text-decoration: none;
+
+          &:hover {
+            color: whitesmoke;
+          }
+        }
       }
     }
 
