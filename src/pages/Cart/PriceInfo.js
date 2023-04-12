@@ -6,24 +6,23 @@ export const PriceInfo = ({ lists, checkedItems }) => {
   let userPoint = 170000;
   const [totalPrice, setTotalPrice] = useState(0);
   const totalPriceCalc = () => {
-    let totalPrice = 0;
-    lists.forEach(product => {
+    let totalPrice = lists.reduce((acc, product) => {
       const checkedItemId = checkedItems.findIndex(
-        id => id === product.productId
+        checkedItem => checkedItem.productId === product.productId
       );
       if (checkedItemId > -1) {
         if (product.productDiscountRate > 0) {
           const discountPrice =
             product.productPrice -
             product.productPrice * product.productDiscountRate;
-          return (totalPrice += discountPrice * product.productQuantity);
+          return acc + discountPrice * product.productQuantity;
         } else {
-          return (totalPrice += product.productPrice * product.productQuantity);
+          return acc + product.productPrice * product.productQuantity;
         }
       } else {
-        return;
+        return acc;
       }
-    });
+    }, 0);
     setTotalPrice(totalPrice);
   };
 

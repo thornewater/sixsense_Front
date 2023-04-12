@@ -61,12 +61,16 @@ export const Product = ({
         type="checkbox"
         className="checkbox"
         onChange={e => checkingBox(e.target.checked, product)}
-        checked={checkedItems.includes(product.productId) ? true : false}
+        checked={
+          checkedItems.some(item => item.productId === product.productId)
+            ? true
+            : false
+        }
       />
       <div className="productImgName">
         <div className="imgBox">
           <img
-            src={product.productImages[0]}
+            src={product.productImages}
             alt="제품사진"
             style={{ width: '100%' }}
           />

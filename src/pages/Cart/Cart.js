@@ -23,7 +23,7 @@ const Cart = () => {
   const selectAll = checked => {
     if (checked) {
       const idArray = [];
-      lists.map(item => idArray.push(item.productId));
+      lists.map(item => idArray.push(item));
       setCheckedItems(idArray);
     } else {
       setCheckedItems([]);
@@ -32,10 +32,12 @@ const Cart = () => {
 
   const checkingBox = (check, product) => {
     if (check) {
-      setCheckedItems([...checkedItems, product.productId]);
+      setCheckedItems([...checkedItems, product]);
     } else {
       setCheckedItems(
-        checkedItems.filter(checkedItem => checkedItem !== product.productId)
+        checkedItems.filter(
+          checkedItem => checkedItem.productId !== product.productId
+        )
       );
     }
   };
@@ -52,16 +54,8 @@ const Cart = () => {
     });
   };
 
-  // const selectDel = () => {
-  //   setLists(prevState => {
-  //     return prevState.filter(items => {
-  //       return !checkedItems.includes(items.productId);
-  //     });
-  //   });
-  // };
   const selectDel = async () => {
     try {
-      //Quary string으로 보내야함
       const res = await fetch(`http://10.58.52.91:3000/carts`, {
         method: 'DELETE',
         headers: {
@@ -69,7 +63,6 @@ const Cart = () => {
           authorization:
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4MTE4MTg0OX0.esY9cBvk1sdSNDQnAKHhwHlwjBd-fd3Pv2jITJctvEw',
         },
-        //DELETE는 Body가 없음 ㅋㅋ
       });
       if (res.ok) {
         setLists(prevState => {
@@ -108,19 +101,23 @@ const Cart = () => {
           <div className="orderBtnContainer">
             <div className="upperBtnBox">
               <button>
-                <Link to="/Payment" className="linkBtnStyle">
+                <Link
+                  to="/Payment"
+                  className="linkBtnStyle"
+                  state={checkedItems}
+                >
                   선택상품 주문
                 </Link>
               </button>
               <button>
-                <Link to="/Gift" className="linkBtnStyle">
+                <Link to="/Gift" className="linkBtnStyle" state={checkedItems}>
                   선택상품 선물하기
                 </Link>
               </button>
             </div>
             <div className="bottomBtnBox">
               <button>
-                <Link to="/Payment" className="linkBtnStyle">
+                <Link to="/Payment" className="linkBtnStyle" state={lists}>
                   전체상품 주문하기
                 </Link>
               </button>
