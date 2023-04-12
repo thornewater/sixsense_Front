@@ -12,21 +12,22 @@ import './Main.scss';
 
 const Main = () => {
   const [index, setIndex] = useState(0);
+  const [lists, setLists] = useState([]);
   const navigate = useNavigate();
-  const swipeRecommend = 81;
+  const swipeRecommend = 78;
 
   const addIndex = () => {
-    index >= MAIN_PRODUCT.length - 3 ? setIndex(0) : setIndex(index + 1);
+    index >= lists.length - 3 ? setIndex(0) : setIndex(index + 1);
   };
 
   const subIndex = () => {
-    index <= 0 ? setIndex(MAIN_PRODUCT.length - 3) : setIndex(index - 1);
+    index <= 0 ? setIndex(lists.length - 3) : setIndex(index - 1);
   };
 
   const translateRecommend = index => {
     return index * swipeRecommend;
   };
-  const askMoveToCart = () => {
+  const askMoveToCart = item => {
     const answerToAsk = window.confirm(
       '장바구니에 담겼습니다. 이동하시겠습니까?'
     );
@@ -34,9 +35,21 @@ const Main = () => {
   };
 
   useEffect(() => {
+    fetch('http://10.58.52.91:3000/products', {
+      headers: {
+        method: 'GET',
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY4MTIyMDY5Nn0.jcEr96OmCN5gv239vBcOYsUv8mXmrV0Oodn1tfcWG8A',
+      },
+    })
+      .then(res => res.json())
+      .then(data => setLists(data));
+  }, []);
+
+  useEffect(() => {
     const recommendTimer = setInterval(() => {
       setIndex(index => {
-        return index >= MAIN_PRODUCT.length - 3 ? 0 : index + 1;
+        return index >= lists.length - 3 ? 0 : index + 1;
       });
     }, 4000);
     return () => {
@@ -64,8 +77,8 @@ const Main = () => {
               <IoIosArrowBack className="recommendArrow" onClick={subIndex} />
             </div>
             <div className="recommendList">
-              {MAIN_PRODUCT &&
-                MAIN_PRODUCT.map(item => (
+              {lists &&
+                lists.map(item => (
                   <div
                     className="recommendProduct"
                     key={item.productId}
@@ -104,7 +117,9 @@ const Main = () => {
                       </p>
                       {item.productDiscountRate > 0 ? (
                         <div>
-                          <p className="pdPriceCancel">{item.productPrice}</p>
+                          <p className="pdPriceCancel">
+                            {Math.floor(item.productPrice)}
+                          </p>
                           <div className="pdPriceDiscountBox">
                             <span className="pdPriceDiscount">
                               {item.productPrice -
@@ -116,7 +131,9 @@ const Main = () => {
                           </div>
                         </div>
                       ) : (
-                        <p className="pdPrice">{item.productPrice}</p>
+                        <p className="pdPrice">
+                          {Math.floor(item.productPrice)}
+                        </p>
                       )}
                     </div>
                   </div>
