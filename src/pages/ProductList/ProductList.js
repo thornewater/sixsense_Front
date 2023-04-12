@@ -12,6 +12,8 @@ const ProductList = () => {
   const offset = searchParams.get('offset');
   const limit = searchParams.get('limit');
 
+  const sortCondition = () => {};
+
   return (
     <div className="productList">
       <div className="categoryBanner">

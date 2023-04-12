@@ -10,6 +10,7 @@ const GoodList = ({ limit, offset, searchParams }) => {
   const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+  console.log('location ', location.search);
   useEffect(() => {
     fetch(`http://10.58.52.91:3000/products/${location.search}`, {
       method: 'GET',

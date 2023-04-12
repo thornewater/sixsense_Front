@@ -18,9 +18,8 @@ const SortBar = () => {
 export default SortBar;
 
 const LI_LIST = [
-  { id: 1, title: 'total' },
-  { id: 2, title: 'gift' },
-  { id: 3, title: 'stick' },
-  { id: 4, title: 'cons' },
-  { id: 5, title: 'holder' },
+  { id: 1, title: 'gift' },
+  { id: 2, title: 'stick' },
+  { id: 3, title: 'cons' },
+  { id: 4, title: 'holder' },
 ];

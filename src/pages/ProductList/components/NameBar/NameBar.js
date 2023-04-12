@@ -3,6 +3,7 @@ import React from 'react';
 import './NameBar.scss';
 
 const NameBar = () => {
+  const sortPrice = () => {};
   return (
     <div className="nameBar">
       <div>
