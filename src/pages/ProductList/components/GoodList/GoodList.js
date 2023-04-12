@@ -4,14 +4,14 @@ import './GoodList.scss';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Heart } from './Heart';
 import { BsArrowDown } from 'react-icons/bs';
-import { showTotalList } from '../../../../../public/data/api';
+import { showTotalList } from '../../../../api';
 
 const GoodList = ({ limit, offset, searchParams }) => {
   const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
-    fetch(showTotalList, {
+    fetch(`http://10.58.52.91:3000/products/${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -61,12 +61,11 @@ const GoodList = ({ limit, offset, searchParams }) => {
                   {productName}
                   <span className="heartCount">
                     <Heart />
-                    <span className="count">1</span>
                   </span>
                 </p>
 
-                <div>
-                  {productDiscountRate === 0 ? (
+                <div className="discountWrap">
+                  {productDiscountRate == 0.0 ? (
                     <p className="normalPrice">
                       {Math.floor(productPrice).toLocaleString()} WON
                     </p>
@@ -77,14 +76,15 @@ const GoodList = ({ limit, offset, searchParams }) => {
                       </p>
                       <p className="discount">
                         <span className="discountPrice">
-                          {Number(productPrice) * Number(productDiscountRate)}
+                          {(
+                            productPrice *
+                            (1 - productDiscountRate)
+                          ).toLocaleString()}
                           WON
                         </span>
 
                         <span className="discountRate">
-                          {`(${Math.floor(
-                            (1 - Number(productDiscountRate)) * 100
-                          )}%`}
+                          {`(${Math.floor(productDiscountRate * 100)}%`}
                           <BsArrowDown />
                           <span>)</span>
                         </span>

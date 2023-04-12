@@ -42,20 +42,30 @@ const Detail = ({
             {Math.floor(price).toLocaleString()} WON
           </p>
         ) : (
-          <p>
-            <p className="price">{Math.floor(price).toLocaleString()} WON</p>
-            <p className="discount">
-              <span className="discountPrice">
-                {Number(price) * Number(discountRate)}
-                WON
-              </span>
+          <div>
+            {discountRate == 0.0 ? (
+              <p className="price">{Math.floor(price).toLocaleString()} WON</p>
+            ) : (
+              <div>
+                <p className="price">
+                  {Math.floor(price).toLocaleString()} WON
+                </p>
+                <p className="discount">
+                  <span className="discountPrice">
+                    {(
+                      Number(price) * Number(1 - discountRate)
+                    ).toLocaleString()}
+                    WON
+                  </span>
 
-              <span className="discountRate">
-                {`${Math.floor((1 - Number(discountRate)) * 100)}%`}
-                <BsArrowDown />
-              </span>
-            </p>
-          </p>
+                  <span className="discountRate">
+                    {`${Math.floor(discountRate * 100)}%`}
+                    <BsArrowDown />
+                  </span>
+                </p>
+              </div>
+            )}
+          </div>
         )}
       </div>
       <DetailCount count={count} decrease={decrease} increase={increase} />

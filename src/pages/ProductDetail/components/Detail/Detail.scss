@@ -9,5 +9,12 @@
     margin-bottom: 30px;
     border-bottom: 1px solid rgba(122, 122, 121, 255);
     font-size: 30px;
+    text-decoration: line-through;
+  }
+
+  .discountRate {
+    margin-left: 20px;
+    color: red;
+    font-weight: bold;
   }
 }
