@@ -49,7 +49,7 @@ const Cart = () => {
     });
     return cartIdQuary.join();
   };
-  console.log(separateCartId(checkedItems));
+
   const selectDel = async () => {
     try {
       const res = await fetch(
