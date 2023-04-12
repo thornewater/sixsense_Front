@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProductList.scss';
 import NameBar from './components/NameBar/NameBar';
 import { useSearchParams } from 'react-router-dom';
@@ -8,11 +8,17 @@ import ChangeBtn from './components/ChangeBtn/ChangeBtn';
 
 const ProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const [goodList, setGoodList] = useState([]);
   const offset = searchParams.get('offset');
   const limit = searchParams.get('limit');
 
-  const sortCondition = () => {};
+  // const categoryFilter = goodList => {
+  //   const filterArray = [];
+  //   goodList.map(item => filterArray.push(item.catagoryId));
+  //   return filterArray.join();
+  // };
+
+  const [sortIncDec, setSortIncDec] = useState('productId');
 
   return (
     <div className="productList">
@@ -22,8 +28,14 @@ const ProductList = () => {
       <div className="inner">
         <div className="container">
           <NameBar />
-          <SortBar />
-          <GoodList limit={limit} offset={offset} searchParams={searchParams} />
+          <SortBar goodList={goodList} />
+          <GoodList
+            limit={limit}
+            offset={offset}
+            searchParams={searchParams}
+            goodList={goodList}
+            setGoodList={setGoodList}
+          />
           <ChangeBtn
             setSearchParams={setSearchParams}
             offset={offset}

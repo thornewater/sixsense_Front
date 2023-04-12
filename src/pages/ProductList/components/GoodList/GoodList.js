@@ -6,8 +6,8 @@ import { Heart } from './Heart';
 import { BsArrowDown } from 'react-icons/bs';
 import { showTotalList } from '../../../../api';
 
-const GoodList = ({ limit, offset, searchParams }) => {
-  const [goodList, setGoodList] = useState([]);
+const GoodList = ({ limit, offset, searchParams, goodList, setGoodList }) => {
+  // const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   console.log('location ', location.search);
@@ -21,6 +21,7 @@ const GoodList = ({ limit, offset, searchParams }) => {
       .then(res => res.json())
       .then(data => setGoodList(data));
   }, [offset, limit]);
+
   return (
     <div className="goodList">
       {goodList &&

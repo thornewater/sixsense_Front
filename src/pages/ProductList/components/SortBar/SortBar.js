@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SortBar.scss';
 import SortFilter from './SortFilter';
+import { useSearchParams } from 'react-router-dom';
 
-const SortBar = () => {
+const SortBar = ({ goodList }) => {
+  // console.log(categoryFilter(goodList));
+
   return (
     <div className="sortBar">
-      <p>총 5개 상품이 있습니다</p>
+      <p>총 {goodList.length}개 상품이 있습니다</p>
       <ul>
         {LI_LIST.map(props => {
           return <SortFilter title={props.title} key={props.id} />;
