@@ -1,0 +1,62 @@
+.todayRecommend {
+  position: relative;
+  width: 1120px;
+  height: 275px;
+  margin: 85px auto;
+
+  .todayBg {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .todayTextArea {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    padding: 40px 56px 30px 60px;
+    color: whitesmoke;
+
+    .todayTimeText {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .h3Style {
+        font-size: 26px;
+        font-weight: 500;
+      }
+
+      .timeText {
+        display: flex;
+        align-items: center;
+        color: whitesmoke;
+        font-size: 28px;
+      }
+    }
+
+    .h4Style {
+      margin-top: 50px;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .todayPriceText {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      height: 35%;
+      .priceText {
+        color: #847a8a;
+        font-size: 18px;
+        text-decoration: line-through;
+      }
+
+      .discountText {
+        font-size: 30px;
+      }
+    }
+  }
+}
