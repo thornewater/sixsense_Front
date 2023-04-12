@@ -19,26 +19,41 @@ export const Product = ({
     }
   };
 
-  const addIncreaseHandler = e => {
+  const addIncreaseHandler = async e => {
     e.preventDefault();
-    onChangeProps(
-      product.productId,
-      'productQuantity',
-      product.productQuantity + 1
-    );
+    const newQuantity = product.productQuantity + 1;
+    await patchQuantity(product.cartId, newQuantity);
+    onChangeProps(product.productId, 'productQuantity', newQuantity);
   };
-  const subDecreaseHandler = e => {
+
+  const subDecreaseHandler = async e => {
     e.preventDefault();
     if (product.productQuantity < 2) {
       return;
     } else {
-      onChangeProps(
-        product.productId,
-        'productQuantity',
-        product.productQuantity - 1
-      );
+      const newQuantity = product.productQuantity - 1;
+      await patchQuantity(product.cartId, newQuantity);
+      onChangeProps(product.productId, 'productQuantity', newQuantity);
     }
   };
+
+  async function patchQuantity(cartId, productQuantity) {
+    const res = await fetch(`http://10.58.52.91:3000/carts`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        cartId: cartId,
+        quantity: productQuantity,
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY4MTIzOTE4OH0.GtMoQ8DNUVE_AAOOsGerD2R3V0OOJGE_lY3trlRoJ9Q',
+      },
+    });
+    if (!res) {
+      throw new Error(`HTTP error! status : ${res.status}`);
+    }
+  }
 
   return (
     <li className="product" key={product.productId}>
@@ -51,7 +66,7 @@ export const Product = ({
       <div className="productImgName">
         <div className="imgBox">
           <img
-            src={product.productimages[0]}
+            src={product.productImages[0]}
             alt="제품사진"
             style={{ width: '100%' }}
           />

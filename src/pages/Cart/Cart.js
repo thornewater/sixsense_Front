@@ -52,12 +52,38 @@ const Cart = () => {
     });
   };
 
-  const selectDel = () => {
-    setLists(prevState => {
-      return prevState.filter(items => {
-        return !checkedItems.includes(items.productId);
+  // const selectDel = () => {
+  //   setLists(prevState => {
+  //     return prevState.filter(items => {
+  //       return !checkedItems.includes(items.productId);
+  //     });
+  //   });
+  // };
+  const selectDel = async () => {
+    try {
+      //Quary string으로 보내야함
+      const res = await fetch(`http://10.58.52.91:3000/carts`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json;utf-8',
+          authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4MTE4MTg0OX0.esY9cBvk1sdSNDQnAKHhwHlwjBd-fd3Pv2jITJctvEw',
+        },
+        //DELETE는 Body가 없음 ㅋㅋ
       });
-    });
+      if (res.ok) {
+        setLists(prevState => {
+          return prevState.filter(items => {
+            return !checkedItems.includes(items.productId);
+          });
+        });
+        setCheckedItems([]);
+      } else {
+        throw new Error('서버오류!');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
