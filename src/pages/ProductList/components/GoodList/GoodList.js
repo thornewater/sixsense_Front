@@ -19,7 +19,6 @@ const GoodList = ({ limit, offset, searchParams }) => {
       .then(res => res.json())
       .then(data => setGoodList(data));
   }, [offset, limit]);
-
   return (
     <div className="goodList">
       {goodList &&

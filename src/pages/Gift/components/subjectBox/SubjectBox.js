@@ -16,9 +16,6 @@ const SubjectBox = ({ id, name, price, detailImage, discountRate }) => {
     const { value, name } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
-  // useEffect(() => {
-  //   fetch('http://').then(res=>res.json()).then(result=>result());
-  // }, []);
 
   return (
     <div className="subjectBox">
