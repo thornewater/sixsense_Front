@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './ProductList.scss';
 import NameBar from './components/NameBar/NameBar';
 import { useSearchParams } from 'react-router-dom';
@@ -9,16 +10,27 @@ import ChangeBtn from './components/ChangeBtn/ChangeBtn';
 const ProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [goodList, setGoodList] = useState([]);
+  const [isSorted, setIsSorted] = useState(false);
+  const location = useLocation();
   const offset = searchParams.get('offset');
   const limit = searchParams.get('limit');
 
-  // const categoryFilter = goodList => {
-  //   const filterArray = [];
-  //   goodList.map(item => filterArray.push(item.catagoryId));
-  //   return filterArray.join();
-  // };
+  useEffect(() => {
+    fetch(`http://10.58.52.96:3000/products/${location.search}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(data => setGoodList(data));
+  }, [offset, limit, isSorted]);
 
-  const [sortIncDec, setSortIncDec] = useState('productId');
+  const categoryFilter = goodList => {
+    const filterArray = [];
+    goodList.map(item => filterArray.push(item.catagoryId));
+    return filterArray.join();
+  };
 
   return (
     <div className="productList">
@@ -27,8 +39,8 @@ const ProductList = () => {
       </div>
       <div className="inner">
         <div className="container">
-          <NameBar />
-          <SortBar goodList={goodList} />
+          <NameBar isSorted={isSorted} setIsSorted={setIsSorted} />
+          <SortBar goodList={goodList} categoryFilter={categoryFilter} />
           <GoodList
             limit={limit}
             offset={offset}

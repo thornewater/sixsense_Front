@@ -2,24 +2,16 @@ import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './NameBar.scss';
 
-const NameBar = () => {
+const NameBar = ({ isSorted, setIsSorted }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [isSorted, setIsSorted] = useState(true);
+  // const [isSorted, setIsSorted] = useState(true);
   const handleSortClick = sortOrder => {
     setIsSorted(!isSorted);
-    if (sortOrder === 'asc') {
-      if (isSorted) {
-        searchParams.set('sort', 'priceAsc');
-      } else {
-        searchParams.set('sort', 'productId');
-      }
+    if (isSorted) {
+      searchParams.set('sort', 'priceInASC');
     } else {
-      if (isSorted) {
-        searchParams.set('sort', 'priceDesc');
-      } else {
-        searchParams.set('sort', 'productId');
-      }
+      searchParams.set('sort', 'priceInDESC');
     }
     setSearchParams(searchParams);
   };
@@ -29,10 +21,10 @@ const NameBar = () => {
         <span>All product</span>
       </div>
       <div className="priceSort">
-        <p className="higher sort" onClick={handleSortClick}>
+        <p className="higher sort" onClick={() => handleSortClick('asc')}>
           high price
         </p>
-        <p className="lower sort" onClick={handleSortClick}>
+        <p className="lower sort" onClick={() => handleSortClick('dec')}>
           low price
         </p>
       </div>

@@ -3,7 +3,7 @@ import './SortBar.scss';
 import SortFilter from './SortFilter';
 import { useSearchParams } from 'react-router-dom';
 
-const SortBar = ({ goodList }) => {
+const SortBar = ({ goodList, categoryFilter }) => {
   // console.log(categoryFilter(goodList));
 
   return (

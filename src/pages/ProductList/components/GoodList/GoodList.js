@@ -11,16 +11,16 @@ const GoodList = ({ limit, offset, searchParams, goodList, setGoodList }) => {
   const navigate = useNavigate();
   const location = useLocation();
   console.log('location ', location.search);
-  useEffect(() => {
-    fetch(`http://10.58.52.91:3000/products/${location.search}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-    })
-      .then(res => res.json())
-      .then(data => setGoodList(data));
-  }, [offset, limit]);
+  // useEffect(() => {
+  //   fetch(`http://10.58.52.91:3000/products/${location.search}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json;charset=utf-8',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => setGoodList(data));
+  // }, [offset, limit]);
 
   return (
     <div className="goodList">
