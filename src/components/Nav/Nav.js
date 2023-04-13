@@ -59,12 +59,12 @@ const NAVI_MENU = [
   {
     id: 2,
     menu: '인센스',
-    path: '/Detail',
+    path: '/productlist',
   },
   {
     id: 3,
     menu: '홀더',
-    path: '/Detail',
+    path: '/productlist',
   },
   {
     id: 4,
