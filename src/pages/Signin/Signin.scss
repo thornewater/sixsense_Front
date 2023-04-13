@@ -13,7 +13,7 @@
       .btnPageClose {
         margin-left: 410px;
         border: none;
-        background-color: white;
+        background-color: rgba(0, 0, 0, 0);
         color: #898989;
         font-size: 25px;
         cursor: pointer;
@@ -69,9 +69,6 @@
       color: #c6c6c6;
       font-size: 20px;
       cursor: not-allowed;
-      // & :disabled {
-      //   background-color: #5c95f0;
-      // }
     }
     .activeLoginBtn {
       width: 440px;
@@ -110,7 +107,7 @@
       padding: 0 20px;
       border: 1px solid #d3d3d3;
       border-radius: 5px;
-      background-color: white;
+      background-color: rgba(0, 0, 0, 0);
       font-size: 16px;
       font-weight: 400;
       cursor: pointer;

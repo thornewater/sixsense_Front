@@ -3,14 +3,12 @@
   position: sticky;
   top: 100px;
   flex-direction: column;
-  margin-left: 180px;
-
+  margin-left: 100px;
   .details {
     display: flex;
+
     padding: 20px 30px;
-
     background-color: #9e887c;
-
     .detail {
       display: flex;
       justify-content: space-between;
@@ -32,6 +30,8 @@
 
     &:hover {
       background-color: #000000;
+      color: white;
+
       font-weight: bold;
       cursor: pointer;
     }
