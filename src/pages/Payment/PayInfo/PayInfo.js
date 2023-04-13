@@ -3,9 +3,8 @@ import './PayInfo.scss';
 
 const PayInfo = ({ cartList, postPayInfo }) => {
   const price = 100000;
-  // const goodsPrice = 30400;
 
-  const deliveryCondition = () => {
+  const deliveryCondition = paymentTotalPrice => {
     if (paymentTotalPrice > 30000) {
       return 2000;
     } else {
@@ -13,27 +12,27 @@ const PayInfo = ({ cartList, postPayInfo }) => {
     }
   };
 
-  const receipt = () => {
+  const receipt = cartList => {
+    let payObj = [];
     cartList.map(item => {
-      const payObj = [];
-      payObj.push(
-        { cartId: item.cartId },
-        { productId: item.productId },
-        { qunantity: item.productQuantity }
-      );
-      return payObj;
+      payObj.push({
+        cartId: item.cartId,
+        productId: item.productId,
+        quantity: item.productQuantity,
+      });
     });
+    return payObj;
   };
+  console.log(receipt(cartList));
 
-  console.log(receipt);
-
-  const paymentTotalPrice = () => {
-    const paymentPrice = 0;
+  const paymentTotalPrice = cartList => {
+    let paymentPrice = 0;
     cartList.map(item => {
-      paymentPrice += item.productPrice;
+      paymentPrice += Number(item.discountedPrice) * item.productQuantity;
     });
     return paymentPrice;
   };
+
   const [disable, setDisable] = useState(false);
 
   const possiblePay = () => {
@@ -54,7 +53,7 @@ const PayInfo = ({ cartList, postPayInfo }) => {
       <div className="details">
         <div className="detail">
           <p className="payBar">상품가격</p>
-          <span className="deliveryFee">{paymentTotalPrice}</span>
+          <span className="deliveryFee">{paymentTotalPrice(cartList)}</span>
         </div>
       </div>
 
@@ -70,14 +69,18 @@ const PayInfo = ({ cartList, postPayInfo }) => {
         <div className="detail">
           <p className="payBar">잔여 포인트</p>
           <span>
-            {price - paymentTotalPrice - deliveryCondition(paymentTotalPrice)}
+            {price -
+              paymentTotalPrice(cartList) -
+              deliveryCondition(paymentTotalPrice)}
           </span>
         </div>
       </div>
 
       <button
         className="linkBtnStyle"
-        onClick={() => postPayInfo(receipt, paymentTotalPrice)}
+        onClick={() =>
+          postPayInfo(receipt(cartList), paymentTotalPrice(cartList))
+        }
         disabled={false}
       >
         결제하기

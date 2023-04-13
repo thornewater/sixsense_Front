@@ -10,7 +10,7 @@ const OrderInfo = ({ cartList }) => {
     customerName: '',
     customerNumber: '',
     receiverName: '',
-    recieverNumber: '',
+    receiverNumber: '',
     receiverAddress: '',
   });
   const onChange = e => {
@@ -110,22 +110,24 @@ const OrderInfo = ({ cartList }) => {
         <p className="generalGift"> 일반 상품</p>
 
         {cartList?.map(item => {
-          <div className="goodsTotal">
-            <div className="leftGoodsDetail">
-              <img
-                className="goodsImg"
-                src={item.productImage[0]}
-                alt="goodsImg"
-              />
-              <span>{item.productName}</span>
-            </div>
-            <div>
-              <div className="rightGoodsDetail">
-                <span>{item.productPrice}원</span>
-                <span>/ {item.productQuntity}개</span>
+          return (
+            <div className="goodsTotal" key={item.id}>
+              <div className="leftGoodsDetail">
+                <img
+                  className="goodsImg"
+                  src={item.productImage[0]}
+                  alt="goodsImg"
+                />
+                <span>{item.productName}</span>
+              </div>
+              <div>
+                <div className="rightGoodsDetail">
+                  <span>{item.productPrice}원</span>
+                  <span>/ {item.productQuantity}개</span>
+                </div>
               </div>
             </div>
-          </div>;
+          );
         })}
       </div>
     </div>

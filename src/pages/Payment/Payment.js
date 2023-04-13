@@ -11,19 +11,14 @@ const Payment = () => {
 
   console.log(cartList);
 
-  useEffect(() => {
-    const cartList = location.state;
-  }, []);
-
   const [completeAll, setCompleteAll] = useState({});
 
   const postPayInfo = (receipt, price) => {
-    fetch(`http://10.58.52.91:3000/carts`, {
+    fetch(`http://10.58.52.91:3000/order`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY4MTM1MzI5NX0.0wHFSR9MKEZx2ZcrtipxU3i83e6-eQ5DwFq-EDeaVRM',
+        authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         totalPrice: price,
