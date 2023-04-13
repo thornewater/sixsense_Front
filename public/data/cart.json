@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "식센스 스틱 레인포레스트향",
+    "quantity": 1,
+    "discount_rate": 0.3,
+    "price": 8000
+  },
+  {
+    "id": 2,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "식센스 스틱 전통향",
+    "quantity": 1,
+    "discount_rate": 0,
+    "price": 8000
+  },
+  {
+    "id": 3,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "식센스 스틱 머스크향",
+    "quantity": 1,
+    "discount_rate": 0,
+    "price": 8000
+  },
+  {
+    "id": 4,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "식센스 콘 로멘스향",
+    "quantity": 1,
+    "discount_rate": 0,
+    "price": 15000
+  },
+  {
+    "id": 5,
+    "detail_image": "/images/insense_2.jpeg",
+    "name": "메탈 플레인 홀더",
+    "quantity": 1,
+    "discount_rate": 0.1,
+    "price": 30000
+  }
+]

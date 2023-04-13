@@ -1,40 +1,47 @@
 import React from 'react';
 import './CartItems.scss';
+import { Product } from './Product';
 
-export const CartItems = ({ lists }) => {
+export const CartItems = ({
+  lists,
+  setLists,
+  selectAll,
+  selectDel,
+  checkingBox,
+  onChangeProps,
+  checkedItems,
+  setCheckedItems,
+}) => {
   return (
     <div className="cartItems">
+      <div className="cartChoice">
+        <div className="allChk">
+          <input
+            type="checkbox"
+            className="checkbox"
+            onChange={e => selectAll(e.target.checked)}
+            checked={checkedItems.length === lists.length ? true : false}
+          />
+          <div className="allSelect">전체선택</div>
+        </div>
+        <div className="selectDel">
+          <div className="borderLine" />
+          <button className="selectChk" onClick={selectDel}>
+            선택 삭제
+          </button>
+        </div>
+      </div>
       <ul className="listContainer">
-        {lists.map(function (product) {
+        {lists.map(product => {
           return (
-            <li className="product" key={product.id}>
-              <input type="checkbox" className="checkbox" />
-              <div className="productImgName">
-                <div className="imgBox">
-                  <img
-                    src={product.detail_image}
-                    alt="제품사진"
-                    style={{ width: '100%' }}
-                  />
-                </div>
-                <div className="textBox">
-                  <p>{product.name}</p>
-                </div>
-              </div>
-              <div className="quantityBox">
-                <div className="count">
-                  <button>-</button>
-                  <input type="text" defaultValue={product.quantity} />
-                  <button>+</button>
-                </div>
-                <div className="price">
-                  <p>{product.price}</p>
-                </div>
-              </div>
-              <div className="purchaseNow">
-                <button>바로구매</button>
-              </div>
-            </li>
+            <Product
+              key={product.productId}
+              product={product}
+              setLists={setLists}
+              checkedItems={checkedItems}
+              checkingBox={checkingBox}
+              onChangeProps={onChangeProps}
+            />
           );
         })}
       </ul>
