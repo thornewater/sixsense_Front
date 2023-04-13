@@ -1,7 +1,7 @@
 import React from 'react';
 import './PriceInfo.scss';
 
-const PriceInfo = () => {
+const PriceInfo = ({ price }) => {
   return (
     <div className="priceInfo">
       <div className="details">
@@ -12,7 +12,7 @@ const PriceInfo = () => {
 
       <div className="details">
         <div className="detail">
-          <p>상품가격</p> <span className="deliveryFee">12,002원</span>
+          <p>상품가격</p> <span className="deliveryFee">{price}</span>
         </div>
       </div>
 
