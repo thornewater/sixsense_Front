@@ -5,7 +5,7 @@ import './Image.scss';
 const Image = ({ productImage, goodsId, setProductPrice, id }) => {
   return (
     <div className="image">
-      <img className="incense" src={productImage} alt="detailpage" />
+      <img className="incense" src={productImage?.[0]} alt="detailpage" />
       <div className="review">
         <span className="starDots">리뷰 별점 :</span>
         <span className="reviewNum">4.7</span>

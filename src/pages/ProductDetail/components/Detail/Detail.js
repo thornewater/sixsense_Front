@@ -46,8 +46,8 @@ const Detail = ({
             {discountRate == 0.0 ? (
               <p className="price">{Math.floor(price).toLocaleString()} WON</p>
             ) : (
-              <div>
-                <p className="price">
+              <div className="a">
+                <p className="costPrice">
                   {Math.floor(price).toLocaleString()} WON
                 </p>
                 <p className="discount">
@@ -69,7 +69,7 @@ const Detail = ({
         )}
       </div>
       <DetailCount count={count} decrease={decrease} increase={increase} />
-      <TotalCost price={price} count={count} />
+      <TotalCost price={price} count={count} discountRate={discountRate} />
       <Navigate
         price={price}
         count={count}
