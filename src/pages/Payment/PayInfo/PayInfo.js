@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PayInfo.scss';
 
-const AddressInfo = ({ cartList }) => {
+const PayInfo = ({ cartList, postPayInfo }) => {
   const price = 100000;
-  const goodsPrice = 30400;
+  // const goodsPrice = 30400;
 
   const deliveryCondition = () => {
     if (paymentTotalPrice > 30000) {
@@ -13,12 +13,33 @@ const AddressInfo = ({ cartList }) => {
     }
   };
 
+  const receipt = () => {
+    cartList.map(item => {
+      const payObj = [];
+      payObj.push(
+        { cartId: item.cartId },
+        { productId: item.productId },
+        { qunantity: item.productQuantity }
+      );
+      return payObj;
+    });
+  };
+
+  console.log(receipt);
+
   const paymentTotalPrice = () => {
     const paymentPrice = 0;
     cartList.map(item => {
       paymentPrice += item.productPrice;
     });
     return paymentPrice;
+  };
+  const [disable, setDisable] = useState(false);
+
+  const possiblePay = () => {
+    price > paymentTotalPrice + deliveryCondition(paymentTotalPrice)
+      ? setDisable(!disable)
+      : setDisable(disable);
   };
 
   return (
@@ -40,19 +61,29 @@ const AddressInfo = ({ cartList }) => {
       <div className="details">
         <div className="detail">
           <p className="payBar">배송비</p>
-          <span className="deliveryFee">{deliveryCondition(goodsPrice)}</span>
+          <span className="deliveryFee">
+            {deliveryCondition(paymentTotalPrice)}
+          </span>
         </div>
       </div>
       <div className="details">
         <div className="detail">
           <p className="payBar">잔여 포인트</p>
-          <span>{price - goodsPrice - deliveryCondition(goodsPrice)}</span>
+          <span>
+            {price - paymentTotalPrice - deliveryCondition(paymentTotalPrice)}
+          </span>
         </div>
       </div>
 
-      <button className="linkBtnStyle">결제하기</button>
+      <button
+        className="linkBtnStyle"
+        onClick={() => postPayInfo(receipt, paymentTotalPrice)}
+        disabled={false}
+      >
+        결제하기
+      </button>
     </div>
   );
 };
 
-export default AddressInfo;
+export default PayInfo;

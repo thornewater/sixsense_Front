@@ -59,7 +59,7 @@ export const PriceInfo = ({ lists, checkedItems }) => {
         </div>
       </div>
       <button>
-        <Link to="/Payment" className="linkBtnStyle">
+        <Link to="/Payment" className="linkBtnStyle" state={checkedItems}>
           결재하기
         </Link>
       </button>
