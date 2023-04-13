@@ -57,7 +57,7 @@ const Cart = () => {
         {
           method: 'DELETE',
           headers: {
-            'Content-Type': 'application/json;utf-8',
+            'Content-Type': 'application/json;charset=utf-8',
             authorization: localStorage.getItem('token'),
           },
         }
