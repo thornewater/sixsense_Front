@@ -32,7 +32,7 @@ export const CartItems = ({
         </div>
       </div>
       <ul className="listContainer">
-        {lists.map(product => {
+        {lists?.map(product => {
           return (
             <Product
               key={product.productId}

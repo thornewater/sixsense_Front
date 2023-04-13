@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { TodayCommend } from './TodayCommend/TodayCommend';
@@ -7,7 +7,6 @@ import { SubscribeSection } from './SubscribeSection/SubscribeSection';
 import { BrandSection } from './BrandSection/BrandSection';
 import { MagazineSection } from './MagazineSection/MagazineSection';
 import { BannerContainer } from './BannerContainer/BannerContainer';
-import { MAIN_PRODUCT } from './MainData';
 import './Main.scss';
 
 const Main = () => {
@@ -35,27 +34,24 @@ const Main = () => {
   };
 
   useEffect(() => {
+    const recommendTimer = setInterval(() => {
+      addIndex();
+    }, 4000);
+    return () => {
+      clearInterval(recommendTimer);
+    };
+  }, [lists, index]);
+
+  useEffect(() => {
     fetch('http://10.58.52.91:3000/products', {
       headers: {
         method: 'GET',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY4MTIyMDY5Nn0.jcEr96OmCN5gv239vBcOYsUv8mXmrV0Oodn1tfcWG8A',
+        authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
       .then(data => setLists(data));
   }, []);
-
-  useEffect(() => {
-    const recommendTimer = setInterval(() => {
-      setIndex(index => {
-        return index >= lists.length - 3 ? 0 : index + 1;
-      });
-    }, 4000);
-    return () => {
-      clearInterval(recommendTimer);
-    };
-  }, [index]);
 
   return (
     <div className="main">
@@ -73,10 +69,10 @@ const Main = () => {
         <section className="recommendSector">
           <div className="recommendTitle">오래 기억될 순간들</div>
           <div className="recommendWrapper">
-            <div className="leftArrow">
-              <IoIosArrowBack className="recommendArrow" onClick={subIndex} />
-            </div>
             <div className="recommendList">
+              <div className="leftArrow">
+                <IoIosArrowBack className="recommendArrow" onClick={subIndex} />
+              </div>
               {lists &&
                 lists.map(item => (
                   <div
@@ -109,7 +105,10 @@ const Main = () => {
                         <span>
                           <Link
                             to={`/Detail/${item.productId}`}
-                            style={{ textDecoration: 'none', color: '#252525' }}
+                            style={{
+                              textDecoration: 'none',
+                              color: '#252525',
+                            }}
                           >
                             {item.productName}
                           </Link>
@@ -138,12 +137,12 @@ const Main = () => {
                     </div>
                   </div>
                 ))}
-            </div>
-            <div className="rightArrow">
-              <IoIosArrowForward
-                className="recommendArrow"
-                onClick={addIndex}
-              />
+              <div className="rightArrow">
+                <IoIosArrowForward
+                  className="recommendArrow"
+                  onClick={addIndex}
+                />
+              </div>
             </div>
           </div>
           <div className="recommendMore">
