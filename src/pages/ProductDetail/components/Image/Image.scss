@@ -1,11 +1,12 @@
 .image {
   display: flex;
   flex-direction: column;
+  margin-top: -100px;
   margin-right: 200px;
 
   .incense {
-    width: 300px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     margin-top: 100px;
     padding: 50px;
   }
@@ -17,9 +18,13 @@
     .starDots,
     .reviewNum {
       margin-top: 40px;
-      margin-right: 20px;
+      // margin-right: 20px;
       opacity: 60%;
       font-size: 30px;
+    }
+
+    .reviewNum {
+      margin-left: -60px;
     }
 
     .stars {

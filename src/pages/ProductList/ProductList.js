@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import './ProductList.scss';
 import NameBar from './components/NameBar/NameBar';
 import { useSearchParams } from 'react-router-dom';
@@ -14,9 +14,9 @@ const ProductList = () => {
   const location = useLocation();
   const offset = searchParams.get('offset');
   const limit = searchParams.get('limit');
-
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://10.58.52.96:3000/products/${location.search}`, {
+    fetch(`http://10.58.52.91:3000/products/${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -30,6 +30,27 @@ const ProductList = () => {
     const filterArray = [];
     goodList.map(item => filterArray.push(item.catagoryId));
     return filterArray.join();
+  };
+
+  const [cartInfo, setCartInfo] = useState({});
+  // const { productId, quantity } = cartInfo;
+  console.log(cartInfo);
+  const goToCart = productId => {
+    console.log(productId);
+    fetch(`http://10.58.52.91:3000/carts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY4MTM1MzI5NX0.0wHFSR9MKEZx2ZcrtipxU3i83e6-eQ5DwFq-EDeaVRM',
+      },
+      body: JSON.stringify({
+        productId: productId,
+        quantity: 1,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => setCartInfo(data), navigate('/cart'));
   };
 
   return (
@@ -47,6 +68,7 @@ const ProductList = () => {
             searchParams={searchParams}
             goodList={goodList}
             setGoodList={setGoodList}
+            goToCart={goToCart}
           />
           <ChangeBtn
             setSearchParams={setSearchParams}
