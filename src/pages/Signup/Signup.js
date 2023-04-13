@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './Signup.scss';
 import { useNavigate, Link } from 'react-router-dom';
+import { api } from '../../api';
+import './Signup.scss';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -44,11 +45,17 @@ const Signup = () => {
     setUserInfo({ ...userInfo, [name]: '' });
   };
   const inputValidate =
+    //이름은 최소 한글자 이상
     nameValue.length >= 1 &&
+    //전화번호는 숫자 10자리에서 11자리
     phoneValue.match(/^[0-9]{10,11}$/) &&
+    //날짜는 아무 값이 들어올시
     dateValue.length >= 1 &&
+    //성별 체크도 아무 값이 들어올시
     genderValue.length >= 1 &&
+    //회원가입 ID는 영소문자를 포함한 4~12자리
     idValue.match(/^[a-z0-9]{4,12}$/) &&
+    //회원가입 pw는 영소문자, 숫자, 특수문자가 포함된 8~16글자
     pwValue.match(
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
     ) &&
@@ -57,7 +64,7 @@ const Signup = () => {
   const validate =
     inputValidate && serviceChecked && informationChecked === true;
   const signup = () => {
-    fetch('http://10.58.52.91:3000/users/signup', {
+    fetch(`${api.signup}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
       body: JSON.stringify({
@@ -70,7 +77,10 @@ const Signup = () => {
       }),
     })
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(
+        signup => alert('저희의 가족이 되어주셔서 감사합니다!'),
+        navigate('/login')
+      );
   };
 
   return (
