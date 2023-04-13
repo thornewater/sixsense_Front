@@ -6,7 +6,14 @@ import { Heart } from './Heart';
 import { BsArrowDown } from 'react-icons/bs';
 import { showTotalList } from '../../../../api';
 
-const GoodList = ({ limit, offset, searchParams, goodList, setGoodList }) => {
+const GoodList = ({
+  limit,
+  offset,
+  searchParams,
+  goodList,
+  setGoodList,
+  goToCart,
+}) => {
   // const [goodList, setGoodList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,19 +27,23 @@ const GoodList = ({ limit, offset, searchParams, goodList, setGoodList }) => {
   //   })
   //     .then(res => res.json())
   //     .then(data => setGoodList(data));
-  // }, [offset, limit]);
-
+  // }, [offset,  limit]);
+  const productIdArr = [];
   return (
     <div className="goodList">
       {goodList &&
         goodList.map(
-          ({
-            productId,
-            productImage,
-            productName,
-            productPrice,
-            productDiscountRate,
-          }) => {
+          (
+            {
+              productId,
+              productImage,
+              productName,
+              productPrice,
+              productDiscountRate,
+            },
+            i
+          ) => {
+            productIdArr.push(productId);
             return (
               <div key={productId} className="goodListItem">
                 <div className="images">
@@ -54,9 +65,7 @@ const GoodList = ({ limit, offset, searchParams, goodList, setGoodList }) => {
                   />
                   <AiOutlineShoppingCart
                     className="hoverCart"
-                    onClick={() => {
-                      navigate('/cart');
-                    }}
+                    onClick={() => goToCart(productIdArr[i])}
                   />
                 </div>
                 <p className="item">
