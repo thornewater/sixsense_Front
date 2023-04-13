@@ -42,7 +42,24 @@ const Nav = () => {
                 onClick={() => goToPage('cart')}
               />
             </li>
-            <li>{isLogin ? '로그아웃' : '로그인'}</li>
+            {isLogin ? (
+              <li
+                onClick={() => {
+                  localStorage.removeItem('token');
+                }}
+              >
+                로그아웃
+              </li>
+            ) : (
+              <li
+                onClick={() => {
+                  navigate('/signin');
+                }}
+              >
+                로그인
+              </li>
+            )}
+            {/* <li>{isLogin ? '로그아웃' : '로그인'}</li> */}
           </ul>
         </div>
       </div>

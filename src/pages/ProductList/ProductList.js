@@ -16,7 +16,7 @@ const ProductList = () => {
   const limit = searchParams.get('limit');
 
   useEffect(() => {
-    fetch(`http://10.58.52.96:3000/products/${location.search}`, {
+    fetch(`http://10.58.52.91:3000/products/${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
