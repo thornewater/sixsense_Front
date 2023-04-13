@@ -59,7 +59,6 @@ const Nav = () => {
                 로그인
               </li>
             )}
-            {/* <li>{isLogin ? '로그아웃' : '로그인'}</li> */}
           </ul>
         </div>
       </div>

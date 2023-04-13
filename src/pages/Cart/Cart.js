@@ -88,7 +88,6 @@ const Cart = () => {
       .then(res => res.json())
       .then(data => {
         setLists(data);
-        console.log(data);
       });
   }, [checkedItems]);
 

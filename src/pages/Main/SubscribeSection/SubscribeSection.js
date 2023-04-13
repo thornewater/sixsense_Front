@@ -11,6 +11,11 @@ export const SubscribeSection = () => {
         </p>
         <div className="subscribeFlexBox">
           <div className="insenseLife" />
+          {/* <img
+            className="insenseLife"
+            src="/images/incense_gif.gif"
+            alt="인센스 움짤"
+          /> */}
           <div className="subscribeContainer">
             <div className="insenseMood" />
             <div className="insensePost" />

@@ -9,7 +9,7 @@ export const BrandSection = () => {
           <div className="checkBox">
             <img
               className="checkImg"
-              src="/images/insense_1.jpeg"
+              src="/images/incense_gif.gif"
               alt="이달의 체크"
             />
             <p className="checkText">오늘의 기분</p>
