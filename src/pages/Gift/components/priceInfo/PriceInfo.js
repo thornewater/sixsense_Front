@@ -1,7 +1,7 @@
 import React from 'react';
 import './PriceInfo.scss';
 
-const PriceInfo = () => {
+const PriceInfo = ({ price }) => {
   return (
     <div className="priceInfo">
       <div className="details">
