@@ -1,51 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { IoIosArrowBack } from 'react-icons/io';
-import { IoIosArrowForward } from 'react-icons/io';
-import { BANNER_INFO, MAGAZINE_DATA } from './MainData';
-import todayBg from '../assets/images/insense_6.JPG';
+import { Link } from 'react-router-dom';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { TodayCommend } from './TodayCommend/TodayCommend';
+import { SubscribeSection } from './SubscribeSection/SubscribeSection';
+import { BrandSection } from './BrandSection/BrandSection';
+import { MagazineSection } from './MagazineSection/MagazineSection';
+import { BannerContainer } from './BannerContainer/BannerContainer';
+import { MAIN_PRODUCT } from './MainData';
 import './Main.scss';
 
 const Main = () => {
-  const [productList, setProductList] = useState([]);
+  const [index, setIndex] = useState(0);
+  const swipeRecommend = 81;
+
+  const addIndex = () => {
+    index >= MAIN_PRODUCT.length - 3 ? setIndex(0) : setIndex(index + 1);
+  };
+
+  const subIndex = () => {
+    index <= 0 ? setIndex(MAIN_PRODUCT.length - 3) : setIndex(index - 1);
+  };
+
+  const translateRecommend = index => {
+    return index * swipeRecommend;
+  };
 
   useEffect(() => {
-    fetch('/data/data.json', {
-      method: 'GET',
-    })
-      .then(response => response.json())
-      .then(data => setProductList(data));
-  }, []);
+    const recommendTimer = setInterval(() => {
+      setIndex(index => {
+        return index >= MAIN_PRODUCT.length - 3 ? 0 : index + 1;
+      });
+    }, 4000);
+    return () => {
+      clearInterval(recommendTimer);
+    };
+  }, [index]);
 
   return (
     <div className="main">
-      {/** TODO : 캐러셀 기능 적용 */}
-      <div className="bannerBody">
-        <div className="bannerContainer">
-          {BANNER_INFO.map(function ({
-            id,
-            bannerImg,
-            bannerTitle,
-            bannerText,
-          }) {
-            return (
-              <div
-                key={id}
-                className="mainBanner"
-                style={{ backgroundImage: `url(${bannerImg})` }}
-              >
-                <div className="alignText">
-                  <span className="bannerTitle">{bannerTitle}</span>
-                  <span className="bannerText">{bannerText}</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div className="alignBox">
-        <IoIosArrowBack className="mainArrowIcon" />
-        <IoIosArrowForward className="mainArrowIcon" />
-      </div>
+      <BannerContainer />
       <div className="mainContents">
         <div className="mainNotice">
           <p className="notice">공지사항</p>
@@ -56,147 +49,83 @@ const Main = () => {
             <IoIosArrowForward style={{ marginRight: '10px' }} />
           </div>
         </div>
-        {/** TODO : 캐러셀 기능 적용 */}
         <section className="recommendSector">
           <div className="recommendTitle">오래 기억될 순간들</div>
-          <div className="recommendList">
-            {productList.map(function ({ id, pdImage, pdName, pdPrice }) {
-              return (
-                <div className="recommendProduct" key={id}>
-                  <div className="productInfo">
-                    <img
-                      className="productImg"
-                      src={pdImage}
-                      alt="상품 이미지"
-                    />
-                    <p className="productName">
-                      <a>{pdName}</a>
-                    </p>
-                    <p className="pdPrice">{pdPrice}</p>
+          <div className="recommendWrapper">
+            <div className="leftArrow">
+              <IoIosArrowBack className="recommendArrow" onClick={subIndex} />
+            </div>
+            <div className="recommendList">
+              {MAIN_PRODUCT &&
+                MAIN_PRODUCT.map(item => (
+                  <div
+                    className="recommendProduct"
+                    key={item.productId}
+                    style={{
+                      transform: `translateX(-${translateRecommend(index)}%)`,
+                    }}
+                  >
+                    <div className="productInfo">
+                      <Link to={`/Detail/${item.productId}`}>
+                        <img
+                          className="productImg"
+                          src={item.productImage}
+                          alt="상품 이미지"
+                        />
+                      </Link>
+                      <p className="productName">
+                        <span>
+                          <Link
+                            to={`/Detail/${item.productId}`}
+                            style={{ textDecoration: 'none', color: '#252525' }}
+                          >
+                            {item.productName}
+                          </Link>
+                        </span>
+                      </p>
+                      {item.discountRate > 0 ? (
+                        <div>
+                          <p className="pdPriceCancel">{item.productPrice}</p>
+                          <div className="pdPriceDiscountBox">
+                            <span className="pdPriceDiscount">
+                              {item.productPrice -
+                                item.productPrice * item.discountRate}
+                            </span>
+                            <span className="percentText">
+                              {item.discountRate * 100}%
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="pdPrice">{item.productPrice}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                ))}
+            </div>
+            <div className="rightArrow">
+              <IoIosArrowForward
+                className="recommendArrow"
+                onClick={addIndex}
+              />
+            </div>
           </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '60px',
-            }}
-          >
-            <button
-              type="button"
-              style={{
-                padding: '15px 60px',
-                border: '1px solid lightgray',
-                borderRadius: '5px',
-                textAlign: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                color: '#252525',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-              }}
-            >
-              더 보기 <IoIosArrowForward />
+          <div className="recommendMore">
+            <button type="button" className="recommendMoreButton">
+              <Link to="/productList" className="toProductList">
+                더 보기 <IoIosArrowForward />
+              </Link>
             </button>
           </div>
         </section>
-        {/** TODO : 추천상품 타이머 기능 */}
-        <section className="todayRecommend">
-          <div
-            className="todayBg"
-            style={{ backgroundImage: `url(${todayBg})` }}
-          />
-          <div className="todayTextArea">
-            <div className="todayTimeText">
-              <h3 className="h3Style">오늘의 기억</h3>
-              <p className="timeText">01:54:55</p>
-            </div>
-            <h4 className="h4Style">베스트 인센스 컬렉션</h4>
-            <div className="todayPriceText">
-              <div className="priceText">24000원</div>
-              <div className="discountText">21600원</div>
-            </div>
-          </div>
-        </section>
-        <section className="subscribeSection">
-          <div className="subscribeBanner">
-            <h4 className="h4Style">깊어지는 나날</h4>
-            <p className="subscribeSubText">
-              여러가지 인센스 들로 더욱 평안해지는 휴식 시간을 가져보세요.
-            </p>
-            <div className="subscribeFlexBox">
-              <div className="insenseLife" />
-              <div className="subscribeContainer">
-                <div className="insenseMood" />
-                <div className="insensePost" />
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="brandSection">
-          <div className="brandBanner">
-            <div className="bannerCheck">
-              <div className="checkBox">
-                <img
-                  className="checkImg"
-                  src="/images/insense_1.jpeg"
-                  alt="이달의 체크"
-                />
-                <p className="checkText">오늘의 기분</p>
-              </div>
-            </div>
-            <div className="bannerStory">
-              <div className="storyBox">
-                <img
-                  className="storyImg"
-                  src="/images/insense_4.jpeg"
-                  alt="우리의 이야기"
-                />
-                <p className="storyText">우리의 이야기</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="magazineSection">
-          <div className="magazineBanner">
-            <h3 className="magazineTitle">순간들의 무드</h3>
-            <p className="magazineSubText">
-              향을 통해 달라지는 휴식을 만나보세요.
-            </p>
-            <div className="magazineBody">
-              <div className="leftArrow">
-                <IoIosArrowBack className="magazineArrow" />
-              </div>
-              <div className="swipeContainer">
-                {MAGAZINE_DATA.map(function ({
-                  id,
-                  magazineColor,
-                  magazineImg,
-                  magazineTitle,
-                  magazineSubText,
-                }) {
-                  return (
-                    <div className="magazineCard" key={id}>
-                      <img className="imgBox" src={magazineImg} alt="사진" />
-                      <p className="textBold">{magazineTitle}</p>
-                      <p className="textSub">{magazineSubText}</p>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="rightArrow">
-                <IoIosArrowForward className="magazineArrow" />
-              </div>
-            </div>
-          </div>
-        </section>
+        <TodayCommend />
+        <SubscribeSection />
+        <BrandSection />
+        <MagazineSection />
         <section className="companySection">
           <div className="companyBackground" />
           <div className="companyTextBox">
-            <p className="companyText">제주 티뮤지엄 티스톤</p>
+            <p className="companyText">> Wecode</p>
           </div>
         </section>
       </div>

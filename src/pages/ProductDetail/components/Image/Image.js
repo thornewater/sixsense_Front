@@ -2,10 +2,10 @@ import React from 'react';
 import { GoStar } from 'react-icons/go';
 import './Image.scss';
 
-const Image = () => {
+const Image = ({ productImage, goodsId, setProductPrice, id }) => {
   return (
     <div className="image">
-      <img className="incense" src="/images/incense.png" alt="detailpage" />
+      <img className="incense" src={productImage} alt="detailpage" />
       <div className="review">
         <span className="starDots">리뷰 별점 :</span>
         <span className="reviewNum">4.7</span>

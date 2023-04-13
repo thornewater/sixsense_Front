@@ -1,16 +1,39 @@
 import React from 'react';
-import { MdNavigateNext } from 'react-icons/md';
-import { MdNavigateBefore } from 'react-icons/md';
 import './ChangeBtn.scss';
 
-const ChangeBtn = () => {
+const ChangeBtn = ({ setSearchParams, offset, searchParams }) => {
+  const movePage = pageNumber => {
+    const limit = 10;
+    searchParams.set('offset', (pageNumber - 1) * limit);
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="changeBtn">
-      <MdNavigateBefore className="before" />
-      <p className="pageNumber">1</p>
-      <MdNavigateNext className="after" />
+      {PAGE_BTN.map(page => {
+        return (
+          <button
+            className="pageNumber"
+            key={page.id}
+            onClick={() => {
+              movePage(page.id);
+            }}
+          >
+            {page.title}
+          </button>
+        );
+      })}
     </div>
   );
 };
 
 export default ChangeBtn;
+
+const PAGE_BTN = [
+  { id: 1, title: 1 },
+  { id: 2, title: 2 },
+  { id: 3, title: 3 },
+  { id: 4, title: 4 },
+  { id: 5, title: 5 },
+  { id: 6, title: 6 },
+];

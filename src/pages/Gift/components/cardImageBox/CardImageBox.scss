@@ -1,0 +1,34 @@
+.cardImageBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 680px;
+  height: 400px;
+  background-color: #b9b3aa;
+
+  .cardImage {
+    max-width: 400px;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .messageContents {
+    width: 400px;
+    height: 88px;
+  }
+
+  .cardMessage {
+    position: relative;
+    textarea {
+      resize: none;
+    }
+    p {
+      position: absolute;
+      right: 3px;
+      bottom: 6px;
+      color: gray;
+      font-size: 12px;
+    }
+  }
+}
