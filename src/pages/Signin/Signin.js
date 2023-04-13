@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import './Signin.scss';
 import { useNavigate, Link } from 'react-router-dom';
+import { api } from '../../api';
+
+import './Signin.scss';
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -10,7 +12,6 @@ const Signin = () => {
   });
 
   const { idValue, pwValue } = userInfo;
-
   const getUserInto = event => {
     const { name, value } = event.target;
     setUserInfo({ ...userInfo, [name]: value });
@@ -22,11 +23,31 @@ const Signin = () => {
   };
 
   const validate =
+    //영 소문자를 포함한 4~12문자
     idValue.match(/^[a-z0-9]{4,12}$/) &&
     pwValue.match(
+      //소문자, 숫자, 특수문자가 포함된 8 ~ 16문자
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
     );
 
+  const loginFetch = () => {
+    fetch(`${api.signin}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        account: idValue,
+        password: pwValue,
+      }),
+    })
+      .then(res => res.json())
+      .then(loginData =>
+        loginData.token
+          ? (localStorage.setItem('token', loginData.token), navigate('/'))
+          : alert('로그인이 되지 않았습니다.')
+      );
+  };
   return (
     <div className="signin">
       <div className="header">
@@ -69,7 +90,7 @@ const Signin = () => {
               <input
                 className="passwordInput"
                 type="password"
-                placeholder="비밀번호 입력(영문,숫자,특수문자 입력)"
+                placeholder="비밀번호 입력 (영문, 숫자, 특수문자 조합)"
                 value={pwValue}
                 name="pwValue"
                 onChange={getUserInto}
@@ -94,7 +115,7 @@ const Signin = () => {
             <button
               className={validate ? 'activeLoginBtn' : 'loginBtn'}
               disabled={!validate}
-              onClick={() => navigate('/')}
+              onClick={loginFetch}
             >
               로그인
             </button>

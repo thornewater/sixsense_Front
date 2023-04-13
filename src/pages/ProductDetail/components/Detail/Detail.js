@@ -29,7 +29,7 @@ const Detail = ({
   };
 
   return (
-    <div className="detail">
+    <div className="detailProduct">
       <DetailHeader
         id={id}
         price={price}

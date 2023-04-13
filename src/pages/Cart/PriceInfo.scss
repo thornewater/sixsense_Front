@@ -1,0 +1,40 @@
+.priceInfo {
+  display: flex;
+  position: sticky;
+  top: 100px;
+  flex-direction: column;
+  margin-left: 100px;
+
+  .details {
+    display: flex;
+    padding: 20px 30px;
+    background-color: #9e887c;
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid black;
+      .deliveryFee {
+        opacity: 70%;
+        color: red;
+      }
+    }
+  }
+  button {
+    padding: 20px;
+    border: none;
+    background-color: #333333;
+
+    .linkBtnStyle {
+      color: white;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: #000000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
