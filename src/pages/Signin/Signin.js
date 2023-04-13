@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import './Signin.scss';
 import { useNavigate, Link } from 'react-router-dom';
+import { api } from '../../api';
+
+import './Signin.scss';
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -21,13 +23,15 @@ const Signin = () => {
   };
 
   const validate =
+    //영 소문자를 포함한 4~12문자
     idValue.match(/^[a-z0-9]{4,12}$/) &&
     pwValue.match(
+      //소문자, 숫자, 특수문자가 포함된 8 ~ 16문자
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
     );
 
   const loginFetch = () => {
-    fetch('http://10.58.52.91:3000/users/signin', {
+    fetch(`${api.signin}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -38,11 +42,11 @@ const Signin = () => {
       }),
     })
       .then(res => res.json())
-      .then(token => {
-        console.log(token);
-        localStorage.setItem('token', token.token);
-        navigate('/');
-      });
+      .then(loginData =>
+        loginData.token
+          ? (localStorage.setItem('token', loginData.token), navigate('/'))
+          : alert('로그인이 되지 않았습니다.')
+      );
   };
   return (
     <div className="signin">
