@@ -108,23 +108,25 @@ const OrderInfo = ({ cartList }) => {
       <div className="goodsInfo">
         <p className="giftSign">선물상품 확인</p>
         <p className="generalGift"> 일반 상품</p>
-        <div className="goodsTotal">
-          <div className="leftGoodsDetail">
-            <img
-              className="goodsImg"
-              src="https://ifh.cc/g/KLThjK.jpg"
-              alt="goodsImg"
-            />
-            <span>세작 20매</span>
-          </div>
 
-          <div>
-            <div className="rightGoodsDetail">
-              <span>28,000원</span>
-              <span>/ 1개</span>
+        {cartList?.map(item => {
+          <div className="goodsTotal">
+            <div className="leftGoodsDetail">
+              <img
+                className="goodsImg"
+                src={item.productImage[0]}
+                alt="goodsImg"
+              />
+              <span>{item.productName}</span>
             </div>
-          </div>
-        </div>
+            <div>
+              <div className="rightGoodsDetail">
+                <span>{item.productPrice}원</span>
+                <span>/ {item.productQuntity}개</span>
+              </div>
+            </div>
+          </div>;
+        })}
       </div>
     </div>
   );
