@@ -1,58 +1,6 @@
 .main {
+  width: 100vw;
   background-color: #eee4d4;
-  .bannerBody {
-    width: 100vw;
-    height: 660px;
-    .bannerContainer {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-
-      .mainBanner {
-        position: relative;
-        flex-shrink: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-
-        .alignText {
-          display: flex;
-          position: absolute;
-          top: 35%;
-          left: 12%;
-          flex-direction: column;
-
-          .bannerTitle {
-            font-size: 36px;
-          }
-          .bannerText {
-            margin-top: 10px;
-            font-size: 16px;
-          }
-        }
-      }
-    }
-  }
-
-  .alignBox {
-    display: flex;
-    position: absolute;
-    z-index: 1;
-    top: 32%;
-    justify-content: space-between;
-    width: 100%;
-
-    .mainArrowIcon {
-      display: inline-block;
-      width: 60px;
-      height: 60px;
-      opacity: 0.3;
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  }
 
   .mainContents {
     margin-top: 40px;
@@ -87,290 +35,116 @@
         font-weight: 500;
       }
 
-      .recommendList {
-        display: flex;
+      .recommendWrapper {
         position: relative;
-        width: 1120px;
-        margin: 0 auto;
-        overflow: hidden;
 
-        .recommendProduct {
-          margin-right: 10px;
-          .productImg {
-            width: 225px;
-            height: 250px;
-            margin-right: 10px;
-            margin-right: auto;
-            margin-left: auto;
-          }
+        .leftArrow {
+          position: absolute;
+          z-index: 10;
+          top: 34%;
+          left: 21%;
 
-          .productName {
-            .pdPrice {
-              font-size: 18px;
-              font-weight: 500;
+          .recommendArrow {
+            width: 40px;
+            height: 40px;
+            opacity: 0.5;
+
+            &:hover {
+              cursor: pointer;
             }
-            a {
+          }
+        }
+
+        .recommendList {
+          display: flex;
+          position: relative;
+          width: 1120px;
+          margin: 0 auto;
+          overflow: hidden;
+
+          .recommendProduct {
+            margin-right: 15px;
+            transition: all 1s;
+            .productImg {
+              width: 225px;
+              height: 250px;
+              margin-right: 10px;
+              margin-right: auto;
+              margin-left: auto;
+            }
+
+            .productName {
+              .pdPrice {
+                font-size: 18px;
+                font-weight: 500;
+              }
+              a {
+                font-size: 16px;
+              }
+            }
+            .pdPriceCancel {
+              color: rgb(131, 131, 131);
               font-size: 16px;
+              text-decoration: line-through;
+            }
+
+            .pdPriceDiscountBox {
+              display: flex;
+              align-items: center;
+
+              .pdPriceDiscount {
+                font-size: 18px;
+                font-weight: 500;
+              }
+              .percentText {
+                margin-left: 15px;
+                color: #b8621b;
+                font-size: 24px;
+              }
+            }
+          }
+        }
+
+        .rightArrow {
+          position: absolute;
+          z-index: 10;
+          top: 35%;
+          right: 21%;
+
+          .recommendArrow {
+            width: 40px;
+            height: 40px;
+            opacity: 0.5;
+
+            &:hover {
+              cursor: pointer;
             }
           }
         }
       }
-    }
 
-    .todayRecommend {
-      position: relative;
-      width: 1120px;
-      height: 275px;
-      margin: 85px auto;
+      .recommendMore {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
 
-      .todayBg {
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-      .todayTextArea {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50%;
-        height: 100%;
-        padding: 40px 56px 30px 60px;
-        color: whitesmoke;
-
-        .todayTimeText {
+        .recommendMoreButton {
           display: flex;
           align-items: center;
-          justify-content: space-between;
-
-          .h3Style {
-            font-size: 26px;
-            font-weight: 500;
+          padding: 15px 60px;
+          border: 1px solid lightgrey;
+          border-radius: 5px;
+          background-color: whitesmoke;
+          text-align: center;
+          &:hover {
+            cursor: pointer;
           }
 
-          .timeText {
+          .toProductList {
             display: flex;
             align-items: center;
-            color: whitesmoke;
-            font-size: 28px;
-          }
-        }
-
-        .h4Style {
-          margin-top: 50px;
-          font-size: 28px;
-          font-weight: 500;
-        }
-
-        .todayPriceText {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          height: 35%;
-          .priceText {
-            color: #847a8a;
-            font-size: 18px;
-            text-decoration: line-through;
-          }
-
-          .discountText {
-            font-size: 30px;
-          }
-        }
-      }
-    }
-
-    .subscribeSection {
-      display: block;
-      margin-top: 80px;
-      padding: 50px 20px 140px 20px;
-      background-color: #c7b3a8;
-
-      .subscribeBanner {
-        width: 1120px;
-        height: 633px;
-        margin-right: auto;
-        margin-left: auto;
-
-        .h4Style {
-          margin-top: 50px;
-          font-size: 28px;
-          font-weight: 500;
-        }
-
-        .subscribeSubText {
-          margin-bottom: 24px;
-          color: rgb(167, 167, 167);
-          font-size: 16px;
-        }
-
-        .subscribeFlexBox {
-          display: flex;
-          justify-content: space-between;
-          gap: 20px;
-          width: 100%;
-          height: 90%;
-
-          .insenseLife {
-            position: relative;
-            flex: none;
-            width: calc(50% - 10px);
-            background-color: #c9eeff;
-          }
-
-          .subscribeContainer {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: calc(50% - 10px);
-
-            .insenseMood {
-              position: relative;
-              width: 100%;
-              height: calc(50% - 10px);
-              background-color: #97deff;
-            }
-
-            .insensePost {
-              position: relative;
-              width: 100%;
-              height: calc(50% - 10px);
-              background-color: #62cdff;
-            }
-          }
-        }
-      }
-    }
-
-    .brandSection {
-      width: 1120px;
-      margin: 30px auto;
-      padding: 80px 0;
-
-      .brandBanner {
-        display: flex;
-        gap: 20px;
-
-        .checkBox {
-          position: relative;
-          width: 100%;
-          height: 100%;
-
-          .checkImg {
-            width: 100%;
-            height: 100%;
-          }
-          .checkText {
-            position: absolute;
-            top: 35%;
-            left: 7%;
-            color: whitesmoke;
-            font-size: 32px;
-            font-weight: 500;
-          }
-        }
-
-        .storyBox {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          .storyImg {
-            width: 100%;
-            height: 100%;
-          }
-          .storyText {
-            position: absolute;
-            top: 35%;
-            left: 7%;
-            color: white;
-            font-size: 32px;
-            font-weight: 500;
-          }
-        }
-      }
-    }
-
-    .magazineSection {
-      width: 100%;
-      padding-top: 60px;
-      padding-bottom: 60px;
-      border-top: 1px solid lightgray;
-      .magazineBanner {
-        width: 1120px;
-        margin-right: auto;
-        margin-left: auto;
-
-        .magazineTitle {
-          font-size: 28px;
-          font-weight: 500;
-        }
-
-        .magazineSubText {
-          margin-top: 2px;
-          color: rgb(167, 167, 167);
-          font-size: 16px;
-        }
-
-        .magazineBody {
-          display: flex;
-          position: relative;
-          margin-top: 20px;
-
-          .leftArrow {
-            position: absolute;
-            z-index: 10;
-            top: 40%;
-            left: -4%;
-
-            .magazineArrow {
-              width: 40px;
-              height: 40px;
-              opacity: 0.5;
-
-              &:hover {
-                cursor: pointer;
-              }
-            }
-          }
-
-          .swipeContainer {
-            display: flex;
-            overflow: hidden;
-
-            .magazineCard {
-              width: 50%;
-              margin-right: 20px;
-
-              .imgBox {
-                width: 400px;
-              }
-
-              .textBold {
-                font-size: 20px;
-                font-weight: bold;
-              }
-
-              .textSub {
-                font-size: 14px;
-              }
-            }
-          }
-
-          .rightArrow {
-            position: absolute;
-            z-index: 10;
-            top: 40%;
-            right: -4%;
-
-            .magazineArrow {
-              width: 40px;
-              height: 40px;
-              opacity: 0.5;
-
-              &:hover {
-                cursor: pointer;
-              }
-            }
+            color: #252525;
+            text-decoration: none;
           }
         }
       }

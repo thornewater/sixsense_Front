@@ -1,0 +1,86 @@
+.magazineSection {
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-top: 1px solid lightgrey;
+  .magazineBanner {
+    width: 1120px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .magazineTitle {
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .magazineSubText {
+      margin-top: 2px;
+      color: rgb(167, 167, 167);
+      font-size: 16px;
+    }
+
+    .magazineBody {
+      display: flex;
+      position: relative;
+      margin-top: 20px;
+
+      .leftArrow {
+        position: absolute;
+        z-index: 10;
+        top: 40%;
+        left: -4%;
+
+        .magazineArrow {
+          width: 40px;
+          height: 40px;
+          opacity: 0.5;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .swipeContainer {
+        display: flex;
+        overflow: hidden;
+
+        .magazineCard {
+          width: 50%;
+          margin-right: 20px;
+          transition: all 1s;
+
+          .imgBox {
+            width: 400px;
+          }
+
+          .textBold {
+            font-size: 20px;
+            font-weight: bold;
+          }
+
+          .textSub {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .rightArrow {
+        position: absolute;
+        z-index: 10;
+        top: 40%;
+        right: -4%;
+
+        .magazineArrow {
+          width: 40px;
+          height: 40px;
+          opacity: 0.5;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
