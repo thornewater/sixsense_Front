@@ -11,10 +11,12 @@ const ProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [goodList, setGoodList] = useState([]);
   const [isSorted, setIsSorted] = useState(false);
+  const [cartInfo, setCartInfo] = useState({});
   const location = useLocation();
   const offset = searchParams.get('offset');
   const limit = searchParams.get('limit');
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch(`http://10.58.52.91:3000/products/${location.search}`, {
       method: 'GET',
@@ -33,10 +35,8 @@ const ProductList = () => {
     return filterArray.join();
   };
 
-  const [cartInfo, setCartInfo] = useState({});
   // const { productId, quantity } = cartInfo;
-  const goToCart = async productId => {
-    console.log(productId);
+  const goToCart = productId => {
     fetch(`http://10.58.52.91:3000/carts`, {
       method: 'POST',
       headers: {
@@ -49,7 +49,10 @@ const ProductList = () => {
       }),
     })
       .then(res => res.json())
-      .then(data => setCartInfo(data), navigate('/cart'));
+      .then(data => {
+        setCartInfo(data);
+        navigate('/cart');
+      });
   };
 
   return (

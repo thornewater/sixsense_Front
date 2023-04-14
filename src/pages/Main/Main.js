@@ -61,7 +61,7 @@ const Main = () => {
           <p className="notice">공지사항</p>
           <div className="noticeBox">
             <ul className="noticeList">
-              <li>2023년 3월 다다일상 챌린지 당첨자 발표</li>
+              <li>2023년 4월 향과함께 무드 챌린지 이벤트 공지</li>
             </ul>
             <IoIosArrowForward style={{ marginRight: '10px' }} />
           </div>
@@ -164,7 +164,7 @@ const Main = () => {
             alt="wecode"
           />
           <div className="companyTextBox">
-            <p className="companyText">> Wecode</p>
+            <p className="companyText" />
           </div>
         </section>
       </div>

@@ -22,7 +22,7 @@ const OrderInfo = ({ cartList }) => {
     customerNumber,
     receiverAddress,
     receiverName,
-    recieverNumber,
+    receiverNumber,
   } = payInfo;
 
   return (
@@ -85,8 +85,8 @@ const OrderInfo = ({ cartList }) => {
         <div className="phone">
           <p className="number">연락처</p>
           <input
-            value={recieverNumber}
-            name="ReceiverNumber"
+            value={receiverNumber}
+            name="receiverNumber"
             className="number input"
             type="text"
             placeholder="'-' 없이 휴대폰번호 입력 "
@@ -97,7 +97,7 @@ const OrderInfo = ({ cartList }) => {
           <p className="text">주소</p>
           <input
             value={receiverAddress}
-            name="ReceiverAddress"
+            name="receiverAddress"
             className="text input"
             type="text"
             placeholder="상세주소 입력"
@@ -118,11 +118,13 @@ const OrderInfo = ({ cartList }) => {
                   src={item.productImage[0]}
                   alt="goodsImg"
                 />
-                <span>{item.productName}</span>
+                ç<span>{item.productName}</span>
               </div>
               <div>
                 <div className="rightGoodsDetail">
-                  <span>{item.productPrice}원</span>
+                  <span>
+                    {Math.floor(item.productPrice).toLocaleString()}원
+                  </span>
                   <span>/ {item.productQuantity}개</span>
                 </div>
               </div>

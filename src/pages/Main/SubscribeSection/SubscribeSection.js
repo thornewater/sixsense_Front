@@ -10,15 +10,25 @@ export const SubscribeSection = () => {
           여러가지 인센스 들로 더욱 평안해지는 휴식 시간을 가져보세요.
         </p>
         <div className="subscribeFlexBox">
-          <div className="insenseLife" />
-          {/* <img
+          {/* <div className="insenseLife" /> */}
+          <img
             className="insenseLife"
-            src="/images/incense_gif.gif"
+            src="/images/rest_1.jpg"
             alt="인센스 움짤"
-          /> */}
+          />
           <div className="subscribeContainer">
-            <div className="insenseMood" />
-            <div className="insensePost" />
+            <img
+              className="insenseMood"
+              src="/images/rest_2.jpg"
+              alt="무드 사진"
+            />
+            {/* <div className="insenseMood" /> */}
+            <img
+              className="insensePost"
+              src="/images/rest_3.avif"
+              alt="무드 사진"
+            />
+            {/* <div className="insensePost" /> */}
           </div>
         </div>
       </div>
