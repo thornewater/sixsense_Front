@@ -39,10 +39,10 @@ export const TodayCommend = () => {
             {leftSecond < 10 ? `0${leftSecond}` : leftSecond}
           </p>
         </div>
-        <h4 className="h4Style">베스트 인센스 컬렉션</h4>
+        <h4 className="h4Style">식센스 6종 기프트세트</h4>
         <div className="todayPriceText">
-          <div className="priceText">24000원</div>
-          <div className="discountText">21600원</div>
+          <div className="priceText">30000원</div>
+          <div className="discountText">21000원</div>
         </div>
       </div>
     </section>

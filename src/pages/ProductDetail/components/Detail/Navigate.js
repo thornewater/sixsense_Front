@@ -9,7 +9,7 @@ const Navigate = ({ id, count }) => {
     fetch('http://10.58.52.91:3000/carts', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json;chartset=utf-8',
+        'Content-Type': 'application/json;charset=utf-8',
         authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({

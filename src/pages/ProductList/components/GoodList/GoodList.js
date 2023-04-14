@@ -65,7 +65,7 @@ const GoodList = ({
                   />
                   <AiOutlineShoppingCart
                     className="hoverCart"
-                    onClick={() => goToCart(productIdArr[i])}
+                    onClick={() => goToCart?.(productIdArr[i])}
                   />
                 </div>
                 <p className="item">
