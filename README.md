@@ -61,9 +61,9 @@
 
 1. mainBanner 자동 캐러셀 기능
 
-![image](https://user-images.githubusercontent.com/125179082/232384318-5de69097-1251-4eb6-94df-2e0774050147.png)
+![image](https://user-images.githubusercontent.com/125179082/232384318-5de69097-1251-4eb6-94df-2e0774050147.gif)
 
-₩₩₩
+```
 useEffect(() => {
     const bannerTimer = setInterval(() => {
       setIndex(index => {
@@ -74,7 +74,9 @@ useEffect(() => {
       clearInterval(bannerTimer);
     };
   }, [index]);
-₩₩₩
+```
+
+
 
 
 ## productListPage
