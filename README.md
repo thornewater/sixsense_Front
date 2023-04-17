@@ -52,20 +52,31 @@
 <br/>
 <br/>
 
-#### 회원가입, 로그인
-
-#### 메인페이지
+## 회원가입, 로그인
 
 ---
+
+## 메인페이지
+
+---
+
 메인 페이지에 들어간 기능 구현은 크게 3가지 이다. mainBanner 
 
-#### productListPage
+## productListPage
 
-#### productDetailPage
+---
 
-#### 장바구니
+## productDetailPage
 
-#### 결제페이지
+---
+
+## 장바구니
+
+---
+
+## 결제페이지
+
+---
 
 
 
