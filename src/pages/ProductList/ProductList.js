@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './ProductList.scss';
 import NameBar from './components/NameBar/NameBar';
 import { useSearchParams } from 'react-router-dom';
@@ -18,7 +18,7 @@ const ProductList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://10.58.52.91:3000/products/${location.search}`, {
+    fetch(`http://10.58.52.92:3000/products/${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -33,11 +33,12 @@ const ProductList = () => {
     const filterArray = [];
     goodList.map(item => filterArray.push(item.catagoryId));
     return filterArray.join();
+    // console.log(filterArray);
   };
 
   // const { productId, quantity } = cartInfo;
   const goToCart = productId => {
-    fetch(`http://10.58.52.91:3000/carts`, {
+    fetch(`http://10.58.52.92:3000/carts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -65,8 +66,6 @@ const ProductList = () => {
           <NameBar isSorted={isSorted} setIsSorted={setIsSorted} />
           <SortBar goodList={goodList} categoryFilter={categoryFilter} />
           <GoodList
-            limit={limit}
-            offset={offset}
             searchParams={searchParams}
             goodList={goodList}
             setGoodList={setGoodList}

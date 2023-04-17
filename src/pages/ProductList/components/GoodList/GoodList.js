@@ -1,33 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './GoodList.scss';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Heart } from './Heart';
 import { BsArrowDown } from 'react-icons/bs';
-import { showTotalList } from '../../../../api';
 
-const GoodList = ({
-  limit,
-  offset,
-  searchParams,
-  goodList,
-  setGoodList,
-  goToCart,
-}) => {
-  // const [goodList, setGoodList] = useState([]);
+const GoodList = ({ searchParams, goodList, setGoodList, goToCart }) => {
   const navigate = useNavigate();
-  const location = useLocation();
-  console.log('location ', location.search);
-  // useEffect(() => {
-  //   fetch(`http://10.58.52.91:3000/products/${location.search}`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => setGoodList(data));
-  // }, [offset,  limit]);
+
   const productIdArr = [];
   return (
     <div className="goodList">
@@ -76,7 +56,7 @@ const GoodList = ({
                 </p>
 
                 <div className="discountWrap">
-                  {productDiscountRate == 0.0 ? (
+                  {productDiscountRate === 0.0 ? (
                     <p className="normalPrice">
                       {Math.floor(productPrice).toLocaleString()} WON
                     </p>

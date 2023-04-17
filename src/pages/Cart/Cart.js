@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CartItems } from './CartItems';
 import { PriceInfo } from './PriceInfo';
 import './Cart.scss';
@@ -7,6 +7,8 @@ import './Cart.scss';
 const Cart = () => {
   const [lists, setLists] = useState([]);
   const [checkedItems, setCheckedItems] = useState([]);
+
+  const location = useLocation();
 
   const selectAll = checked => {
     if (checked) {
@@ -53,7 +55,7 @@ const Cart = () => {
   const selectDel = async () => {
     try {
       const res = await fetch(
-        `http://10.58.52.91:3000/carts?cartId=${separateCartId(checkedItems)}`,
+        `http://10.58.52.92:3000/carts?cartId=${separateCartId(checkedItems)}`,
         {
           method: 'DELETE',
           headers: {
@@ -78,7 +80,7 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.91:3000/carts/list', {
+    fetch('http://10.58.52.92:3000/carts/list', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -90,6 +92,22 @@ const Cart = () => {
         setLists(data);
       });
   }, [checkedItems]);
+
+  useEffect(() => {
+    if (location.state === 'fromDetail') {
+      fetch('http://10.58.52.92:3000/carts/list', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+          authorization: localStorage.getItem('token'),
+        },
+      })
+        .then(res => res.json())
+        .then(data => {
+          setLists(data);
+        });
+    }
+  }, []);
 
   return (
     <div className="cart">

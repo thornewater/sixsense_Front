@@ -20,7 +20,7 @@ export const CartItems = ({
             type="checkbox"
             className="checkbox"
             onChange={e => selectAll(e.target.checked)}
-            checked={checkedItems.length === lists.length ? true : false}
+            checked={checkedItems?.length === lists?.length ? true : false}
           />
           <div className="allSelect">전체선택</div>
         </div>
