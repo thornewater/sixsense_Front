@@ -57,7 +57,25 @@
 
 ## 메인페이지
 
-메인 페이지에 들어간 기능 구현은 크게 3가지 이다. mainBanner 
+메인 페이지에 들어간 기능 구현은 크게 3가지 이다. mainBanner 자동 캐러셀 기능, 추천 제품 리스트의 자동 캐러셀 기능, 추천 상품 타이머 기능 이렇게 3가지 이다.
+
+1. mainBanner 자동 캐러셀 기능
+
+![image](https://user-images.githubusercontent.com/125179082/232384318-5de69097-1251-4eb6-94df-2e0774050147.png)
+
+₩₩₩
+useEffect(() => {
+    const bannerTimer = setInterval(() => {
+      setIndex(index => {
+        return index >= BANNER_INFO.length - 1 ? 0 : index + 1;
+      });
+    }, 5000);
+    return () => {
+      clearInterval(bannerTimer);
+    };
+  }, [index]);
+₩₩₩
+
 
 ## productListPage
 
