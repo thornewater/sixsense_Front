@@ -4,11 +4,11 @@ import './PriceInfo.scss';
 
 // const USER_POINT = 100000;
 export const PriceInfo = ({ lists, checkedItems }) => {
-  const point = Math.floor(lists[0]?.userPoint);
+  const point = Math.floor(lists && lists[0]?.userPoint);
 
   const [totalPrice, setTotalPrice] = useState(0);
   const totalPriceCalc = () => {
-    let totalPrice = lists.reduce((acc, product) => {
+    let totalPrice = lists?.reduce((acc, product) => {
       const checkedItemId = checkedItems.findIndex(
         checkedItem => checkedItem.productId === product.productId
       );

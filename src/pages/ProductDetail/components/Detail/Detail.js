@@ -8,7 +8,6 @@ import { BsArrowDown } from 'react-icons/bs';
 import './Detail.scss';
 
 const Detail = ({
-  id,
   price,
   description,
   discountRate,
@@ -31,7 +30,7 @@ const Detail = ({
   return (
     <div className="detailProduct">
       <DetailHeader
-        id={id}
+        goodsId={goodsId}
         price={price}
         description={description}
         name={name}
@@ -73,7 +72,7 @@ const Detail = ({
       <Navigate
         price={price}
         count={count}
-        id={id}
+        goodsId={goodsId}
         setProductPrice={setProductPrice}
       />
     </div>

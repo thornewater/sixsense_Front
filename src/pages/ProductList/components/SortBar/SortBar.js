@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SortBar.scss';
 import SortFilter from './SortFilter';
-import { useSearchParams } from 'react-router-dom';
 
 const SortBar = ({ goodList, categoryFilter }) => {
-  // console.log(categoryFilter(goodList));
-
   return (
     <div className="sortBar">
       <p>총 {goodList.length}개 상품이 있습니다</p>
