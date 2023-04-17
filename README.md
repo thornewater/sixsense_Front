@@ -116,6 +116,7 @@ translateX 좌표값을 -${index} 만큼 이동 시킨다.
 **3. todayRecommend Timer**
 
 ![main_3](https://user-images.githubusercontent.com/125179082/232389599-ae6449a5-6a5c-4ae4-90ff-13bef592dcf1.gif)
+<img src="https://user-images.githubusercontent.com/125179082/232389599-ae6449a5-6a5c-4ae4-90ff-13bef592dcf1.gif" alt="타이머사진" width="500" height="350"/>
 
 ```
 const currentTime = new Date();
@@ -171,6 +172,9 @@ setInterval()의 주기는 초마다 실행되어야 했기에 1000ms를 주었�
 
 ![결제gif](https://user-images.githubusercontent.com/122069802/232394160-aa78df36-abff-4ef3-b707-52ee44ec20fa.gif)
 
+* 결제방식은 포인트로 하여 상품의 가격만큼 차감되는 형식으로 진행했습니다.
+* 포인트를 서버에서 받아와 상품 총 가격이 보유 포인트보다 많을 시 결제가 안되게 구현하였습니다.
+* 유저에게 결제창을 계속 노출시킴으로써 구매 욕구를 증대시키게 하였습니다.
 
 
 
