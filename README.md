@@ -116,7 +116,7 @@ translateX 좌표값을 -${index} 만큼 이동 시킨다.
 **3. todayRecommend Timer**
 
 ![main_3](https://user-images.githubusercontent.com/125179082/232389599-ae6449a5-6a5c-4ae4-90ff-13bef592dcf1.gif)
-<img src="https://user-images.githubusercontent.com/125179082/232389599-ae6449a5-6a5c-4ae4-90ff-13bef592dcf1.gif" alt="타이머사진" width="500" height="350"/>
+<img src="https://user-images.githubusercontent.com/125179082/232389599-ae6449a5-6a5c-4ae4-90ff-13bef592dcf1.gif" alt="타이머사진" width="700" height="350"/>
 
 ```
 const currentTime = new Date();
