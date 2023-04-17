@@ -61,7 +61,8 @@
 
 1. mainBanner 자동 캐러셀 기능
 
-![image](https://user-images.githubusercontent.com/125179082/232384318-5de69097-1251-4eb6-94df-2e0774050147.gif)
+![main_re_1](https://user-images.githubusercontent.com/125179082/232384601-edd0d152-ecce-43e9-bac6-7c7ed5c0835b.gif)
+
 
 ```
 useEffect(() => {
@@ -76,6 +77,8 @@ useEffect(() => {
   }, [index]);
 ```
 
+배너의 개수가 5개 이면 해당 setInterval() 함수는 배너의 길이 만큼 늘어나다가 끝에 도달하면 처음으로 돌아간다.
+시간을 걸어주었기 때문에 해당 페이지가 UnMount 될시 깨끗하게 처리하게 위해 clearUp 함수를 걸어줘 
 
 
 
