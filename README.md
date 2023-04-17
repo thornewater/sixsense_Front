@@ -59,7 +59,7 @@
 
 메인 페이지에 들어간 기능 구현은 크게 3가지 이다. mainBanner 자동 캐러셀 기능, 추천 제품 리스트의 자동 캐러셀 기능, 추천 상품 타이머 기능 이렇게 3가지 이다.
 
-* 1. mainBanner 자동 캐러셀 기능
+1. mainBanner 자동 캐러셀 기능
 
 ![main_re_1](https://user-images.githubusercontent.com/125179082/232384601-edd0d152-ecce-43e9-bac6-7c7ed5c0835b.gif)
 
@@ -80,7 +80,7 @@ useEffect(() => {
 배너의 개수가 5개 이면 해당 setInterval() 함수는 배너의 길이 만큼 늘어나다가 끝에 도달하면 처음으로 돌아간다.
 시간을 걸어주었기 때문에 해당 페이지가 UnMount 될시 깨끗하게 처리하게 위해 clearUp 함수를 걸어줘 계속해서 Timer가 돌아가지 않도록 하였다.
 
-* 2. recommendBanner 자동 캐러셀 기능
+2. recommendBanner 자동 캐러셀 기능
 
 ![main_2](https://user-images.githubusercontent.com/125179082/232386628-e461e0c2-808d-4138-8c07-c64403a6f004.gif)
 
@@ -113,7 +113,7 @@ useEffect(() => {
 translateX 좌표값을 -${index} 만큼 이동 시킨다.
 하지만 이러한 코딩에는 문제점이 있는데, 만약 캐러셀이나 추천 제품 리스트가 늘어나거나 줄어들게 된다면, 또 다시 swipeRecommend의 값을 하드코딩해서 넣어줘야 할지도 모른다.
 
-* 3. todayRecommend Timer
+3. todayRecommend Timer
 
 ![main_3](https://user-images.githubusercontent.com/125179082/232389599-ae6449a5-6a5c-4ae4-90ff-13bef592dcf1.gif)
 
@@ -157,12 +157,19 @@ setInterval()의 주기는 초마다 실행되어야 했기에 1000ms를 주었�
 
 ## productListPage
 
+![listgif](https://user-images.githubusercontent.com/122069802/232394097-8538b0b4-edc6-4007-a2ae-3448a9fa1f1c.gif)
+
+
 ## productDetailPage
+
+![detailgif](https://user-images.githubusercontent.com/122069802/232394137-25f25966-2e72-4a14-a81e-367cb30e3fab.gif)
+
 
 ## 장바구니
 
 ## 결제페이지
 
+![결제gif](https://user-images.githubusercontent.com/122069802/232394160-aa78df36-abff-4ef3-b707-52ee44ec20fa.gif)
 
 
 
