@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import OrderInfo from './orderInfo/OrderInfo';
 import PayInfo from './PayInfo/PayInfo';
+import { api } from '../../api';
 import './Payment.scss';
 
 const Payment = () => {
@@ -14,21 +15,20 @@ const Payment = () => {
   const [completeAll, setCompleteAll] = useState({});
 
   const postPayInfo = (receipt, price) => {
-    fetch(`http://10.58.52.91:3000/order`, {
+    fetch(`${api.order}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         totalPrice: price,
         carts: receipt,
       }),
+      credentials: 'include',
     })
       .then(res => res.json())
       .then(data => setCompleteAll(data), alert('완료되었습니다.'));
   };
-  console.log(completeAll);
 
   return (
     <div className="payment">

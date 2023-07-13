@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { api } from '../../api';
+import { useCookies } from 'react-cookie';
 
 import './Signin.scss';
 
@@ -40,14 +41,18 @@ const Signin = () => {
         account: idValue,
         password: pwValue,
       }),
+      credentials: 'include',
     })
-      .then(res => res.json())
+      .then(res => {
+        return res.json();
+      })
       .then(loginData =>
-        loginData.token
-          ? (localStorage.setItem('token', loginData.token), navigate('/'))
+        loginData.data === 'SUCCESS'
+          ? (localStorage.setItem('token', loginData.data), navigate('/'))
           : alert('로그인이 되지 않았습니다.')
       );
   };
+
   return (
     <div className="signin">
       <div className="header">

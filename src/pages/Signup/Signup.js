@@ -77,9 +77,10 @@ const Signup = () => {
       }),
     })
       .then(res => res.json())
-      .then(
-        signup => alert('저희의 가족이 되어주셔서 감사합니다!'),
-        navigate('/login')
+      .then(signup =>
+        signup.data === 'SUCCESS'
+          ? (alert('저희의 가족이 되어주셔서 감사합니다!'), navigate('/signin'))
+          : alert('회원가입에 실패했습니다.')
       );
   };
 

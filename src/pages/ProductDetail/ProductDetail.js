@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { api } from '../../api';
 import './ProductDetail.scss';
 import Image from './components/Image/Image';
 import Detail from './components/Detail/Detail';
@@ -6,21 +7,26 @@ import { useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
   const params = useParams();
-  const goodsId = params.id;
+  const goodsId = Number(params.id);
   const [productPrice, setProductPrice] = useState({});
-  const { id, price, description, discountRate, name, productImage } =
-    productPrice;
+  const {
+    productId: id,
+    productName: name,
+    productDescription: description,
+    productPrice: price,
+    discountRate,
+    productImages,
+  } = productPrice;
 
   useEffect(() => {
-    fetch(`http://10.58.52.92:3000/products/${goodsId}`, {
+    fetch(`${api.products}/${goodsId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
-      .then(result => setProductPrice(result));
+      .then(result => setProductPrice(result.response));
   }, [goodsId]);
   return (
     <div className="productDetail">
@@ -28,7 +34,7 @@ const ProductDetail = () => {
         {id && (
           <div className="both">
             <Image
-              productImage={productImage}
+              productImage={productImages}
               setProductPrice={setProductPrice}
               id={id}
               goodsId={goodsId}

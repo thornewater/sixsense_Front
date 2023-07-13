@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 const SortFilter = props => {
   const [onColor, setOnColor] = useState(false);
-  console.log(props);
   const switchFilter = () => {
     setOnColor(prev => !prev);
+    if (props.onClick) {
+      props.onClick();
+    }
   };
   const changeBackgroundColor = onColor => {
     return onColor ? '#eee4d4' : '#9e887c';
@@ -21,4 +23,5 @@ const SortFilter = props => {
     </li>
   );
 };
+
 export default SortFilter;

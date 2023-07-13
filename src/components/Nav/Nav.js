@@ -46,6 +46,7 @@ const Nav = () => {
               <li
                 onClick={() => {
                   localStorage.removeItem('token');
+                  navigate('/signin');
                 }}
               >
                 로그아웃

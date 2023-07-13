@@ -1,6 +1,7 @@
-export const BASE_URL = 'http://10.58.52.92:3000';
 export const api = {
-  productDetail: `${BASE_URL}/products/`,
-  signin: `${BASE_URL}/users/signin`,
-  signup: `${BASE_URL}/users/signup`,
+  signin: `${process.env.REACT_APP_API_URL}/auth`,
+  signup: `${process.env.REACT_APP_API_URL}/users`,
+  carts: `${process.env.REACT_APP_API_URL}/carts`,
+  products: `${process.env.REACT_APP_API_URL}/products`,
+  order: `${process.env.REACT_APP_API_URL}/order`,
 };

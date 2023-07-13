@@ -16,10 +16,10 @@ const GoodList = ({ searchParams, goodList, setGoodList, goToCart }) => {
           (
             {
               productId,
-              productImage,
+              productImages,
               productName,
               productPrice,
-              productDiscountRate,
+              discountRate,
             },
             i
           ) => {
@@ -29,7 +29,7 @@ const GoodList = ({ searchParams, goodList, setGoodList, goToCart }) => {
                 <div className="images">
                   <img
                     className="rendingImage"
-                    src={productImage[0]}
+                    src={productImages[0]}
                     alt="rendingImage"
                     onClick={() => {
                       navigate(`/productDetail/${productId}`);
@@ -37,7 +37,7 @@ const GoodList = ({ searchParams, goodList, setGoodList, goToCart }) => {
                   />
                   <img
                     className="hoverImage"
-                    src={productImage[1]}
+                    src={productImages[1]}
                     alt="hoverImage"
                     onClick={() => {
                       navigate(`/productDetail/${productId}`);
@@ -56,7 +56,7 @@ const GoodList = ({ searchParams, goodList, setGoodList, goToCart }) => {
                 </p>
 
                 <div className="discountWrap">
-                  {productDiscountRate === 0.0 ? (
+                  {discountRate === 0.0 ? (
                     <p className="normalPrice">
                       {Math.floor(productPrice).toLocaleString()} WON
                     </p>
@@ -67,15 +67,12 @@ const GoodList = ({ searchParams, goodList, setGoodList, goToCart }) => {
                       </p>
                       <p className="discount">
                         <span className="discountPrice">
-                          {(
-                            productPrice *
-                            (1 - productDiscountRate)
-                          ).toLocaleString()}
+                          {(productPrice * (1 - discountRate)).toLocaleString()}
                           WON
                         </span>
 
                         <span className="discountRate">
-                          {`(${Math.floor(productDiscountRate * 100)}%`}
+                          {`(${Math.floor(discountRate * 100)}%`}
                           <BsArrowDown />
                           <span>)</span>
                         </span>

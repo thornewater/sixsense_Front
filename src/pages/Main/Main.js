@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { api } from '../../api';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -43,14 +44,13 @@ const Main = () => {
   }, [lists, index]);
 
   useEffect(() => {
-    fetch('http://10.58.52.91:3000/products', {
+    fetch(`${api.products}?limit=10&offset=0`, {
       headers: {
         method: 'GET',
-        authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
-      .then(data => setLists(data));
+      .then(data => setLists(data.response));
   }, []);
 
   return (
@@ -84,15 +84,23 @@ const Main = () => {
                   >
                     <div className="productInfo">
                       <div className="productImgBox">
-                        <Link to={`/Detail/${item.productId}`}>
+                        <Link to={`/ProductDetail/${item.productId}`}>
                           <img
                             className="productImg"
-                            src={item.productImage[0]}
+                            src={
+                              item.productImages && item.productImages[0]
+                                ? item.productImages[0]
+                                : 'default-image.jpg'
+                            }
                             alt="상품 이미지"
                           />
                           <img
                             className="productHoverImg"
-                            src={item.productImage[1]}
+                            src={
+                              item.productImages && item.productImages[1]
+                                ? item.productImages[1]
+                                : 'default-image.jpg'
+                            }
                             alt="상품 이미지"
                           />
                         </Link>
@@ -104,7 +112,7 @@ const Main = () => {
                       <p className="productName">
                         <span>
                           <Link
-                            to={`/Detail/${item.productId}`}
+                            to={`/products/${item.productId}`}
                             style={{
                               textDecoration: 'none',
                               color: '#252525',
@@ -114,18 +122,17 @@ const Main = () => {
                           </Link>
                         </span>
                       </p>
-                      {item.productDiscountRate > 0 ? (
+                      {item.discountRate > 0 ? (
                         <div>
                           <p className="pdPriceCancel">
                             {Math.floor(item.productPrice)}
                           </p>
                           <div className="pdPriceDiscountBox">
                             <span className="pdPriceDiscount">
-                              {item.productPrice -
-                                item.productPrice * item.productDiscountRate}
+                              {item.discountPrice}
                             </span>
                             <span className="percentText">
-                              {item.productDiscountRate * 100}%
+                              {item.discountRate * 100}%
                             </span>
                           </div>
                         </div>

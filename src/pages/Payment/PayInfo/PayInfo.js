@@ -23,7 +23,6 @@ const PayInfo = ({ cartList, postPayInfo }) => {
     });
     return payObj;
   };
-  console.log(receipt(cartList));
 
   const paymentTotalPrice = cartList => {
     let paymentPrice = 0;

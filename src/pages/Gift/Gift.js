@@ -5,14 +5,20 @@ import CardImageBox from './components/cardImageBox/CardImageBox';
 import SubjectBox from './components/subjectBox/SubjectBox';
 import Agree from './components/agree/Agree';
 import { useParams } from 'react-router-dom';
+import { api } from '../../api';
 const Gift = () => {
   const params = useParams();
-  const giftId = params.id;
+  const giftId = Number(params.id);
 
   const [giftProduct, setGiftProduct] = useState({});
 
   useEffect(() => {
-    fetch(`http://products/${giftId}`)
+    fetch(`${api.products}/${giftId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(res => res.json())
       .then(result => setGiftProduct(result));
   }, [giftId]);

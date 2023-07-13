@@ -1,4 +1,5 @@
 import React from 'react';
+import { api } from '../../api';
 import './Product.scss';
 
 export const Product = ({
@@ -9,10 +10,9 @@ export const Product = ({
   checkingBox,
 }) => {
   const totalPrice = () => {
-    if (product.productDiscountRate > 0) {
+    if (product.discountRate > 0) {
       const discountPrice =
-        product.productPrice -
-        product.productPrice * product.productDiscountRate;
+        product.productPrice - product.productPrice * product.discountRate;
       return discountPrice * product.productQuantity;
     } else {
       return product.productPrice * product.productQuantity;
@@ -38,7 +38,7 @@ export const Product = ({
   };
 
   async function patchQuantity(cartId, productQuantity) {
-    const res = await fetch(`http://10.58.52.91:3000/carts`, {
+    const res = await fetch(`${api.carts}`, {
       method: 'PATCH',
       body: JSON.stringify({
         cartId: cartId,
@@ -46,8 +46,8 @@ export const Product = ({
       }),
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization: localStorage.getItem('token'),
       },
+      credentials: 'include',
     });
     if (!res) {
       throw new Error(`HTTP error! status : ${res.status}`);
@@ -69,7 +69,7 @@ export const Product = ({
       <div className="productImgName">
         <div className="imgBox">
           <img
-            src={product.productImage[0]}
+            src={product.productImages[0]}
             alt="제품사진"
             style={{ width: '100%' }}
           />

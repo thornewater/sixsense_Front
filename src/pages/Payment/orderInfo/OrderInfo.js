@@ -115,7 +115,7 @@ const OrderInfo = ({ cartList }) => {
               <div className="leftGoodsDetail">
                 <img
                   className="goodsImg"
-                  src={item.productImage[0]}
+                  src={item.productImages[0]}
                   alt="goodsImg"
                 />
                 ç<span>{item.productName}</span>
