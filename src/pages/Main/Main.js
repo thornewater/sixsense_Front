@@ -129,7 +129,7 @@ const Main = () => {
                           </p>
                           <div className="pdPriceDiscountBox">
                             <span className="pdPriceDiscount">
-                              {item.discountPrice}
+                              {item.discountPrice.toLocaleString()}WON
                             </span>
                             <span className="percentText">
                               {item.discountRate * 100}%
@@ -138,7 +138,7 @@ const Main = () => {
                         </div>
                       ) : (
                         <p className="pdPrice">
-                          {Math.floor(item.productPrice)}
+                          {Math.floor(item.productPrice).toLocaleString()}WON
                         </p>
                       )}
                     </div>

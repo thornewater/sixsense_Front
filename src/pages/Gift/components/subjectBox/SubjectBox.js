@@ -22,10 +22,7 @@ const SubjectBox = ({ id, name, price, detailImage, discountRate }) => {
       <div className="bothSide">
         <div className="senderInfo">
           <p className="subject">보내는 분</p>
-
           <div className="right">
-            <p>조건호</p>
-            <p>01041958350</p>
             {show ? (
               <BsChevronUp onClick={() => setShow(!show)} />
             ) : (

@@ -22,9 +22,7 @@ const Navigate = ({ goodsId, count }) => {
   };
   return (
     <div className="navigate">
-      <Link className="gift link" to="/gift/{id}">
-        선물하기
-      </Link>
+      <Link className="gift link">선물하기</Link>
       <Link
         className="carts link"
         to="/cart"
@@ -35,9 +33,7 @@ const Navigate = ({ goodsId, count }) => {
       >
         장바구니
       </Link>
-      <Link className="cash link" to="/payment">
-        바로구매
-      </Link>
+      <Link className="cash link">바로구매</Link>
     </div>
   );
 };

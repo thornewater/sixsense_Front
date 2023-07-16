@@ -70,7 +70,6 @@ const GoodList = ({ searchParams, goodList, setGoodList, goToCart }) => {
                           {(productPrice * (1 - discountRate)).toLocaleString()}
                           WON
                         </span>
-
                         <span className="discountRate">
                           {`(${Math.floor(discountRate * 100)}%`}
                           <BsArrowDown />

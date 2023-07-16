@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { api } from '../../api';
 import './Nav.scss';
 
 const Nav = () => {
@@ -11,6 +12,26 @@ const Nav = () => {
   };
 
   const isLogin = localStorage.getItem('token');
+
+  const logOutFetch = () => {
+    fetch(`${api.logOut}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      credentials: 'include',
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(logOutData =>
+        logOutData.data === 'SUCCESS'
+          ? (localStorage.removeItem('token'),
+            alert('로그아웃에 성공했습니다.'),
+            navigate('/'))
+          : alert('로그아웃이 되지 않았습니다.')
+      );
+  };
 
   return (
     <div className="wrapper">
@@ -43,14 +64,7 @@ const Nav = () => {
               />
             </li>
             {isLogin ? (
-              <li
-                onClick={() => {
-                  localStorage.removeItem('token');
-                  navigate('/signin');
-                }}
-              >
-                로그아웃
-              </li>
+              <li onClick={logOutFetch}>로그아웃</li>
             ) : (
               <li
                 onClick={() => {
@@ -71,7 +85,6 @@ const NAVI_MENU = [
   {
     id: 1,
     menu: '선물',
-    path: '/gift',
   },
   {
     id: 2,
@@ -81,12 +94,10 @@ const NAVI_MENU = [
   {
     id: 3,
     menu: '홀더',
-    path: '/productlist',
   },
   {
     id: 4,
     menu: '브랜드',
-    path: '',
   },
 ];
 
