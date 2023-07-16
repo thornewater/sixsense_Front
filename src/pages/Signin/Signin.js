@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { api } from '../../api';
-import { useCookies } from 'react-cookie';
-
 import './Signin.scss';
 
 const Signin = () => {
